@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Win Gaming Gift Cards | اربح بطاقات الألعاب</title>
+    <title>Premium AI Apps - ChatGPT & Gemini Pro</title>
     <style>
         * {
             margin: 0;
@@ -12,817 +12,502 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #000;
-            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
-        }
-
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .container {
-            width: 100%;
-            max-width: 650px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        header {
             text-align: center;
-            position: relative;
-            z-index: 1;
+            padding: 30px 20px 20px;
+            color: white;
         }
 
-        /* Trust Badges */
-        .trust-bar {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 15px;
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: #ffd700;
-        }
-
-        .trust-item::before {
-            content: '✓';
-            background: #ffd700;
-            color: #000;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        /* Language Selection Screen */
-        #languageScreen {
-            animation: fadeIn 0.5s ease;
-            padding-top: 50px;
-        }
-
-        #languageScreen h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.5;
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+            animation: fadeInDown 0.8s ease;
         }
 
         .subtitle {
-            font-size: 1rem;
-            color: #aaa;
-            margin-bottom: 40px;
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 0.2s both;
         }
 
-        .lang-buttons {
+        .apps-container {
             display: flex;
-            gap: 20px;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: stretch;
+            gap: 25px;
+            padding: 20px;
+            max-width: 950px;
+            margin: 0 auto;
         }
 
-        .lang-btn {
-            padding: 25px 50px;
-            font-size: 1.4rem;
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            border: 3px solid #ffd700;
-            color: #ffd700;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            min-width: 220px;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+        .app-card {
+            flex: 1;
+            min-width: 0;
+            background: white;
+            border-radius: 25px;
+            padding: 30px 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 0.6s ease;
         }
 
-        .lang-btn::before {
+        .app-card::before {
             content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 215, 0, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s, height 0.5s;
-        }
-
-        .lang-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .lang-btn:hover {
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #000;
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.5);
-            border-color: #ffd700;
-        }
-
-        /* Main Wheel Screen */
-        #wheelScreen {
-            display: none;
-            animation: fadeIn 0.5s ease;
-            padding-top: 30px;
-        }
-
-        .header {
-            margin-bottom: 30px;
-        }
-
-        .header h2 {
-            font-size: 2.2rem;
-            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            animation: shimmer 3s infinite;
-        }
-
-        .subheader {
-            font-size: 1rem;
-            color: #aaa;
-            margin-bottom: 5px;
-        }
-
-        .attempts {
-            font-size: 1.1rem;
-            color: #ffd700;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 20px;
-            display: inline-block;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        /* Stats Counter */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 15px 25px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffd700;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin-top: 5px;
-        }
-
-        /* Wheel Container */
-        .wheel-container {
-            position: relative;
-            width: 100%;
-            max-width: 420px;
-            margin: 30px auto;
-            filter: drop-shadow(0 0 50px rgba(255, 215, 0, 0.4));
-        }
-
-        .wheel-wrapper {
-            position: relative;
-            padding-bottom: 100%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        #wheelCanvas {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            right: 0;
+            height: 5px;
+            transition: transform 0.3s ease;
         }
 
-        .wheel-center {
+        .app-card.chatgpt::before {
+            background: linear-gradient(90deg, #10a37f, #1a7f64);
+        }
+
+        .app-card.gemini::before {
+            background: linear-gradient(90deg, #4285f4, #34a853);
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+
+        .badge {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            border-radius: 50%;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            color: #000;
+            font-size: 2.5em;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .chatgpt .app-icon {
+            background: linear-gradient(135deg, #10a37f 0%, #1a7f64 100%);
+        }
+
+        .gemini .app-icon {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+        }
+
+        .app-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #2d3748;
+            text-align: center;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .old-price {
+            font-size: 1.4em;
+            color: #cbd5e0;
+            text-decoration: line-through;
             font-weight: bold;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            z-index: 10;
+        }
+
+        .free-tag {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
             animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.05); }
+        .app-description {
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-size: 0.95em;
+            text-align: center;
         }
 
-        .wheel-pointer {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-top: 50px solid #ffd700;
-            z-index: 15;
-            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.7));
+        .features {
+            list-style: none;
+            margin-bottom: 22px;
         }
 
-        /* Spin Button */
-        .spin-btn {
-            padding: 20px 60px;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
+        .features li {
+            padding: 8px 0;
+            color: #4a5568;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: '✓';
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 0.85em;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             border: none;
-            color: #000;
+            padding: 14px 35px;
+            font-size: 1.05em;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: bold;
             transition: all 0.3s ease;
-            margin-top: 30px;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            width: 100%;
+            font-weight: bold;
             position: relative;
             overflow: hidden;
         }
 
-        .spin-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+        .cta-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
         }
 
-        .spin-btn:hover:not(:disabled)::before {
-            width: 400px;
-            height: 400px;
+        /* Disclaimer Section */
+        .disclaimer-section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
-        .spin-btn:hover:not(:disabled) {
-            transform: scale(1.08);
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.7);
+        .disclaimer-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease;
         }
 
-        .spin-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* Result Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
+        .disclaimer-header {
+            display: flex;
             align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-            backdrop-filter: blur(5px);
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #fbbf24;
         }
 
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            border: 3px solid #ffd700;
-            border-radius: 25px;
-            padding: 50px;
-            max-width: 550px;
-            width: 90%;
+        .disclaimer-header svg {
+            width: 40px;
+            height: 40px;
+            color: #f59e0b;
+            flex-shrink: 0;
+        }
+
+        .disclaimer-header h2 {
+            color: #1f2937;
+            font-size: 1.8em;
+            margin: 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .warning-box strong {
+            display: block;
+            color: #92400e;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .warning-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .warning-list li {
+            padding: 10px 0;
+            color: #78350f;
+            display: flex;
+            gap: 10px;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .warning-list li::before {
+            content: '⚠️';
+            flex-shrink: 0;
+        }
+
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .legal-box {
+            border-left: 4px solid;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .legal-box:hover {
+            transform: translateX(5px);
+        }
+
+        .legal-box.blue { border-color: #3b82f6; }
+        .legal-box.purple { border-color: #a855f7; }
+        .legal-box.green { border-color: #10b981; }
+        .legal-box.red { border-color: #ef4444; }
+
+        .legal-box h3 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legal-box p {
+            color: #6b7280;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .disclaimer-footer {
             text-align: center;
-            box-shadow: 0 15px 60px rgba(255, 215, 0, 0.4);
-            animation: slideUp 0.5s ease;
-            position: relative;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #9ca3af;
+            font-size: 0.85em;
         }
 
-        .modal-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            animation: bounce 1s infinite;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
 
-        .modal-content h3 {
-            font-size: 2rem;
-            color: #ffd700;
-            margin-bottom: 20px;
-        }
-
-        .modal-content p {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            color: #e0e0e0;
-        }
-
-        .prize-highlight {
-            display: block;
-            font-size: 1.4rem;
-            color: #ffd700;
-            font-weight: bold;
-            margin: 15px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-btn {
-            padding: 18px 50px;
-            font-size: 1.3rem;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            border: none;
-            color: #000;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
-        }
-
-        .cta-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 35px rgba(255, 215, 0, 0.7);
-        }
-
-        /* Legal Section */
-        .legal-section {
-            margin-top: 50px;
-            padding: 30px;
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .legal-title {
-            font-size: 1.1rem;
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .disclaimer {
-            font-size: 0.85rem;
-            color: #999;
-            line-height: 1.8;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-
-        .disclaimer-highlight {
-            color: #ffd700;
-            font-weight: bold;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Arabic Support */
-        .rtl {
-            direction: rtl;
-        }
-
-        .rtl .disclaimer {
-            text-align: right;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 480px) {
-            #languageScreen h1 {
-                font-size: 1.6rem;
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .subtitle { font-size: 1em; }
+            
+            .apps-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
             }
 
-            .lang-btn {
-                min-width: 160px;
-                padding: 18px 35px;
-                font-size: 1.2rem;
+            .disclaimer-card {
+                padding: 25px 20px;
             }
 
-            .header h2 {
-                font-size: 1.7rem;
+            .disclaimer-header {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .wheel-container {
-                max-width: 340px;
+            .disclaimer-header h2 {
+                font-size: 1.5em;
             }
 
-            .wheel-center {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
-            }
-
-            .spin-btn {
-                font-size: 1.3rem;
-                padding: 16px 45px;
-            }
-
-            .modal-content {
-                padding: 35px 25px;
-            }
-
-            .modal-content h3 {
-                font-size: 1.6rem;
-            }
-
-            .trust-bar {
-                gap: 15px;
-            }
-
-            .trust-item {
-                font-size: 0.75rem;
-            }
-
-            .stats {
-                gap: 15px;
-            }
-
-            .stat-item {
-                padding: 12px 20px;
-            }
-
-            .stat-number {
-                font-size: 1.2rem;
-            }
-
-            .legal-section {
-                padding: 20px;
+            .legal-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-
     <div class="container">
-        <!-- Language Selection Screen -->
-        <div id="languageScreen">
-            <h1>🎁 Win Premium Gift Cards<br>اربح بطاقات هدايا حصرية 🎁</h1>
-            <p class="subtitle">Select your preferred language | اختر لغتك المفضلة</p>
-            
-            <div class="trust-bar">
-                <div class="trust-item">Verified Platform</div>
-                <div class="trust-item">Secure & Safe</div>
-                <div class="trust-item">Real Prizes</div>
+        <header>
+            <h1>🚀 Premium AI Apps</h1>
+            <p class="subtitle">Access the world's most powerful AI assistants</p>
+        </header>
+
+        <div class="apps-container">
+            <!-- ChatGPT Pro Card -->
+            <div class="app-card chatgpt">
+                <span class="badge">🔥 HOT</span>
+                <div class="app-icon">🤖</div>
+                <h2 class="app-title">ChatGPT Pro</h2>
+                <div class="price-container">
+                    <span class="old-price">$20/mo</span>
+                    <span class="free-tag">FREE</span>
+                </div>
+                <p class="app-description">
+                    The most advanced AI from OpenAI. Unlimited GPT-4 access with priority support.
+                </p>
+                <ul class="features">
+                    <li>Unlimited GPT-4 messages</li>
+                    <li>Advanced data analysis</li>
+                    <li>DALL-E image generation</li>
+                    <li>Priority access</li>
+                    <li>Early feature access</li>
+                    <li>Real-time web browsing</li>
+                </ul>
+                <button class="cta-button" onclick="handleCTA('chatgpt')">Get ChatGPT Pro →</button>
             </div>
 
-            <div class="lang-buttons">
-                <button class="lang-btn" onclick="selectLanguage('en')">🇺🇸 English</button>
-                <button class="lang-btn" onclick="selectLanguage('ar')">🇸🇦 العربية</button>
+            <!-- Gemini Pro Card -->
+            <div class="app-card gemini">
+                <span class="badge">⭐ NEW</span>
+                <div class="app-icon">✨</div>
+                <h2 class="app-title">Gemini Pro</h2>
+                <div class="price-container">
+                    <span class="old-price">$20/mo</span>
+                    <span class="free-tag">FREE</span>
+                </div>
+                <p class="app-description">
+                    Google's most capable AI. Multimodal intelligence with advanced reasoning.
+                </p>
+                <ul class="features">
+                    <li>Gemini Ultra 1.5 access</li>
+                    <li>2M token context</li>
+                    <li>Multimodal understanding</li>
+                    <li>Advanced code generation</li>
+                    <li>Google services integration</li>
+                    <li>Priority processing</li>
+                </ul>
+                <button class="cta-button" onclick="handleCTA('gemini')">Get Gemini Pro →</button>
             </div>
         </div>
+    </div>
 
-        <!-- Main Wheel Screen -->
-        <div id="wheelScreen">
-            <div class="header">
-                <h2 id="mainTitle"></h2>
-                <p class="subheader" id="subheader"></p>
-                <p class="attempts" id="attemptsText"></p>
+    <!-- Disclaimer Section -->
+    <div class="disclaimer-section">
+        <div class="disclaimer-card">
+            <div class="disclaimer-header">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <h2>Avertissement Important</h2>
             </div>
 
-            <div class="stats" id="statsSection">
-                <div class="stat-item">
-                    <div class="stat-number" id="stat1Num">8,547</div>
-                    <div class="stat-label" id="stat1Label"></div>
+            <div class="warning-box">
+                <strong>⚠️ VEUILLEZ LIRE ATTENTIVEMENT</strong>
+                <ul class="warning-list">
+                    <li>Ce site est uniquement à des fins ÉDUCATIVES et INFORMATIVES.</li>
+                    <li>Nous ne vendons, ne distribuons, ni ne fournissons aucun service AI premium.</li>
+                    <li>Nous ne sommes PAS affiliés à OpenAI, Google, ou toute autre entreprise mentionnée.</li>
+                    <li>Les informations sur les prix sont fournies à titre INDICATIF uniquement.</li>
+                    <li>Nous ne collectons AUCUN paiement ni information de carte de crédit.</li>
+                    <li>L'utilisateur est redirigé vers les sites officiels des fournisseurs.</li>
+                </ul>
+            </div>
+
+            <div class="legal-grid">
+                <div class="legal-box blue">
+                    <h3>🛡️ Limitation de Responsabilité</h3>
+                    <p>Nous déclinons toute responsabilité pour l'utilisation de ce site. Le contenu est fourni "tel quel" sans garantie d'aucune sorte.</p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="stat2Num">2</div>
-                    <div class="stat-label" id="stat2Label"></div>
+
+                <div class="legal-box purple">
+                    <h3>🏢 Affiliation</h3>
+                    <p>Aucune affiliation officielle avec les marques mentionnées. Les noms et logos sont la propriété de leurs détenteurs respectifs.</p>
+                </div>
+
+                <div class="legal-box green">
+                    <h3>📊 Exactitude des Informations</h3>
+                    <p>Les informations peuvent être obsolètes ou inexactes. Vérifiez toujours auprès des sources officielles.</p>
+                </div>
+
+                <div class="legal-box red">
+                    <h3>🔗 Liens Externes</h3>
+                    <p>Les liens externes sont sous la responsabilité de leurs propriétaires. Nous ne contrôlons pas leur contenu.</p>
                 </div>
             </div>
 
-            <div class="wheel-container">
-                <div class="wheel-pointer"></div>
-                <div class="wheel-wrapper">
-                    <canvas id="wheelCanvas"></canvas>
-                    <div class="wheel-center">🎁</div>
-                </div>
-            </div>
-
-            <button class="spin-btn" id="spinBtn" onclick="spinWheel()"></button>
-
-            <div class="legal-section">
-                <div class="legal-title" id="legalTitle"></div>
-                <div class="disclaimer" id="disclaimer1"></div>
-                <div class="disclaimer" id="disclaimer2"></div>
-                <div class="disclaimer" id="disclaimer3"></div>
-            </div>
-        </div>
-
-        <!-- Result Modal -->
-        <div class="modal" id="resultModal">
-            <div class="modal-content">
-                <div class="modal-icon">🎉</div>
-                <h3 id="modalTitle"></h3>
-                <p id="modalText"></p>
-                <a href="https://lockedapp.org/cl/i/krlqrl
-" class="cta-btn" id="ctaBtn"></a>
+            <div class="disclaimer-footer">
+                <p><strong>Dernière mise à jour :</strong> 06 novembre 2025</p>
+                <p style="margin-top: 10px;">En utilisant ce site, vous acceptez ces conditions.</p>
             </div>
         </div>
     </div>
 
     <script>
-        let currentLang = 'en';
-        let attemptsLeft = 2;
-        let isSpinning = false;
-        let currentRotation = 0;
-
-        const prizes = [
-            { name: 'Google Play', nameAr: 'جوجل بلاي', fullName: 'Google Play Gift Card', fullNameAr: 'بطاقة جوجل بلاي', color: '#34a853', icon: '' },
-            { name: 'Apple', nameAr: 'أبل', fullName: 'Apple Gift Card', fullNameAr: 'بطاقة أبل', color: '#a6a6a6', icon: '' },
-            { name: 'PlayStation', nameAr: 'بلاي ستيشن', fullName: 'PlayStation Store Gift Card', fullNameAr: 'بطاقة بلاي ستيشن', color: '#003791', icon: '' },
-            { name: 'Xbox', nameAr: 'إكس بوكس', fullName: 'Xbox Gift Card', fullNameAr: 'بطاقة إكس بوكس', color: '#107c10', icon: 'X' }
-        ];
-
-        const translations = {
-            en: {
-                mainTitle: '🎡 Spin the Wheel & Win!',
-                subheader: 'Try your luck now - 2 free attempts available',
-                spinBtn: '🎡 SPIN NOW',
-                attempts: 'Free Spins Remaining',
-                stat1Label: 'Winners Today',
-                stat2Label: 'Your Chances',
-                modalTitle: 'Congratulations! 🎊',
-                modalText: 'You have won an opportunity to claim',
-                modalText2: 'Complete a quick promotional offer from our partners to verify your eligibility and receive your prize.',
-                ctaBtn: '🔗 Claim Your Prize Now',
-                legalTitle: '📋 Important Legal Information',
-                disclaimer1: '⚠️ <span class="disclaimer-highlight">Disclaimer:</span> This promotional platform is independently operated and is NOT affiliated with, endorsed by, or sponsored by Google LLC, Apple Inc., Sony Interactive Entertainment, Microsoft Corporation, or their respective subsidiaries.',
-                disclaimer2: '📝 <span class="disclaimer-highlight">How It Works:</span> Prize fulfillment is managed by our verified third-party marketing partners. Winners must complete partner promotional requirements to qualify for reward redemption.',
-                disclaimer3: '✅ <span class="disclaimer-highlight">Eligibility:</span> Participation is voluntary. Prizes are subject to partner terms and conditions. Users must be 18+ or have parental consent. No purchase necessary.'
-            },
-            ar: {
-                mainTitle: '🎡 دوّر العجلة واربح!',
-                subheader: 'جرب حظك الآن - محاولتان مجانيتان متاحتان',
-                spinBtn: '🎡 دوّر الآن',
-                attempts: 'محاولات مجانية متبقية',
-                stat1Label: 'الفائزون اليوم',
-                stat2Label: 'فرصك',
-                modalTitle: 'مبروك! 🎊',
-                modalText: 'لقد فزت بفرصة للحصول على',
-                modalText2: 'أكمل عرضًا ترويجيًا سريعًا من شركائنا للتحقق من أهليتك واستلام جائزتك.',
-                ctaBtn: '🔗 احصل على جائزتك الآن',
-                legalTitle: '📋 معلومات قانونية مهمة',
-                disclaimer1: '⚠️ <span class="disclaimer-highlight">إخلاء المسؤولية:</span> هذه المنصة الترويجية مستقلة تمامًا وليست تابعة أو مدعومة أو مرخصة من قبل شركة جوجل أو أبل أو سوني أو مايكروسوفت أو الشركات التابعة لها.',
-                disclaimer2: '📝 <span class="disclaimer-highlight">كيف يعمل:</span> يتم إدارة تسليم الجوائز من قبل شركائنا التسويقيين الموثقين. يجب على الفائزين إكمال متطلبات الشريك الترويجية للتأهل لاسترداد المكافأة.',
-                disclaimer3: '✅ <span class="disclaimer-highlight">الأهلية:</span> المشاركة طوعية. الجوائز خاضعة لشروط وأحكام الشريك. يجب أن يكون المستخدمون +18 أو لديهم موافقة الوالدين. لا يلزم الشراء.'
-            }
-        };
-
-        function selectLanguage(lang) {
-            currentLang = lang;
-            document.getElementById('languageScreen').style.display = 'none';
-            document.getElementById('wheelScreen').style.display = 'block';
-            
-            if (lang === 'ar') {
-                document.body.classList.add('rtl');
-            }
-            
-            updateTexts();
-            drawWheel();
-        }
-
-        function updateTexts() {
-            const t = translations[currentLang];
-            document.getElementById('mainTitle').textContent = t.mainTitle;
-            document.getElementById('subheader').textContent = t.subheader;
-            document.getElementById('spinBtn').textContent = t.spinBtn;
-            document.getElementById('attemptsText').textContent = `${attemptsLeft} ${t.attempts}`;
-            document.getElementById('stat1Label').textContent = t.stat1Label;
-            document.getElementById('stat2Label').textContent = t.stat2Label;
-            document.getElementById('legalTitle').textContent = t.legalTitle;
-            document.getElementById('disclaimer1').innerHTML = t.disclaimer1;
-            document.getElementById('disclaimer2').innerHTML = t.disclaimer2;
-            document.getElementById('disclaimer3').innerHTML = t.disclaimer3;
-        }
-
-        function drawWheel() {
-            const canvas = document.getElementById('wheelCanvas');
-            const ctx = canvas.getContext('2d');
-            const size = 400;
-            canvas.width = size;
-            canvas.height = size;
-            
-            const centerX = size / 2;
-            const centerY = size / 2;
-            const radius = size / 2 - 20;
-            const sliceAngle = (2 * Math.PI) / prizes.length;
-
-            prizes.forEach((prize, i) => {
-                const startAngle = i * sliceAngle - Math.PI / 2;
-                const endAngle = startAngle + sliceAngle;
-                
-                // Draw slice
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-                ctx.closePath();
-                
-                ctx.fillStyle = prize.color;
-                ctx.fill();
-                
-                ctx.strokeStyle = '#ffd700';
-                ctx.lineWidth = 3;
-                ctx.stroke();
-                
-                // Draw icon and text
-                ctx.save();
-                ctx.translate(centerX, centerY);
-                ctx.rotate(startAngle + sliceAngle / 2);
-                
-                // Draw icon
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillStyle = '#fff';
-                ctx.font = 'bold 40px Arial';
-                ctx.fillText(prize.icon, radius * 0.55, 0);
-                
-                // Draw label with shadow for better readability
-                ctx.font = 'bold 15px Arial';
-                ctx.fillStyle = '#fff';
-                ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
-                ctx.shadowBlur = 6;
-                ctx.shadowOffsetX = 2;
-                ctx.shadowOffsetY = 2;
-                const textRadius = radius * 0.78;
-                const labelText = currentLang === 'ar' ? prize.nameAr : prize.name;
-                ctx.fillText(labelText, textRadius, 0);
-                
-                // Reset shadow
-                ctx.shadowColor = 'transparent';
-                ctx.shadowBlur = 0;
-                ctx.shadowOffsetX = 0;
-                ctx.shadowOffsetY = 0;
-                
-                ctx.restore();
-            });
-
-            // Center circle
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, 70, 0, 2 * Math.PI);
-            ctx.fillStyle = '#0a0a0a';
-            ctx.fill();
-            ctx.strokeStyle = '#ffd700';
-            ctx.lineWidth = 5;
-            ctx.stroke();
-            
-            // Draw mini icons in center in a square pattern
-            const miniIcons = ['▶', '', '🎮', 'X'];
-            const positions = [
-                {x: 0, y: -35},    // Top
-                {x: 35, y: 0},     // Right
-                {x: 0, y: 35},     // Bottom
-                {x: -35, y: 0}     // Left
-            ];
-            
-            miniIcons.forEach((icon, i) => {
-                const x = centerX + positions[i].x;
-                const y = centerY + positions[i].y;
-                
-                ctx.fillStyle = '#ffd700';
-                ctx.font = 'bold 18px Arial';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(icon, x, y);
-            });
-        }
-
-        function spinWheel() {
-            if (isSpinning || attemptsLeft <= 0) return;
-            
-            isSpinning = true;
-            attemptsLeft--;
-            updateTexts();
-            document.getElementById('spinBtn').disabled = true;
-
-            const randomPrize = Math.floor(Math.random() * prizes.length);
-            const sliceAngle = 360 / prizes.length;
-            const prizeAngle = randomPrize * sliceAngle;
-            const extraSpins = 360 * 6;
-            const finalRotation = extraSpins + (360 - prizeAngle) + (sliceAngle / 2);
-            
-            const canvas = document.getElementById('wheelCanvas');
-            canvas.style.transform = `rotate(${currentRotation + finalRotation}deg)`;
-            currentRotation += finalRotation;
-
-            setTimeout(() => {
-                showResult(prizes[randomPrize]);
-                isSpinning = false;
-                if (attemptsLeft > 0) {
-                    document.getElementById('spinBtn').disabled = false;
-                }
-            }, 4500);
-        }
-
-        function showResult(prize) {
-            const t = translations[currentLang];
-            const modal = document.getElementById('resultModal');
-            const prizeName = currentLang === 'ar' ? prize.fullNameAr : prize.fullName;
-            
-            document.getElementById('modalTitle').textContent = t.modalTitle;
-            document.getElementById('modalText').innerHTML = 
-                `${t.modalText}<span class="prize-highlight">${prizeName}</span>${t.modalText2}`;
-            document.getElementById('ctaBtn').textContent = t.ctaBtn;
-            
-            modal.style.display = 'flex';
+        function handleCTA(app) {
+            const urls = {
+                'chatgpt': 'https://chat.openai.com/',
+                'gemini': 'https://gemini.google.com/'
+            };
+            window.open(urls[app], '_blank');
         }
     </script>
 </body>
