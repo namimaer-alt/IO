@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,6 +90,10 @@
             box-shadow: 0 25px 60px rgba(0,0,0,0.4);
         }
 
+        .app-card:hover::before {
+            transform: scaleX(1);
+        }
+
         .badge {
             position: absolute;
             top: 15px;
@@ -124,6 +128,11 @@
             background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
         .app-title {
             font-size: 1.8em;
             margin-bottom: 15px;
@@ -155,6 +164,11 @@
             font-size: 1.3em;
             box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
             animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
         }
 
         .app-description {
@@ -210,127 +224,28 @@
             overflow: hidden;
         }
 
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
         .cta-button:hover {
             transform: scale(1.03);
             box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
         }
 
-        /* Disclaimer Section */
-        .disclaimer-section {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .disclaimer-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .disclaimer-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #fbbf24;
-        }
-
-        .disclaimer-header svg {
-            width: 40px;
-            height: 40px;
-            color: #f59e0b;
-            flex-shrink: 0;
-        }
-
-        .disclaimer-header h2 {
-            color: #1f2937;
-            font-size: 1.8em;
-            margin: 0;
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 5px solid #f59e0b;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-
-        .warning-box strong {
-            display: block;
-            color: #92400e;
-            font-size: 1.15em;
-            margin-bottom: 15px;
-        }
-
-        .warning-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .warning-list li {
-            padding: 10px 0;
-            color: #78350f;
-            display: flex;
-            gap: 10px;
-            line-height: 1.6;
-            font-size: 0.95em;
-        }
-
-        .warning-list li::before {
-            content: '⚠️';
-            flex-shrink: 0;
-        }
-
-        .legal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .legal-box {
-            border-left: 4px solid;
-            padding: 20px;
-            background: #f9fafb;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .legal-box:hover {
-            transform: translateX(5px);
-        }
-
-        .legal-box.blue { border-color: #3b82f6; }
-        .legal-box.purple { border-color: #a855f7; }
-        .legal-box.green { border-color: #10b981; }
-        .legal-box.red { border-color: #ef4444; }
-
-        .legal-box h3 {
-            color: #1f2937;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .legal-box p {
-            color: #6b7280;
-            font-size: 0.9em;
-            line-height: 1.6;
-        }
-
-        .disclaimer-footer {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 2px solid #e5e7eb;
-            color: #9ca3af;
-            font-size: 0.85em;
+        .cta-button:active {
+            transform: scale(0.98);
         }
 
         @keyframes fadeInDown {
@@ -355,46 +270,136 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.6;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            will-change: transform;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            animation: floatShape1 15s infinite ease-in-out;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 30%;
+            animation: floatShape2 18s infinite ease-in-out;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            animation: floatShape3 12s infinite ease-in-out;
+        }
+
+        @keyframes floatShape1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, -20px) rotate(180deg); }
+        }
+
+        @keyframes floatShape2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-25px, 25px) rotate(180deg); }
+        }
+
+        @keyframes floatShape3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 15px) rotate(180deg); }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2em; }
-            .subtitle { font-size: 1em; }
+            h1 { 
+                font-size: 2em; 
+            }
+            
+            .subtitle { 
+                font-size: 1em; 
+            }
             
             .apps-container {
                 flex-direction: column;
                 gap: 20px;
                 padding: 15px;
             }
-
-            .disclaimer-card {
+            
+            .app-card { 
                 padding: 25px 20px;
             }
 
-            .disclaimer-header {
-                flex-direction: column;
-                text-align: center;
+            .app-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2.2em;
             }
 
-            .disclaimer-header h2 {
-                font-size: 1.5em;
+            .app-title {
+                font-size: 1.6em;
             }
 
-            .legal-grid {
-                grid-template-columns: 1fr;
+            .old-price {
+                font-size: 1.2em;
+            }
+
+            .free-tag {
+                font-size: 1.15em;
+                padding: 7px 18px;
+            }
+
+            .features li {
+                font-size: 0.88em;
+            }
+
+            .cta-button {
+                padding: 13px 30px;
+                font-size: 1em;
+            }
+
+            .shape {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
     <div class="container">
         <header>
             <h1>🚀 Premium AI Apps</h1>
@@ -422,8 +427,7 @@
                     <li>Early feature access</li>
                     <li>Real-time web browsing</li>
                 </ul>
-                <button class="https://applocked.org/cl/i/347197
-" onclick="handleCTA('chatgpt')">Get ChatGPT Pro →</button>
+                <button class="cta-button" onclick="handleCTA('chatgpt')">Get ChatGPT Pro →</button>
             </div>
 
             <!-- Gemini Pro Card -->
@@ -446,72 +450,71 @@
                     <li>Google services integration</li>
                     <li>Priority processing</li>
                 </ul>
-                <button class="https://applocked.org/cl/i/347197
-" onclick="handleCTA('gemini')">Get Gemini Pro →</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Disclaimer Section -->
-    <div class="disclaimer-section">
-        <div class="disclaimer-card">
-            <div class="disclaimer-header">
-                <svg fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-                </svg>
-                <h2>Avertissement Important</h2>
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ VEUILLEZ LIRE ATTENTIVEMENT</strong>
-                <ul class="warning-list">
-                    <li>Ce site est uniquement à des fins ÉDUCATIVES et INFORMATIVES.</li>
-                    <li>Nous ne vendons, ne distribuons, ni ne fournissons aucun service AI premium.</li>
-                    <li>Nous ne sommes PAS affiliés à OpenAI, Google, ou toute autre entreprise mentionnée.</li>
-                    <li>Les informations sur les prix sont fournies à titre INDICATIF uniquement.</li>
-                    <li>Nous ne collectons AUCUN paiement ni information de carte de crédit.</li>
-                    <li>L'utilisateur est redirigé vers les sites officiels des fournisseurs.</li>
-                </ul>
-            </div>
-
-            <div class="legal-grid">
-                <div class="legal-box blue">
-                    <h3>🛡️ Limitation de Responsabilité</h3>
-                    <p>Nous déclinons toute responsabilité pour l'utilisation de ce site. Le contenu est fourni "tel quel" sans garantie d'aucune sorte.</p>
-                </div>
-
-                <div class="legal-box purple">
-                    <h3>🏢 Affiliation</h3>
-                    <p>Aucune affiliation officielle avec les marques mentionnées. Les noms et logos sont la propriété de leurs détenteurs respectifs.</p>
-                </div>
-
-                <div class="legal-box green">
-                    <h3>📊 Exactitude des Informations</h3>
-                    <p>Les informations peuvent être obsolètes ou inexactes. Vérifiez toujours auprès des sources officielles.</p>
-                </div>
-
-                <div class="legal-box red">
-                    <h3>🔗 Liens Externes</h3>
-                    <p>Les liens externes sont sous la responsabilité de leurs propriétaires. Nous ne contrôlons pas leur contenu.</p>
-                </div>
-            </div>
-
-            <div class="disclaimer-footer">
-                <p><strong>Dernière mise à jour :</strong> 06 novembre 2025</p>
-                <p style="margin-top: 10px;">En utilisant ce site, vous acceptez ces conditions.</p>
+                <button class="cta-button" onclick="handleCTA('gemini')">Get Gemini Pro →</button>
             </div>
         </div>
     </div>
 
     <script>
         function handleCTA(app) {
+            console.log('User clicked:', app);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-XXXXXXXXX/XXXXXX',
+                    'value': 20,
+                    'currency': 'USD'
+                });
+            }
+            
             const urls = {
-                'chatgpt': 'https://applocked.org/cl/i/347197
-',
-                'gemini': 'https://applocked.org/cl/i/347197
-/'
+                'chatgpt': 'https://chat.openai.com/auth/login?next=%2F%3Fmodel%3Dgpt-4',
+                'gemini': 'https://gemini.google.com/advanced'
             };
+            
             window.open(urls[app], '_blank');
+        }
+
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.app-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('.app-icon');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.willChange = 'transform';
+                    }
+                });
+            });
+            lazyImages.forEach(img => imageObserver.observe(img));
         }
     </script>
 </body>
