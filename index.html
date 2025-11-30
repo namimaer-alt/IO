@@ -1,223 +1,527 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Bitcoin Rewards | Secure Faucet</title>
+    <meta name="description" content="Generate free Bitcoin rewards instantly. fast payout, no KYC required.">
+    
+    <!-- Tailwind CSS for rapid, modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter & Rajdhani for Tech/Crypto look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <meta charset="utf-8"/>
-  <title>Free Gift Cards - Google Play, iTunes, Steam and more</title>
-  <base /> <!--============== CHANGE HERE uncomment -->
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-    
-  <meta name="author" content="Gift Cards King"/>
-  <meta name="description" content="Best way to get Free Gift Cards (Google Play, iTunes, Steam and more). Now you can get all of your favorite apps and games for free."/>
-  <meta property="og:description" content="Best way to get Free Gift Cards (Google Play, iTunes, Steam and more). Now you can get all of your favorite apps and games for free."/>
-  <meta property="og:image" content="https://i.imgur.com/cFFBov2.jpg"/>
-  <meta property="og:site_name" content="Gift Cards King"/>
-  <meta property="og:title" content="Free Gift Cards - Google Play, iTunes, Steam and more"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content=""/>
+    <!-- Content Locker Script Removed -->
 
-  <link href="css975a.css?family=Raleway:400,700" rel="stylesheet">
-  <link href="cssd2d5.css?family=Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="resources/stylesV2.css"/>
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Rajdhani', 'sans-serif'],
+                    },
+                    colors: {
+                        btc: '#F7931A', // Bitcoin Orange
+                        dark: '#0B0E11',
+                        card: '#15191E',
+                        accent: '#FF5C00'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Futurstic Background Grid */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Neon Glow Effects */
+        .glow-text {
+            text-shadow: 0 0 20px rgba(247, 147, 26, 0.5);
+        }
+        
+        .glow-box {
+            box-shadow: 0 0 30px rgba(247, 147, 26, 0.15);
+        }
+
+        /* Custom Scrollbar for Transaction Feed */
+        .feed-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .feed-scroll::-webkit-scrollbar-track {
+            background: #15191E;
+        }
+        .feed-scroll::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        /* Fade In Animation Class */
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loader Animation */
+        .loader {
+            border: 4px solid #333;
+            border-top: 4px solid #F7931A;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<body oncontextmenu="return false">
+<body class="antialiased min-h-screen relative">
 
-  <script type="text/javascript">document.body.className += " preload";</script>
+    <!-- Background Elements -->
+    <div class="absolute inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-96 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none z-0"></div>
 
-  <div id="preload">
-    <div id="preload-logo"></div>
-    <div id="preloader"><span></span></div>
-  </div>
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-6xl mx-auto px-4 py-8 flex flex-col items-center">
 
-  <div id="menu">
-    <ul>
-      <a href="index.html" id="menu-logo"></a>
-      <li><a class="menu" href="free-google-play-gift-cards.html">Google Play</a></li>
-      <li><a class="menu" href="free-xbox-gift-cards.html">Xbox</a></li>
-      <li><a class="menu" href="free-steam-gift-cards.html">Steam</a></li>
-      <li><a class="menu" href="free-playstation-store-gift-cards.html">Playstation</a></li>
-      <li><a class="menu" href="free-spotify-gift-cards.html">Spotify</a></li>
-      <li><a class="menu" href="free-itunes-gift-cards.html">iTunes</a></li>
-      <li><a class="menu" href="free-paypal-gift-cards.html">PayPal</a></li>
-      <li><a class="menu" href="free-amazon-gift-cards.html">Amazon</a></li>
-    </ul>
-  </div> <!-- menu -->
-
-  <div id="wrapper">
-
-    <div id="header">
-      <div id="crown"></div>
-      <div id="menu-trigger">
-        <div class="menu-trigger"></div>
-        <div class="menu-trigger"></div>
-        <div class="menu-trigger"></div>
-      </div>
-    </div> <!-- header -->
-
-    <div id="switch"></div>
-
-    <div id="desktop-notification">Please change orientation to portrait, or resize browser width until you see content. Desktop version is still under construction.</div>
-
-    <div id="start">
-      <div class="start-gift-card pos-1 card-xbox"><div class="value">$50</div></div>
-      <div class="start-gift-card pos-0 card-google"><div class="value">$25</div></div>
-      <div class="start-gift-card pos-2 card-steam"><div class="value">$100</div></div>
-      <div class="start-gift-card pos-3 card-playstation"><div class="value">$50</div></div>
-      <div class="start-gift-card pos-3 card-spotify"><div class="value">$60</div></div>
-      <div class="start-gift-card pos-3 card-itunes"><div class="value">$100</div></div>
-      <div class="start-gift-card pos-3 card-paypal"><div class="value">$50</div></div>
-      <div class="start-gift-card pos-3 card-amazon"><div class="value">$100</div></div>
-    </div> <!-- start -->
-    
-    <div id="title">
-      <h1>DO you want<br/>some <span>Free</span><br/>Gift Cards</h1>
-      <div id="scroll-down">
-        <svg width="100%" height="100%" version="1.1" style="fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 1289 730">
-         <defs> <style type="text/css"> <![CDATA[.scroll-down {fill:gray;fill-opacity:0.501961} ]]> </style> </defs>
-         <g> <polygon class="scroll-down" points="86,0 644,559 1203,0 1289,86 730,644 644,730 559,644 0,86 "/> </g>
-        </svg>
-      </div>
-    </div> <!-- title -->
-
-    <div id="gift-cards">
-      <div class="gift-card-home">
-        <div class="background bck-google"></div>
-        <div class="click-area">
-          <div class="logo logo-google"></div>
-        </div>
-        <div class="hidden">
-          <div class="hidden-wrapper">
-            <div class="text">
-              <p>Get free Google Play Gift Card code and redeem for anything in the Google Play Store.</p>
+        <!-- Header / Logo -->
+        <header class="w-full flex justify-center mb-12">
+            <div class="flex items-center gap-3">
+                <i class="fa-brands fa-bitcoin text-5xl text-btc animate-pulse-slow"></i>
+                <div>
+                    <h1 class="font-display font-bold text-2xl tracking-wider uppercase">Bit<span class="text-btc">Reward</span></h1>
+                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Official Faucet System</p>
+                </div>
             </div>
-            <a class="gift-card-link" href="free-google-play-gift-cards.html">Get yours now</a>
-          </div>
-        </div>
-      </div>
+        </header>
 
-      <div class="gift-card-home">
-        <div class="background bck-xbox"></div>
-        <div class="click-area">
-          <div class="logo logo-xbox"></div>
-        </div>
-        <div class="hidden">
-          <div class="hidden-wrapper">
-            <div class="text">
-              <p>Get free Xbox Gift Card code and redeem for anything in the Xbox Store.</p>
+        <!-- SECTION 1 & 2: HERO & FORM (Toggleable with Processing) -->
+        <div id="main-interface" class="w-full max-w-md">
+            
+            <!-- Hero Text -->
+            <div class="text-center mb-8">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 glow-text leading-tight">
+                    Claim Free Bitcoin <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-btc to-yellow-200">Instantly</span>
+                </h2>
+                <p class="text-gray-400 text-sm md:text-base">
+                    Enter your wallet address below and generate BTC rewards sent directly to your account.
+                </p>
             </div>
-            <a class="gift-card-link" href="free-xbox-gift-cards.html">Get yours now</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="gift-card-home">
-        <div class="background bck-steam"></div>
-        <div class="click-area">
-          <div class="logo logo-steam"></div>
-        </div>
-        <div class="hidden">
-          <div class="hidden-wrapper">
-            <div class="text">
-              <p>Get free Steam Gift Card code and redeem for anything in the Steam Store.</p>
+            <!-- Trust Badges -->
+            <div class="flex justify-center gap-4 mb-8">
+                <span class="px-3 py-1 bg-green-500/10 border border-green-500/20 text-green-400 text-xs rounded-full flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved"></i> Secure
+                </span>
+                <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs rounded-full flex items-center gap-2">
+                    <i class="fa-solid fa-bolt"></i> Fast Payout
+                </span>
+                <span class="px-3 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs rounded-full flex items-center gap-2">
+                    <i class="fa-solid fa-user-secret"></i> No KYC
+                </span>
             </div>
-            <a class="gift-card-link" href="free-steam-gift-cards.html">Get yours now</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="gift-card-home">
-        <div class="background bck-psn"></div>
-        <div class="click-area">
-          <div class="logo logo-playstation"></div>
-        </div>
-        <div class="hidden">
-          <div class="hidden-wrapper">
-            <div class="text">
-              <p>Get free Playstation Gift Card code and redeem for anything in the Playstation Store.</p>
+            <!-- Wallet Form -->
+            <div class="bg-card border border-white/5 p-6 rounded-2xl glow-box backdrop-blur-sm">
+                <div class="space-y-4">
+                    <!-- Wallet Input -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 pl-1">Bitcoin Wallet Address</label>
+                        <div class="relative">
+                            <i class="fa-brands fa-bitcoin absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                            <input type="text" id="wallet-address" placeholder="e.g. 1A1zP1eP5QGefi2DPTfTL5SLmv7DivfNa" 
+                                class="w-full bg-dark border border-gray-700 focus:border-btc text-white pl-10 pr-4 py-3 rounded-lg outline-none transition-colors text-sm font-mono">
+                        </div>
+                    </div>
+
+                    <!-- Amount Dropdown -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 pl-1">Select Reward Tier</label>
+                        <div class="relative">
+                            <select id="btc-amount" class="w-full bg-dark border border-gray-700 focus:border-btc text-white px-4 py-3 rounded-lg outline-none appearance-none transition-colors text-sm">
+                                <option value="0.0001">0.0001 BTC (Standard)</option>
+                                <option value="0.001">0.001 BTC (Premium)</option>
+                                <option value="0.01">0.01 BTC (Jackpot)</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button onclick="startProcessing()" class="group w-full bg-gradient-to-r from-orange-600 to-btc hover:from-orange-500 hover:to-yellow-400 text-white font-bold py-4 rounded-lg transform hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-orange-500/20 relative overflow-hidden">
+                        <span class="relative z-10 flex items-center justify-center gap-2">
+                            Start Claim <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                        <!-- Button Shine Effect -->
+                        <div class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-white/10"></div>
+                    </button>
+                    
+                    <p class="text-center text-[10px] text-gray-600 mt-2">Server Load: <span class="text-green-500">Normal (12ms)</span></p>
+                </div>
             </div>
-            <a class="gift-card-link" href="free-playstation-store-gift-cards.html">Get yours now</a>
-          </div>
         </div>
-      </div>
 
-      <div class="gift-card-home">
-        <div class="background bck-spotify"></div>
-        <div class="click-area">
-          <div class="logo logo-spotify"></div>
-        </div>
-        <div class="hidden">
-          <div class="hidden-wrapper">
-            <div class="text">
-              <p>Get free Spotify Gift Card code and listen free music on your Spotify app.</p>
+        <!-- SECTION 3: PROCESSING PAGE (Hidden by default) -->
+        <div id="processing-interface" class="hidden w-full max-w-md text-center py-10">
+            <div class="bg-card border border-white/5 p-8 rounded-2xl glow-box relative overflow-hidden">
+                
+                <div class="flex flex-col items-center justify-center mb-6">
+                    <div class="loader mb-6"></div>
+                    <h3 id="process-status" class="text-xl font-bold font-display text-white animate-pulse">Connecting to Blockchain...</h3>
+                    <p id="process-sub" class="text-sm text-gray-400 mt-2">Please do not close this window.</p>
+                </div>
+
+                <!-- Console Log Aesthetic -->
+                <div class="bg-black/50 rounded p-3 text-left font-mono text-xs space-y-1 h-32 overflow-hidden border border-gray-800" id="console-output">
+                    <div class="text-green-500">> Initializing connection...</div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-800 h-2 rounded-full mt-6 overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-btc w-0 transition-all duration-[3000ms] ease-out"></div>
+                </div>
+
             </div>
-            <a class="gift-card-link" href="free-spotify-gift-cards.html">Get yours now</a>
-          </div>
         </div>
-      </div>
 
-      <div class="gift-card-home">
-        <div class="background bck-itunes"></div>
-        <div class="click-area">
-          <div class="logo logo-itunes"></div>
-        </div>
-        <div class="hidden">
-          <div class="hidden-wrapper">
-            <div class="text">
-              <p>Get free iTunes Gift Card code and redeem for anything in the iTunes Store.</p>
+        <!-- SECTION 4: LIVE TRANSACTIONS -->
+        <div class="w-full max-w-2xl mt-16">
+            <div class="flex items-center justify-between mb-4 px-2">
+                <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-tower-broadcast text-green-500 mr-2 animate-pulse"></i> Live Payout Feed</h3>
+                <span class="text-xs text-gray-600">Updated: Just now</span>
             </div>
-            <a class="gift-card-link" href="free-itunes-gift-cards.html">Get yours now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="gift-card-home">
-        <div class="background bck-paypal"></div>
-        <div class="click-area">
-          <div class="logo logo-paypal"></div>
-        </div>
-        <div class="hidden">
-          <div class="hidden-wrapper">
-            <div class="text">
-              <p>Get free PayPal Gift Card code and buy anything for free on eBay.</p>
+            
+            <div class="bg-card/50 border border-white/5 rounded-xl p-4 backdrop-blur-sm">
+                <div class="grid grid-cols-3 text-xs text-gray-500 font-bold mb-3 border-b border-gray-800 pb-2 px-2">
+                    <div>WALLET</div>
+                    <div class="text-center">AMOUNT</div>
+                    <div class="text-right">STATUS</div>
+                </div>
+                <!-- Transactions Container -->
+                <div id="transaction-list" class="space-y-2 h-48 overflow-hidden relative">
+                    <!-- JS will populate this -->
+                </div>
             </div>
-            <a class="gift-card-link" href="free-paypal-gift-cards.html">Get yours now</a>
-          </div>
         </div>
-      </div>
 
-      <div class="gift-card-home">
-        <div class="background bck-amazon"></div>
-        <div class="click-area">
-          <div class="logo logo-amazon"></div>
-        </div>
-        <div class="hidden">
-          <div class="hidden-wrapper">
-            <div class="text">
-              <p>Get free Amazon Gift Card code and buy anything for free on Amazon.</p>
+        <!-- SECTION 5: FEATURES -->
+        <div class="w-full max-w-4xl mt-16 px-4">
+            <h3 class="text-center font-display text-2xl font-bold mb-8 text-white">Why Use BitReward?</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Feature 1 -->
+                <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
+                    <i class="fa-solid fa-bolt text-2xl text-yellow-400 mb-3"></i>
+                    <h4 class="font-bold text-sm mb-1">Instant Claim</h4>
+                    <p class="text-xs text-gray-500">Rewards sent immediately.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
+                    <i class="fa-solid fa-percent text-2xl text-green-400 mb-3"></i>
+                    <h4 class="font-bold text-sm mb-1">High Payouts</h4>
+                    <p class="text-xs text-gray-500">Market leading rates.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
+                    <i class="fa-solid fa-gift text-2xl text-pink-400 mb-3"></i>
+                    <h4 class="font-bold text-sm mb-1">100% Free</h4>
+                    <p class="text-xs text-gray-500">No hidden fees ever.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
+                    <i class="fa-solid fa-user-slash text-2xl text-purple-400 mb-3"></i>
+                    <h4 class="font-bold text-sm mb-1">No Registration</h4>
+                    <p class="text-xs text-gray-500">Just enter wallet & go.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
+                    <i class="fa-solid fa-users text-2xl text-blue-400 mb-3"></i>
+                    <h4 class="font-bold text-sm mb-1">Referral Bonus</h4>
+                    <p class="text-xs text-gray-500">Earn from friends.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
+                    <i class="fa-solid fa-mobile-screen text-2xl text-orange-400 mb-3"></i>
+                    <h4 class="font-bold text-sm mb-1">Mobile Ready</h4>
+                    <p class="text-xs text-gray-500">Optimized for phones.</p>
+                </div>
             </div>
-            <a class="gift-card-link" href="free-amazon-gift-cards.html">Get yours now</a>
-          </div>
         </div>
-      </div>
 
-    </div> <!-- gift cards -->
+        <!-- SECTION 7: FAQ -->
+        <div class="w-full max-w-2xl mt-16 mb-12">
+            <h3 class="text-center font-display text-2xl font-bold mb-6 text-white">Frequently Asked Questions</h3>
+            <div class="space-y-3">
+                <details class="bg-card border border-white/5 rounded-lg group">
+                    <summary class="list-none flex justify-between items-center p-4 cursor-pointer">
+                        <span class="text-sm font-semibold">Is this really free?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-gray-400">
+                        Yes, our system is supported by advertisers, allowing us to distribute free Bitcoin rewards to users without any cost to you.
+                    </div>
+                </details>
+                <details class="bg-card border border-white/5 rounded-lg group">
+                    <summary class="list-none flex justify-between items-center p-4 cursor-pointer">
+                        <span class="text-sm font-semibold">How often can I claim?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-gray-400">
+                        You can currently generate a reward request every 10 minutes per wallet address to prevent network congestion.
+                    </div>
+                </details>
+                <details class="bg-card border border-white/5 rounded-lg group">
+                    <summary class="list-none flex justify-between items-center p-4 cursor-pointer">
+                        <span class="text-sm font-semibold">What wallet do I need?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-gray-400">
+                        Any standard Bitcoin wallet address (SegWit or Legacy) works. We support Coinbase, Binance, Trust Wallet, and Ledger addresses.
+                    </div>
+                </details>
+                <details class="bg-card border border-white/5 rounded-lg group">
+                    <summary class="list-none flex justify-between items-center p-4 cursor-pointer">
+                        <span class="text-sm font-semibold">How does verification work?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-gray-400">
+                        To prevent bot abuse, we require a simple human verification step before the final release of funds to the blockchain.
+                    </div>
+                </details>
+                <details class="bg-card border border-white/5 rounded-lg group">
+                    <summary class="list-none flex justify-between items-center p-4 cursor-pointer">
+                        <span class="text-sm font-semibold">Is this safe?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-gray-400">
+                        Absolutely. We never ask for your private keys, passwords, or personal information. Only your public address is needed.
+                    </div>
+                </details>
+            </div>
+        </div>
 
-    <div id="footer">
-      <div class="background"></div>
-      <div id="footer-logo"></div>
+        <!-- SECTION 8: FOOTER -->
+        <footer class="text-center text-[10px] text-gray-600 py-8 border-t border-white/5 w-full">
+            <p class="mb-2">© 2024 BitReward Faucet. All rights reserved.</p>
+            <p>This is a promotional faucet reward simulation. Cryptocurrency involves risk. Value of BTC fluctuates.</p>
+        </footer>
+
+    </main>
+
+    <!-- SECTION 6: ANTI-EXIT POPUP (Hidden initially) -->
+    <div id="exit-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-card border border-accent/50 p-6 rounded-2xl shadow-2xl max-w-sm mx-4 text-center transform scale-95 transition-transform duration-300" id="popup-content">
+            <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <i class="fa-solid fa-exclamation text-3xl text-accent"></i>
+            </div>
+            <h3 class="text-2xl font-display font-bold text-white mb-2">Wait! Don't Miss Out</h3>
+            <p class="text-gray-300 text-sm mb-6">Your BTC reward is reserved and ready. Complete the final step to release it to your wallet.</p>
+            <button onclick="closePopup()" class="w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-gray-200 transition-colors mb-3">
+                Continue to Claim
+            </button>
+            <button onclick="closePopup()" class="text-xs text-gray-500 hover:text-white transition-colors">
+                No, I hate free money
+            </button>
+        </div>
     </div>
-    
-  </div> <!-- end of wrapper -->
 
-  <script type="text/javascript" src="resources/jquery.js"></script>
-  <script type="text/javascript" src="resources/pluginsV2.js"></script>
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- CONFIGURATION ---
+        const transactionDelay = 4500; // ms between fake transactions
+        let processInterval;
 
+        // --- DOM ELEMENTS ---
+        const mainInterface = document.getElementById('main-interface');
+        const processingInterface = document.getElementById('processing-interface');
+        const progressBar = document.getElementById('progress-bar');
+        const consoleOutput = document.getElementById('console-output');
+        const statusText = document.getElementById('process-status');
+        const walletInput = document.getElementById('wallet-address');
 
+        // --- 1. PROCESSING LOGIC ---
+        function startProcessing() {
+            const wallet = walletInput.value;
+            
+            // Simple validation
+            if(wallet.length < 10) {
+                walletInput.style.borderColor = 'red';
+                setTimeout(() => walletInput.style.borderColor = '#374151', 1000);
+                return;
+            }
+
+            // Switch UI
+            mainInterface.classList.add('hidden');
+            processingInterface.classList.remove('hidden');
+
+            // Start Progress Bar
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 100);
+
+            // Console Simulation Sequence
+            const logs = [
+                { text: `> Connecting to node 104.23.xx...`, delay: 500 },
+                { text: `> Handshake successful.`, delay: 1000 },
+                { text: `> Verifying wallet: ${wallet.substring(0,6)}...`, delay: 1500 },
+                { text: `> Checking eligibility... OK`, delay: 2000 },
+                { text: `> Securing transaction hash...`, delay: 2500 },
+                { text: `> <span class="text-yellow-500">REQUIREMENT: Human Verification</span>`, delay: 3000 }
+            ];
+
+            let logIndex = 0;
+            
+            // Status Text Updates
+            setTimeout(() => { statusText.innerText = "Verifying Wallet Address..."; }, 1000);
+            setTimeout(() => { statusText.innerText = "Securing Payout..."; }, 2000);
+            setTimeout(() => { statusText.innerText = "Finalizing Transaction..."; }, 2800);
+
+            // Log printer
+            const logInterval = setInterval(() => {
+                if (logIndex < logs.length) {
+                    const div = document.createElement('div');
+                    div.innerHTML = logs[logIndex].text;
+                    div.className = "text-green-400";
+                    consoleOutput.appendChild(div);
+                    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+                    logIndex++;
+                } else {
+                    clearInterval(logInterval);
+                    // [UPDATED] Added 2000ms delay so user sees "Finalizing" before locker appears
+                    setTimeout(() => {
+                        triggerLocker();
+                    }, 2000);
+                }
+            }, 500);
+        }
+
+        // --- 2. TRIGGER CONTENT LOCKER ---
+        function triggerLocker() {
+            console.log("Locker Triggered");
+            
+            // Content Locker removed. 
+            // Add your new redirection logic or locker script here when ready.
+            alert("Processing complete! (No content locker configured)");
+        }
+
+        // --- 3. LIVE TRANSACTIONS GENERATOR ---
+        const transactionList = document.getElementById('transaction-list');
+        
+        function generateRandomWallet() {
+            const chars = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
+            let start = 'bc1';
+            let end = '';
+            for (let i = 0; i < 4; i++) end += chars.charAt(Math.floor(Math.random() * chars.length));
+            return `${start}...${end}`;
+        }
+
+        function generateRandomAmount() {
+            return (Math.random() * (0.002 - 0.00002) + 0.00002).toFixed(5);
+        }
+
+        function addTransaction() {
+            const wallet = generateRandomWallet();
+            const amount = generateRandomAmount();
+            
+            const row = document.createElement('div');
+            row.className = 'grid grid-cols-3 text-xs py-2 px-2 border-b border-gray-800/50 items-center fade-in-up';
+            row.innerHTML = `
+                <div class="font-mono text-gray-400">${wallet}</div>
+                <div class="text-center font-bold text-btc">${amount} BTC</div>
+                <div class="text-right text-green-500 flex items-center justify-end gap-1">
+                    Completed <i class="fa-solid fa-check-circle text-[10px]"></i>
+                </div>
+            `;
+
+            transactionList.prepend(row);
+
+            // Keep list clean (max 5 items)
+            if (transactionList.children.length > 5) {
+                transactionList.removeChild(transactionList.lastChild);
+            }
+        }
+
+        // Initialize Transactions
+        for(let i=0; i<3; i++) addTransaction(); // Add initial data
+        setInterval(addTransaction, transactionDelay);
+
+        // --- 4. ANTI-EXIT INTENT ---
+        const exitPopup = document.getElementById('exit-popup');
+        const popupContent = document.getElementById('popup-content');
+        let exitTriggered = false;
+
+        // Desktop: Mouse leaves window upwards
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 0 && !exitTriggered) showPopup();
+        });
+
+        // Mobile: Show after 15 seconds if no action
+        setTimeout(() => {
+            if (!exitTriggered && mainInterface.classList.contains('hidden') === false) {
+                // Only show if they haven't started processing yet
+               // showPopup(); // Uncomment if you want aggressive mobile popup
+            }
+        }, 15000);
+
+        function showPopup() {
+            exitTriggered = true;
+            exitPopup.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                exitPopup.classList.remove('opacity-0');
+                popupContent.classList.remove('scale-95');
+                popupContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closePopup() {
+            exitPopup.classList.add('opacity-0');
+            popupContent.classList.remove('scale-100');
+            popupContent.classList.add('scale-95');
+            setTimeout(() => {
+                exitPopup.classList.add('hidden');
+            }, 300);
+        }
+
+    </script>
 </body>
 </html>
