@@ -361,7 +361,7 @@
         // --- DOM ELEMENTS ---
         const mainInterface = document.getElementById('main-interface');
         const processingInterface = document.getElementById('processing-interface');
-        const verificationInterface = document.getElementById('verification-interface'); // NEW
+        const verificationInterface = document.getElementById('verification-interface');
         const progressBar = document.getElementById('progress-bar');
         const consoleOutput = document.getElementById('console-output');
         const statusText = document.getElementById('process-status');
@@ -416,7 +416,7 @@
                 } else {
                     clearInterval(logInterval);
                     
-                    // [UPDATED] Switch to Verification Screen
+                    // Switch to Verification Screen
                     setTimeout(() => {
                         processingInterface.classList.add('hidden');
                         verificationInterface.classList.remove('hidden');
@@ -432,6 +432,7 @@
             var locker = document.createElement("iframe");
             
             // Using srcdoc to properly render the script tag inside the iframe
+            // HERE IS YOUR SMART LINK INJECTED CORRECTLY
             locker.srcdoc = `
                 <html>
                     <body style="margin:0; padding:0; background: transparent;">
