@@ -1,261 +1,1276 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Faucet 2026: Get Free BTC Rewards Instantly (No KYC)</title>
-    <meta name="description" content="Access the world's most secure Bitcoin faucet. Claim free BTC rewards instantly to your wallet. Verified payouts, no registration, and 100% secure blockchain transactions.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "BitReward Crypto Faucet",
-      "operatingSystem": "Web",
-      "applicationCategory": "FinanceApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "12480"
-      }
-    }
-    </script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Rajdhani', 'sans-serif'] },
-                    colors: { btc: '#F7931A', dark: '#0B0E11', card: '#15191E', accent: '#FF5C00' },
-                    animation: { 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
-                }
-            }
-        }
-    </script>
+<html lang="en">
     <style>
-        body { background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
-        .bg-grid { background-size: 50px 50px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px); mask-image: linear-gradient(to bottom, black 50%, transparent 100%); }
-        .glow-text { text-shadow: 0 0 20px rgba(247, 147, 26, 0.4); }
-        .glow-box { box-shadow: 0 0 30px rgba(247, 147, 26, 0.1); }
-        .loader { border: 4px solid #333; border-top: 4px solid #F7931A; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
+/* كود المهندس لفرض تصميم QuikFun على OGAds */
+body #locker-main-container, 
+body .locker-modal, 
+body #og_locker {
+    background: #080810 !important;
+    border: 2px solid #d4af37 !important;
+    border-radius: 15px !important;
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.4) !important;
+    color: #fff !important;
+}
+
+body #locker-title, 
+body .locker-h2 {
+    color: #d4af37 !important;
+    font-family: 'Bebas Neue', sans-serif !important;
+    text-transform: uppercase !important;
+    font-size: 26px !important;
+}
+
+body .offer-item, 
+body .og-offer-row {
+    background: #1a1a28 !important;
+    border: 1px solid #2a2a42 !important;
+    border-left: 5px solid #e60000 !important;
+    margin: 10px 0 !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+}
+
+body .offer-name, 
+body .og-offer-title {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+}
+
+body .offer-instruction, 
+body .og-offer-desc {
+    color: #666680 !important;
+    font-size: 12px !important;
+}
+
+/* إخفاء اللوغو ديال OGAds باش يبان الموقع رسمي */
+body .og-logo, body #og_footer {
+    display: none !important;
+}
+</style>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>QuikFun.com – WWE 2K26 Locker Code Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══════════════════════════════════════════════
+   ROOT TOKENS
+═══════════════════════════════════════════════ */
+:root{
+  --bg:         #080810;
+  --bg2:        #0f0f18;
+  --surface:    #13131e;
+  --surface2:   #1a1a28;
+  --surface3:   #222235;
+  --border:     #2a2a42;
+  --border2:    #35355a;
+  --gold:       #d4af37;
+  --gold-lt:    #f2d060;
+  --gold-dk:    #96780f;
+  --gold-glow:  rgba(212,175,55,.5);
+  --red:        #e60000;
+  --red-dk:     #a30000;
+  --red-glow:   rgba(230,0,0,.5);
+  --green:      #00e676;
+  --cyan:       #00d4ff;
+  --text:       #e8e8f0;
+  --muted:      #6060808;
+  --muted:      #666680;
+  --font-d:     'Bebas Neue', sans-serif;
+  --font-ui:    'Rajdhani', sans-serif;
+  --font-mono:  'Share Tech Mono', monospace;
+  --r:          10px;
+  --r-sm:       6px;
+}
+
+/* ═══════════════════════════════════════════════
+   RESET + BASE
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--font-ui);
+  min-height:100vh;overflow-x:hidden;
+  display:flex;flex-direction:column;align-items:center;
+  position:relative;
+}
+
+/* animated BG grid */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(212,175,55,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,175,55,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  animation:grid-drift 40s linear infinite;
+  pointer-events:none;z-index:0;
+}
+@keyframes grid-drift{from{background-position:0 0}to{background-position:48px 48px}}
+
+/* top radial glow */
+body::after{
+  content:'';position:fixed;
+  top:-250px;left:50%;transform:translateX(-50%);
+  width:1000px;height:500px;
+  background:radial-gradient(ellipse,rgba(230,0,0,.13) 0%,transparent 65%);
+  pointer-events:none;z-index:0;
+}
+
+/* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+header{
+  width:100%;position:sticky;top:0;z-index:100;
+  background:rgba(8,8,16,.95);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 1px 0 rgba(212,175,55,.06);
+}
+.hdr{
+  max-width:680px;margin:0 auto;
+  padding:0 18px;height:54px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:var(--font-d);
+  font-size:clamp(1.25rem,4.5vw,1.65rem);
+  letter-spacing:3px;color:var(--text);
+  text-decoration:none;line-height:1;
+}
+.logo em{color:var(--gold);font-style:normal;}
+.logo-tag{
+  display:block;
+  font-family:var(--font-ui);font-weight:700;
+  font-size:.6rem;letter-spacing:4px;
+  color:var(--muted);margin-top:1px;
+}
+.live-pill{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(0,230,118,.08);
+  border:1px solid rgba(0,230,118,.2);
+  border-radius:99px;padding:4px 10px;
+  font-size:.65rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--green);
+}
+.dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);box-shadow:0 0 6px var(--green);
+  animation:blink 1.4s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+
+/* ═══════════════════════════════════════════════
+   PAGE WRAPPER
+═══════════════════════════════════════════════ */
+.page{
+  flex:1;width:100%;max-width:600px;
+  padding:32px 16px 60px;
+  position:relative;z-index:2;
+}
+
+/* ═══════════════════════════════════════════════
+   PHASE TRANSITIONS
+═══════════════════════════════════════════════ */
+.phase{display:none;animation:fade-up .45s ease both;}
+.phase.active{display:block;}
+@keyframes fade-up{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ═══════════════════════════════════════════════
+   ████  PHASE 1 — LANDING / HOOK  ████
+═══════════════════════════════════════════════ */
+
+/* hero headline */
+.hero-eyebrow{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:.7rem;font-weight:700;letter-spacing:5px;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:20px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:'';height:1px;width:36px;
+  background:linear-gradient(90deg,transparent,var(--gold));opacity:.6;
+}
+.hero-eyebrow::after{transform:scaleX(-1);}
+
+.hero-title{
+  font-family:var(--font-d);
+  font-size:clamp(2.6rem,11vw,5rem);
+  line-height:.9;letter-spacing:2px;
+  text-align:center;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.hero-title .t1{display:block;color:var(--text);}
+.hero-title .t2{display:block;color:var(--red);text-shadow:0 0 40px var(--red-glow);}
+.hero-title .t3{display:block;color:var(--gold);}
+
+.hero-sub{
+  text-align:center;
+  font-size:clamp(.9rem,3vw,1.05rem);font-weight:500;
+  color:var(--muted);line-height:1.6;max-width:440px;
+  margin:0 auto 36px;letter-spacing:.4px;
+}
+
+/* form card */
+.form-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-top:3px solid var(--gold);
+  border-radius:var(--r);
+  overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.65),0 0 0 1px rgba(212,175,55,.06);
+}
+.form-card-head{
+  padding:20px 22px 0;
+  font-family:var(--font-ui);font-weight:700;
+  font-size:.7rem;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:8px;
+}
+.form-card-head::before{
+  content:'';width:3px;height:16px;
+  background:var(--gold);border-radius:2px;display:block;
+}
+.form-body{padding:18px 22px 24px;display:flex;flex-direction:column;gap:16px;}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:420px){.field-row{grid-template-columns:1fr;}}
+
+.field{display:flex;flex-direction:column;gap:6px;}
+.field label{
+  font-size:.65rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--muted);
+}
+.field input,
+.field select{
+  background:var(--surface2);
+  border:1px solid var(--border2);
+  border-radius:var(--r-sm);
+  color:var(--text);font-family:var(--font-ui);
+  font-size:.95rem;font-weight:600;
+  padding:12px 14px;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+  -webkit-appearance:none;appearance:none;
+}
+.field input::placeholder{color:var(--muted);}
+.field input:focus,.field select:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(212,175,55,.12);
+}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666680' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.field select option{background:#1a1a28;}
+
+/* pack selector */
+.pack-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+}
+.pack-opt{position:relative;}
+.pack-opt input[type=radio]{position:absolute;opacity:0;width:0;height:0;}
+.pack-label{
+  display:flex;flex-direction:column;align-items:center;
+  gap:6px;padding:14px 8px 12px;
+  background:var(--surface2);border:2px solid var(--border2);
+  border-radius:var(--r-sm);cursor:pointer;
+  transition:border-color .2s,background .2s,box-shadow .2s;
+  text-align:center;
+}
+.pack-icon{font-size:1.6rem;}
+.pack-name{
+  font-size:.7rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--muted);
+  transition:color .2s;
+}
+.pack-opt input:checked + .pack-label{
+  border-color:var(--gold);background:rgba(212,175,55,.07);
+  box-shadow:0 0 20px rgba(212,175,55,.15);
+}
+.pack-opt input:checked + .pack-label .pack-name{color:var(--gold);}
+
+/* generate button */
+.btn-gen{
+  width:100%;padding:18px;
+  background:linear-gradient(135deg,var(--red) 0%,var(--red-dk) 100%);
+  color:#fff;font-family:var(--font-d);
+  font-size:clamp(1.4rem,5vw,1.8rem);letter-spacing:3px;
+  border:none;border-radius:var(--r-sm);cursor:pointer;
+  position:relative;overflow:hidden;
+  box-shadow:0 6px 36px var(--red-glow),inset 0 1px 0 rgba(255,255,255,.1);
+  transition:transform .15s,box-shadow .2s;
+}
+.btn-gen::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:55%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  animation:sh 2.5s linear infinite;
+}
+@keyframes sh{from{left:-60%}to{left:160%}}
+.btn-gen:hover{transform:translateY(-2px);box-shadow:0 10px 44px var(--red-glow);}
+.btn-gen:active{transform:translateY(0);}
+
+/* stat strip */
+.stat-strip{
+  display:flex;justify-content:space-between;
+  padding:13px 16px;
+  background:var(--surface2);border-top:1px solid var(--border);
+  font-size:.7rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;
+}
+.stat-item{display:flex;align-items:center;gap:6px;color:var(--muted);}
+.stat-item strong{color:var(--text);}
+.stat-item.online strong{color:var(--green);}
+
+
+/* ═══════════════════════════════════════════════
+   ████  PHASE 2 — TERMINAL ANIMATION  ████
+═══════════════════════════════════════════════ */
+
+.terminal-wrap{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-top:3px solid var(--green);
+  border-radius:var(--r);
+  overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.65),
+             0 0 40px rgba(0,230,118,.04);
+}
+
+/* terminal titlebar */
+.term-bar{
+  display:flex;align-items:center;gap:8px;
+  padding:11px 16px;
+  background:var(--surface2);border-bottom:1px solid var(--border);
+}
+.term-dots{display:flex;gap:5px;}
+.term-dot{
+  width:11px;height:11px;border-radius:50%;
+}
+.td-r{background:#ff5f57;}
+.td-y{background:#febc2e;}
+.td-g{background:#28c840;}
+.term-title{
+  font-family:var(--font-mono);
+  font-size:.7rem;color:var(--muted);letter-spacing:1px;
+  margin-left:4px;
+}
+
+/* terminal body */
+.term-body{
+  padding:20px 18px;min-height:240px;
+  font-family:var(--font-mono);font-size:clamp(.75rem,2.8vw,.88rem);
+  line-height:1.9;
+}
+.term-line{display:none;align-items:flex-start;gap:8px;}
+.term-line.visible{display:flex;animation:line-in .3s ease both;}
+@keyframes line-in{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:translateX(0)}}
+.term-prompt{color:var(--green);flex-shrink:0;}
+.term-text{color:#a8b4c8;}
+.term-text.hi-gold{color:var(--gold-lt);}
+.term-text.hi-red{color:var(--red);}
+.term-text.hi-green{color:var(--green);}
+.term-text.hi-cyan{color:var(--cyan);}
+.cursor{
+  display:inline-block;width:8px;height:1em;
+  background:var(--green);margin-left:3px;
+  animation:cur .7s step-start infinite;vertical-align:middle;
+}
+@keyframes cur{0%,100%{opacity:1}50%{opacity:0}}
+
+/* progress section */
+.term-progress{
+  padding:0 18px 20px;
+}
+.prog-meta{
+  display:flex;justify-content:space-between;
+  font-family:var(--font-mono);font-size:.72rem;
+  color:var(--muted);margin-bottom:8px;
+}
+#prog-pct{color:var(--gold);font-weight:700;}
+.prog-track{
+  height:8px;background:var(--surface3);
+  border-radius:99px;overflow:hidden;
+  border:1px solid var(--border);
+}
+.prog-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--red),var(--gold));
+  border-radius:99px;
+  transition:width .25s linear;
+  box-shadow:0 0 12px var(--red-glow);
+  position:relative;
+}
+.prog-fill::after{
+  content:'';position:absolute;top:0;right:0;
+  width:30px;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5));
+  border-radius:99px;
+  animation:psh .9s ease-in-out infinite alternate;
+}
+@keyframes psh{from{opacity:0}to{opacity:1}}
+
+.term-target{
+  margin-top:14px;padding:10px 14px;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  font-family:var(--font-mono);font-size:.78rem;
+  display:flex;gap:10px;align-items:center;color:var(--muted);
+}
+#term-user-display{color:var(--cyan);}
+#term-platform-display{color:var(--gold);}
+
+
+/* ═══════════════════════════════════════════════
+   ████  PHASE 3 — RESULT / CAPTURE ZONE  ████
+═══════════════════════════════════════════════ */
+
+/* header badge */
+.result-eyebrow{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-size:.65rem;font-weight:700;letter-spacing:4px;
+  text-transform:uppercase;color:var(--green);
+  margin-bottom:16px;
+}
+.result-eyebrow .dot{background:var(--green);box-shadow:0 0 8px var(--green);}
+
+/* main result card */
+.result-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,.07),
+    0 28px 90px rgba(0,0,0,.7),
+    0 0 60px rgba(212,175,55,.05);
+}
+
+/* shimmering top bar */
+.result-accent{
+  height:3px;
+  background:linear-gradient(90deg,var(--red),var(--gold),var(--red));
+  background-size:200% 100%;
+  animation:acc 3s linear infinite;
+}
+@keyframes acc{from{background-position:200% 0}to{background-position:-200% 0}}
+
+/* status row */
+.result-status{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:6px;
+  padding:10px 20px;
+  background:var(--surface2);border-bottom:1px solid var(--border);
+  font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+}
+.r-status-ok{display:flex;align-items:center;gap:6px;color:var(--green);}
+.codes-tag{color:var(--muted);}
+.codes-tag strong{color:var(--gold);animation:blink 1s step-start infinite;}
+
+.result-body{padding:30px 22px 26px;}
+
+/* icon */
+.trophy-ring{
+  width:76px;height:76px;margin:0 auto 20px;
+  background:radial-gradient(circle,rgba(212,175,55,.12),transparent 70%);
+  border:1px solid rgba(212,175,55,.2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.4rem;
+  animation:float 3s ease-in-out infinite;
+  box-shadow:0 0 40px rgba(212,175,55,.12);
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* headings */
+.result-title{
+  font-family:var(--font-d);
+  font-size:clamp(3rem,13vw,5rem);
+  letter-spacing:3px;color:#fff;
+  text-align:center;line-height:.92;
+  margin-bottom:10px;
+  text-shadow:0 0 60px rgba(255,255,255,.06);
+}
+.result-sub{
+  text-align:center;
+  font-size:clamp(.88rem,3vw,1rem);font-weight:600;
+  color:var(--muted);letter-spacing:.5px;
+  margin-bottom:26px;line-height:1.5;
+}
+.result-sub strong{color:var(--text);}
+
+/* code box */
+.code-box{
+  position:relative;
+  background:var(--surface2);
+  border:1px solid var(--border2);
+  border-radius:var(--r-sm);
+  padding:20px 16px;margin-bottom:20px;
+  overflow:hidden;
+  text-align:center;
+}
+.code-box::before{
+  content:'';position:absolute;top:0;left:-80%;
+  width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(212,175,55,.05),transparent);
+  animation:scan 4s linear infinite;
+}
+@keyframes scan{from{left:-80%}to{left:160%}}
+
+.code-lbl{
+  font-size:.6rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.code-str{
+  font-family:var(--font-mono);
+  font-size:clamp(1.05rem,5vw,1.45rem);
+  letter-spacing:4px;
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:0;
+  user-select:none;
+}
+.cv{color:var(--gold-lt);}
+.ch{
+  color:var(--red);
+  filter:blur(4.5px);
+  animation:rp .9s ease-in-out infinite alternate;
+}
+@keyframes rp{
+  from{text-shadow:0 0 4px var(--red-glow)}
+  to{text-shadow:0 0 18px var(--red-glow),0 0 40px rgba(230,0,0,.25)}
+}
+.lock-tag{
+  margin-top:10px;
+  font-size:.62rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--red);
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
+
+/* trust badges */
+.badges{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;margin-bottom:22px;
+}
+.badge{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:12px 8px;text-align:center;
+  transition:border-color .2s;
+}
+.badge:hover{border-color:var(--border2);}
+.b-icon{font-size:1.3rem;margin-bottom:5px;}
+.b-text{
+  font-size:.62rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--muted);line-height:1.4;
+}
+
+/* VERIFY button */
+.btn-verify{
+  width:100%;padding:18px 20px;
+  background:linear-gradient(135deg,var(--gold-lt) 0%,var(--gold) 50%,var(--gold-dk) 100%);
+  background-size:200% 100%;
+  color:#080810;
+  font-family:var(--font-d);
+  font-size:clamp(1.4rem,6vw,1.9rem);letter-spacing:3px;
+  border:none;border-radius:var(--r-sm);cursor:pointer;
+  position:relative;overflow:hidden;
+  box-shadow:0 6px 40px var(--gold-glow);
+  animation:vp 2s ease-in-out infinite;
+  transition:transform .15s;
+  margin-bottom:18px;
+}
+@keyframes vp{
+  0%,100%{box-shadow:0 6px 40px var(--gold-glow)}
+  50%{box-shadow:0 6px 60px rgba(212,175,55,.8),0 0 90px rgba(212,175,55,.15)}
+}
+.btn-verify::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:55%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:sh 2s linear infinite;
+}
+.btn-verify:hover{transform:translateY(-2px);}
+.btn-verify:active{transform:translateY(0);}
+
+.just-text{
+  font-size:.78rem;font-weight:500;
+  color:var(--muted);line-height:1.75;
+  text-align:center;letter-spacing:.4px;
+  padding:0 6px;
+}
+.just-text strong{color:var(--text);}
+
+/* bottom sec strip */
+.sec-strip{
+  display:flex;align-items:center;justify-content:center;
+  gap:20px;flex-wrap:wrap;
+  padding:14px 20px;
+  border-top:1px solid var(--border);
+  background:var(--surface2);
+}
+.sec-item{
+  display:flex;align-items:center;gap:5px;
+  font-size:.62rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);
+}
+.sec-item span{font-size:.85rem;}
+
+/* reset link */
+.reset-wrap{margin-top:22px;text-align:center;}
+.reset-link{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--font-ui);font-size:.75rem;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);text-decoration:underline;
+  transition:color .2s;
+}
+.reset-link:hover{color:var(--text);}
+
+/* ═══════════════════════════════════════════════
+   CONTENT LOCKER OVERLAY
+═══════════════════════════════════════════════ */
+#locker-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  z-index:9000;align-items:center;justify-content:center;padding:20px;
+}
+#locker-overlay.open{display:flex;}
+
+.locker-modal{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-top:3px solid var(--gold);
+  border-radius:var(--r);
+  max-width:430px;width:100%;
+  padding:36px 26px 30px;text-align:center;
+  position:relative;
+  box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 70px var(--gold-glow);
+  animation:min .38s cubic-bezier(.22,1,.36,1);
+}
+@keyframes min{from{opacity:0;transform:scale(.86) translateY(28px)}to{opacity:1;transform:none}}
+
+.locker-icon{font-size:3rem;margin-bottom:14px;animation:float 2.8s ease-in-out infinite;}
+.locker-h{
+  font-family:var(--font-d);
+  font-size:clamp(2rem,8vw,2.8rem);letter-spacing:2px;
+  color:#fff;margin-bottom:8px;
+}
+.locker-p{
+  font-size:.88rem;font-weight:500;
+  color:var(--muted);line-height:1.7;margin-bottom:22px;
+}
+.locker-p strong{color:var(--gold);}
+
+/* blurred code preview in modal */
+.locker-code{
+  font-family:var(--font-mono);font-size:1.15rem;letter-spacing:5px;
+  color:var(--gold-lt);
+  background:var(--surface2);border:1px dashed var(--border2);
+  border-radius:var(--r-sm);padding:14px;
+  margin-bottom:22px;filter:blur(5px);user-select:none;
+  transition:filter .5s;
+}
+
+/* ╔══════════════════════════════════════════════╗
+   ║   OGADS CONTENT LOCKER PLACEHOLDER          ║
+   ╚══════════════════════════════════════════════╝ */
+/* #ogads-container — clean receiver div, OGAds injects its UI here */
+#ogads-container{
+  min-height: 20px; /* collapses to nothing if locker renders inline */
+}
+
+.locker-close{
+  background:none;border:1px solid var(--border2);
+  color:var(--muted);font-family:var(--font-ui);
+  font-size:.72rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:8px 22px;
+  border-radius:4px;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.locker-close:hover{border-color:var(--muted);color:var(--text);}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer{
+  width:100%;padding:20px 16px 32px;
+  position:relative;z-index:2;text-align:center;
+}
+.foot-text{
+  font-size:.62rem;font-weight:500;
+  color:#2e2e48;line-height:1.9;max-width:540px;margin:0 auto;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:380px){
+  .pack-grid{grid-template-columns:1fr 1fr 1fr;}
+  .pack-icon{font-size:1.3rem;}
+  .badges{gap:7px;}
+  .result-body{padding:22px 14px 20px;}
+  .locker-modal{padding:28px 18px 24px;}
+}
+</style>
 </head>
-<body class="antialiased min-h-screen relative">
-    <div class="absolute inset-0 bg-grid pointer-events-none z-0"></div>
+<body>
 
-    <main class="relative z-10 max-w-6xl mx-auto px-4 py-8 flex flex-col items-center">
-        <header class="w-full flex justify-center mb-12">
-            <div class="flex items-center gap-3">
-                <i class="fa-brands fa-bitcoin text-5xl text-btc animate-pulse-slow"></i>
-                <div>
-                    <span class="font-display font-bold text-2xl tracking-wider uppercase">Bit<span class="text-btc">Reward</span></span>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Verified Blockchain Nodes</p>
-                </div>
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════ -->
+<header>
+  <div class="hdr">
+    <a class="logo" href="#">
+      <em>QUIK</em>FUN.COM
+      <span class="logo-tag">Exclusive WWE 2K26 Locker Codes</span>
+    </a>
+    <div class="live-pill"><div class="dot"></div>LIVE</div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     MAIN
+══════════════════════════════════════ -->
+<main class="page">
+
+  <!-- ══════════════════════════════════
+       PHASE 1 — LANDING (THE HOOK)
+  ══════════════════════════════════ -->
+  <section class="phase active" id="phase1">
+
+    <p class="hero-eyebrow">⚡ Exclusive Drop · Updated Daily ⚡</p>
+
+    <h1 class="hero-title">
+      <span class="t1">Unlock Your</span>
+      <span class="t2">Exclusive</span>
+      <span class="t3">WWE 2K26 Codes</span>
+    </h1>
+
+    <p class="hero-sub">
+      Generate rare Diamond Packs, Legendary Superstars &amp; VC bundles instantly. 
+      Enter your details below and hit Generate.
+    </p>
+
+    <div class="form-card">
+      <div class="form-card-head">Code Generator</div>
+      <div class="form-body">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="gamertag">Gamertag / Username</label>
+            <input type="text" id="gamertag" placeholder="e.g. RockFan99" maxlength="28" autocomplete="off" autocorrect="off"/>
+          </div>
+          <div class="field">
+            <label for="platform">Platform</label>
+            <select id="platform">
+              <option value="" disabled selected>Select…</option>
+              <option value="PS5">PlayStation 5</option>
+              <option value="Xbox">Xbox Series X|S</option>
+              <option value="PC">PC / Steam</option>
+              <option value="PS4">PlayStation 4</option>
+              <option value="Xbox One">Xbox One</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Select Pack</label>
+          <div class="pack-grid">
+            <div class="pack-opt">
+              <input type="radio" name="pack" id="p-diamond" value="💎 Diamond Pack" checked/>
+              <label class="pack-label" for="p-diamond">
+                <span class="pack-icon">💎</span>
+                <span class="pack-name">Diamond</span>
+              </label>
             </div>
-        </header>
-
-        <section id="main-interface" class="w-full max-w-md text-center">
-            <h1 class="text-4xl md:text-5xl font-display font-bold mb-4 glow-text leading-tight">
-                Secure <span class="text-transparent bg-clip-text bg-gradient-to-r from-btc to-yellow-200">Bitcoin Faucet</span>: Claim Your Rewards
-            </h1>
-            <p class="text-gray-400 text-sm md:text-base mb-8">
-                Distributing free Bitcoin (Satoshi) to users worldwide via verified advertising revenue. No KYC. No fees. Just enter your address.
-            </p>
-
-            <div class="flex justify-center gap-3 mb-8">
-                <span class="px-3 py-1 bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] rounded-full flex items-center gap-1">
-                    <i class="fa-solid fa-check-double"></i> 100% Verified
-                </span>
-                <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] rounded-full flex items-center gap-1">
-                    <i class="fa-solid fa-bolt-lightning"></i> Fast Payout
-                </span>
-                <span class="px-3 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] rounded-full flex items-center gap-1">
-                    <i class="fa-solid fa-user-shield"></i> Anti-Bot Secure
-                </span>
+            <div class="pack-opt">
+              <input type="radio" name="pack" id="p-legend" value="⚡ Legendary Pack"/>
+              <label class="pack-label" for="p-legend">
+                <span class="pack-icon">⚡</span>
+                <span class="pack-name">Legendary</span>
+              </label>
             </div>
-
-            <div class="bg-card border border-white/5 p-6 rounded-2xl glow-box backdrop-blur-sm">
-                <div class="space-y-4">
-                    <div class="text-left">
-                        <label class="block text-xs font-semibold text-gray-500 uppercase mb-2 ml-1">Your Bitcoin Wallet Address</label>
-                        <div class="relative">
-                            <i class="fa-brands fa-bitcoin absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-                            <input type="text" id="wallet-address" placeholder="bc1q..." 
-                                class="w-full bg-dark border border-gray-700 focus:border-btc text-white pl-10 pr-4 py-3 rounded-lg outline-none transition-colors text-sm font-mono">
-                        </div>
-                    </div>
-
-                    <div class="text-left">
-                        <label class="block text-xs font-semibold text-gray-500 uppercase mb-2 ml-1">Select Claim Tier</label>
-                        <div class="relative">
-                            <select id="btc-amount" class="w-full bg-dark border border-gray-700 focus:border-btc text-white px-4 py-3 rounded-lg outline-none appearance-none transition-colors text-sm">
-                                <option value="0.0001">Micro-Satoshi (0.0001 BTC)</option>
-                                <option value="0.001">Standard Payout (0.001 BTC)</option>
-                                <option value="0.01">Jackpot Reward (0.01 BTC)</option>
-                            </select>
-                            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
-                        </div>
-                    </div>
-
-                    <button onclick="startProcessing()" class="group w-full bg-gradient-to-r from-orange-600 to-btc hover:from-orange-500 text-white font-bold py-4 rounded-lg transform active:scale-95 transition-all shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2">
-                        Start Secure Claim <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                    <p class="text-[10px] text-gray-600">Secure connection via: <strong>SHA-256 Encryption</strong></p>
-                </div>
+            <div class="pack-opt">
+              <input type="radio" name="pack" id="p-vc" value="💰 50,000 VC"/>
+              <label class="pack-label" for="p-vc">
+                <span class="pack-icon">💰</span>
+                <span class="pack-name">50K VC</span>
+              </label>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section id="processing-interface" class="hidden w-full max-w-md text-center py-10">
-            <div class="bg-card border border-white/5 p-8 rounded-2xl glow-box relative">
-                <div class="loader mx-auto mb-6"></div>
-                <h3 id="process-status" class="text-xl font-bold text-white animate-pulse">Syncing with Node...</h3>
-                <div class="bg-black/50 rounded p-3 text-left font-mono text-[10px] h-32 overflow-hidden border border-gray-800 mt-4" id="console-output"></div>
-                <div class="w-full bg-gray-800 h-1 rounded-full mt-6 overflow-hidden">
-                    <div id="progress-bar" class="h-full bg-btc w-0 transition-all duration-[3000ms] ease-out"></div>
-                </div>
-            </div>
-        </section>
+        <button class="btn-gen" id="btn-gen" onclick="startGenerate()">
+          ⚡ GENERATE NOW
+        </button>
 
-        <section id="verification-interface" class="hidden w-full max-w-md text-center py-8">
-            <div class="bg-card border border-accent/50 p-8 rounded-2xl glow-box animate-bounce-short">
-                <i class="fa-solid fa-shield-halved text-5xl text-accent mb-4"></i>
-                <h3 class="text-2xl font-display font-bold text-white mb-2">Final Step: Security Check</h3>
-                <p class="text-gray-400 text-sm mb-6">Our system detected a high-value transaction. Complete a quick human verification to release the funds to the blockchain.</p>
-                <button id="verify-btn" onclick="verifyUser()" class="w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-lg shadow-lg shadow-green-500/20 transition-all">
-                    Verify & Withdraw BTC
-                </button>
-            </div>
-        </section>
+      </div><!-- /form-body -->
 
-        <section class="w-full max-w-4xl mt-20 border-t border-white/5 pt-12">
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-2xl font-display font-bold mb-4 text-btc">How the Bitcoin Faucet Works</h2>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        A Bitcoin faucet is a web-based reward system that dispenses small amounts of cryptocurrency for completing tasks. Our platform is funded by top-tier advertisers, allowing us to distribute <strong>free Bitcoin rewards</strong> to the community to promote blockchain adoption.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-500">
-                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> Compatible with Binance, Coinbase, and Ledger.</li>
-                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> Real-time blockchain node synchronization.</li>
-                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> Zero hidden fees or account registration.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-display font-bold mb-4 text-btc">Is BitReward Safe?</h2>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Security is our priority. BitReward uses a <strong>non-custodial system</strong>, meaning we never ask for your private keys or passwords. You only provide your public wallet address. Our verification step ensures that the rewards go to real humans, preventing bot drain and ensuring a fair distribution of Satoshi.
-                    </p>
-                </div>
-            </div>
-        </section>
+      <div class="stat-strip">
+        <div class="stat-item online"><div class="dot"></div><span>Server: <strong>ONLINE</strong></span></div>
+        <div class="stat-item"><span>🌐 Users Online: <strong id="online-count">1,342</strong></span></div>
+        <div class="stat-item"><span>🎫 Codes Left: <strong id="codes-count">47</strong></span></div>
+      </div>
+    </div>
 
-        <section class="w-full max-w-2xl mt-20">
-            <h2 class="text-center text-3xl font-display font-bold mb-8">Beginner FAQ: Free Bitcoin</h2>
-            <div class="space-y-4">
-                <details class="bg-card border border-white/5 rounded-lg group">
-                    <summary class="list-none flex justify-between items-center p-4 cursor-pointer font-semibold text-sm">
-                        What is the minimum withdrawal amount?
-                        <i class="fa-solid fa-chevron-down text-xs transition group-open:rotate-180"></i>
-                    </summary>
-                    <div class="px-4 pb-4 text-xs text-gray-500 leading-relaxed">
-                        Our faucet currently supports three reward tiers. Once you complete the verification, the selected amount is sent directly to your wallet address without any minimum thresholds or holding periods.
-                    </div>
-                </details>
-                <details class="bg-card border border-white/5 rounded-lg group">
-                    <summary class="list-none flex justify-between items-center p-4 cursor-pointer font-semibold text-sm">
-                        Can I earn Bitcoin daily without investment?
-                        <i class="fa-solid fa-chevron-down text-xs transition group-open:rotate-180"></i>
-                    </summary>
-                    <div class="px-4 pb-4 text-xs text-gray-500 leading-relaxed">
-                        Yes! Users can request a reward every 10 minutes. This ensures the network remains stable while allowing everyone a chance to earn free crypto rewards consistently.
-                    </div>
-                </details>
-            </div>
-        </section>
+  </section><!-- /phase1 -->
 
-        <section class="w-full max-w-2xl mt-16 bg-card/50 border border-white/5 p-4 rounded-xl backdrop-blur-sm overflow-hidden">
-            <h3 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 flex items-center">
-                <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-ping"></span> Live Payout Feed
-            </h3>
-            <div id="transaction-list" class="space-y-2 h-32 overflow-hidden"></div>
-        </section>
 
-        <footer class="mt-20 py-8 border-t border-white/5 w-full text-center text-[10px] text-gray-600">
-            <div class="mb-4 space-x-4">
-                <a href="#" class="hover:text-btc transition">Privacy Policy</a>
-                <a href="#" class="hover:text-btc transition">Blockchain Status</a>
-                <a href="#" class="hover:text-btc transition">Support</a>
-            </div>
-            <p>© 2026 BitReward. The world's most trusted Bitcoin Faucet.</p>
-        </footer>
-    </main>
+  <!-- ══════════════════════════════════
+       PHASE 2 — TERMINAL ANIMATION
+  ══════════════════════════════════ -->
+  <section class="phase" id="phase2">
 
-    <script>
-        const transactionList = document.getElementById('transaction-list');
-        const mainInterface = document.getElementById('main-interface');
-        const processingInterface = document.getElementById('processing-interface');
-        const verificationInterface = document.getElementById('verification-interface');
-        const consoleOutput = document.getElementById('console-output');
+    <div class="terminal-wrap">
 
-        function startProcessing() {
-            const wallet = document.getElementById('wallet-address').value;
-            if(wallet.length < 10) return alert("Please enter a valid BTC address.");
-            
-            mainInterface.classList.add('hidden');
-            processingInterface.classList.remove('hidden');
-            document.getElementById('progress-bar').style.width = '100%';
+      <!-- titlebar -->
+      <div class="term-bar">
+        <div class="term-dots">
+          <div class="term-dot td-r"></div>
+          <div class="term-dot td-y"></div>
+          <div class="term-dot td-g"></div>
+        </div>
+        <div class="term-title">quikfun_generator_v4.2 — bash</div>
+      </div>
 
-            const logs = [
-                "> Connecting to Bitcoin Mainnet...",
-                "> Locating available Satoshi pool...",
-                "> Validating address integrity...",
-                "> Peer-to-peer handshake successful.",
-                "> <span class='text-yellow-500'>ACTION REQUIRED: Complete Verification.</span>"
-            ];
+      <!-- terminal lines (shown via JS) -->
+      <div class="term-body" id="term-body">
+        <div class="term-line" id="tl0"><span class="term-prompt">$</span><span class="term-text">Initializing QuikFun Code Generator v4.2...</span></div>
+        <div class="term-line" id="tl1"><span class="term-prompt">$</span><span class="term-text">Establishing secure tunnel to 2K servers...</span></div>
+        <div class="term-line" id="tl2"><span class="term-prompt">$</span><span class="term-text hi-green">✓ Connection established — 256-bit SSL active</span></div>
+        <div class="term-line" id="tl3"><span class="term-prompt">$</span><span class="term-text">Searching for unused locker codes...</span></div>
+        <div class="term-line" id="tl4"><span class="term-prompt">$</span><span class="term-text hi-gold">Scanning pool: 847,291 available entries...</span></div>
+        <div class="term-line" id="tl5"><span class="term-prompt">$</span><span class="term-text hi-red">Bypassing security layer 1 of 3...</span></div>
+        <div class="term-line" id="tl6"><span class="term-prompt">$</span><span class="term-text hi-red">Bypassing security layer 2 of 3...</span></div>
+        <div class="term-line" id="tl7"><span class="term-prompt">$</span><span class="term-text hi-red">Bypassing security layer 3 of 3...</span></div>
+        <div class="term-line" id="tl8"><span class="term-prompt">$</span><span class="term-text hi-green">✓ All layers cleared — injecting credentials...</span></div>
+        <div class="term-line" id="tl9"><span class="term-prompt">$</span><span class="term-text">Matching account: <span id="term-user-display"></span> [<span id="term-platform-display"></span>]</span></div>
+        <div class="term-line" id="tl10"><span class="term-prompt">$</span><span class="term-text hi-cyan">Generating unique code hash...</span></div>
+        <div class="term-line" id="tl11"><span class="term-prompt">$</span><span class="term-text hi-gold" id="tl11-text">Code Found: WWE26-H8K2-XXXX</span></div>
+        <div class="term-line" id="tl12"><span class="term-prompt">$</span><span class="term-text hi-green">✓ Code ready — awaiting human verification...</span></div>
+        <div class="term-line" id="tl-cur"><span class="term-prompt">$</span><span class="term-text"><span class="cursor"></span></span></div>
+      </div>
 
-            let i = 0;
-            const logInterval = setInterval(() => {
-                if(i < logs.length) {
-                    const d = document.createElement('div');
-                    d.innerHTML = logs[i];
-                    consoleOutput.appendChild(d);
-                    i++;
-                } else {
-                    clearInterval(logInterval);
-                    setTimeout(() => {
-                        processingInterface.classList.add('hidden');
-                        verificationInterface.classList.remove('hidden');
-                    }, 1500);
-                }
-            }, 600);
-        }
+      <!-- progress -->
+      <div class="term-progress">
+        <div class="prog-meta">
+          <span id="prog-label">Connecting…</span>
+          <span id="prog-pct">0%</span>
+        </div>
+        <div class="prog-track">
+          <div class="prog-fill" id="prog-fill"></div>
+        </div>
+        <div class="term-target">
+          <span>▶ Target:</span>
+          <span id="term-user-display2">—</span>
+          <span>|</span>
+          <span id="term-platform-display2">—</span>
+          <span>|</span>
+          <span id="term-pack-display">—</span>
+        </div>
+      </div>
 
-        function verifyUser() {
-            const btn = document.getElementById('verify-btn');
-            btn.innerText = "Redirecting to Secure Node...";
-            btn.disabled = true;
-            window.location.href = "https://quikfun.info/cl/i/4o245r";
-        }
+    </div><!-- /terminal-wrap -->
 
-        function addTx() {
-            const tx = document.createElement('div');
-            tx.className = 'flex justify-between text-[10px] py-1 border-b border-white/5 opacity-0 transition-opacity duration-500';
-            tx.innerHTML = `<span>bc1...${Math.random().toString(36).substring(7)}</span> <span class="text-btc font-bold">${(Math.random() * 0.005).toFixed(5)} BTC</span> <span class="text-green-500">Confirmed</span>`;
-            transactionList.prepend(tx);
-            setTimeout(() => tx.classList.remove('opacity-0'), 100);
-            if(transactionList.children.length > 5) transactionList.removeChild(transactionList.lastChild);
-        }
-        setInterval(addTx, 4000);
-    </script>
+  </section><!-- /phase2 -->
+
+
+  <!-- ══════════════════════════════════
+       PHASE 3 — RESULT / CAPTURE ZONE
+  ══════════════════════════════════ -->
+  <section class="phase" id="phase3">
+
+    <div class="result-eyebrow"><div class="dot"></div>Code Generated Successfully</div>
+
+    <div class="result-card">
+
+      <div class="result-accent"></div>
+
+      <!-- status -->
+      <div class="result-status">
+        <div class="r-status-ok"><div class="dot"></div>SERVER ONLINE</div>
+        <div class="codes-tag">CODES LEFT: <strong id="r-codes">46</strong></div>
+      </div>
+
+      <div class="result-body">
+
+        <!-- trophy -->
+        <div class="trophy-ring">🏆</div>
+
+        <h2 class="result-title">CODE READY!</h2>
+        <p class="result-sub">Your <strong id="r-pack-label">💎 Diamond Pack</strong> locker code has been generated.</p>
+
+        <!-- code display -->
+        <div class="code-box">
+          <div class="code-lbl">Your Generated Code</div>
+          <div class="code-str">
+            <span class="cv">WWE26-H8K2-</span><span class="ch">••••-••••-••••••</span>
+          </div>
+          <div class="lock-tag">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--red)" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 8h-1V6A5 5 0 0 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0v2z"/>
+            </svg>
+            LOCKED — Verify to reveal full code
+          </div>
+        </div>
+
+        <!-- trust badges -->
+        <div class="badges">
+          <div class="badge">
+            <div class="b-icon">🔒</div>
+            <div class="b-text">SSL<br>Secured</div>
+          </div>
+          <div class="badge">
+            <div class="b-icon">✅</div>
+            <div class="b-text">100%<br>Safe</div>
+          </div>
+          <div class="badge">
+            <div class="b-icon">⚡</div>
+            <div class="b-text">Instant<br>Unlock</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <button class="btn-verify" onclick="openLocker()">
+          🔓 VERIFY NOW — GET CODE
+        </button>
+
+        <p class="just-text">
+          Verification is required to <strong>prevent automated bots</strong> from draining the code pool. 
+          Takes <strong>less than 60 seconds</strong>. Your code will be revealed <strong>immediately after</strong>.
+        </p>
+
+      </div><!-- /result-body -->
+
+      <div class="sec-strip">
+        <div class="sec-item"><span>🌐</span>256-bit Encrypted</div>
+        <div class="sec-item"><span>🛡️</span>Ban-Safe</div>
+        <div class="sec-item"><span>🌍</span>All Regions</div>
+      </div>
+
+    </div><!-- /result-card -->
+
+    <div class="reset-wrap">
+      <button class="reset-link" onclick="resetAll()">↩ Start Over / Generate New Code</button>
+    </div>
+
+  </section><!-- /phase3 -->
+
+</main>
+
+<footer>
+  <p class="foot-text">
+    QuikFun.com is an independent fan utility and is not affiliated with, endorsed by, or connected to 2K Games, WWE, or Take-Two Interactive Software, Inc.
+    All trademarks and copyrights belong to their respective owners. For entertainment purposes only.
+  </p>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════
+     CONTENT LOCKER OVERLAY
+     Shows "One Last Step" briefly, then immediately hands
+     control to OGAds via call_locker().
+     OGAds renders its own full-screen locker on top.
+══════════════════════════════════════════════════════ -->
+<div id="locker-overlay" role="dialog" aria-modal="true">
+  <div class="locker-modal">
+
+    <div class="locker-icon">🔐</div>
+    <h2 class="locker-h">One Last Step</h2>
+    <p class="locker-p">
+      Complete a quick <strong>Human Verification</strong> to confirm you're not a bot.
+      Your <strong id="locker-pack-label">Diamond Pack</strong> code unlocks instantly after.
+    </p>
+
+    <!-- Blurred code preview -->
+    <div class="locker-code" aria-hidden="true">WWE26-H8K2-X9QF-3M7R-ABCD12</div>
+
+    <!-- Direct click → call_locker() fires synchronously inside this handler -->
+    <button id="btn-complete" class="btn-verify" style="margin-bottom:14px;font-size:1.3rem;" onclick="fireLocker()">
+      🔓 COMPLETE VERIFICATION
+    </button>
+
+    <button class="locker-close" onclick="closeLocker()">✕ Cancel</button>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════════ -->
+<script>
+/* ─── SOUND EFFECTS (Web Audio API — no external files needed) ─── */
+const AudioCtx = window.AudioContext || window.webkitAudioContext;
+let actx;
+
+function getACtx(){
+  if(!actx){ try{ actx = new AudioCtx(); }catch(e){} }
+  return actx;
+}
+
+function playClick(){
+  const ctx = getACtx(); if(!ctx) return;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.type = 'square';
+  osc.frequency.setValueAtTime(880, ctx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(220, ctx.currentTime + .08);
+  gain.gain.setValueAtTime(.12, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .12);
+  osc.start(); osc.stop(ctx.currentTime + .15);
+}
+
+function playBeep(freq=440, dur=.08, vol=.08){
+  const ctx = getACtx(); if(!ctx) return;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.type = 'sine'; osc.frequency.value = freq;
+  gain.gain.setValueAtTime(vol, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + dur);
+  osc.start(); osc.stop(ctx.currentTime + dur + .01);
+}
+
+function playSuccess(){
+  const ctx = getACtx(); if(!ctx) return;
+  [523,659,784,1047].forEach((f,i)=>{
+    setTimeout(()=>playBeep(f,.12,.09),i*90);
+  });
+}
+
+/* ─── LIVE STAT FLUCTUATION ─── */
+let onlineN=1342, codesN=47;
+setInterval(()=>{
+  onlineN += Math.floor(Math.random()*7)-3;
+  if(onlineN<800) onlineN=800;
+  document.getElementById('online-count').textContent = onlineN.toLocaleString();
+},3200);
+setInterval(()=>{
+  if(codesN>5 && Math.random()>.6){
+    codesN--;
+    document.getElementById('codes-count').textContent = codesN;
+    document.getElementById('r-codes').textContent = codesN;
+  }
+},8500);
+
+/* ─── PHASE SWITCHER ─── */
+function showPhase(id){
+  document.querySelectorAll('.phase').forEach(p=>{
+    p.classList.remove('active');
+  });
+  const el = document.getElementById(id);
+  el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ─── VALIDATION ─── */
+function validate(){
+  const gt = document.getElementById('gamertag').value.trim();
+  const pl = document.getElementById('platform').value;
+  if(!gt){ flashField('gamertag'); return false; }
+  if(!pl){ flashField('platform'); return false; }
+  return true;
+}
+function flashField(id){
+  const el=document.getElementById(id);
+  el.style.borderColor='var(--red)';
+  el.style.boxShadow='0 0 0 3px rgba(230,0,0,.15)';
+  setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},1600);
+}
+
+/* ─── GENERATE (Phase 1 → 2 → 3) ─── */
+function startGenerate(){
+  if(!validate()) return;
+  playClick();
+
+  const gt   = document.getElementById('gamertag').value.trim();
+  const pl   = document.getElementById('platform').value;
+  const pack = document.querySelector('input[name="pack"]:checked').value;
+
+  // prefill terminal
+  document.getElementById('term-user-display').textContent  = gt;
+  document.getElementById('term-user-display2').textContent = gt;
+  document.getElementById('term-platform-display').textContent  = pl;
+  document.getElementById('term-platform-display2').textContent = pl;
+  document.getElementById('term-pack-display').textContent  = pack;
+  document.getElementById('r-pack-label').textContent       = pack;
+  document.getElementById('locker-pack-label').textContent  = pack;
+
+  // reset terminal lines
+  document.querySelectorAll('.term-line').forEach(l=>l.classList.remove('visible'));
+  document.getElementById('prog-fill').style.width='0%';
+  document.getElementById('prog-pct').textContent='0%';
+
+  showPhase('phase2');
+  runTerminal();
+}
+
+/* ─── TERMINAL SEQUENCE ─── */
+const PROG_LABELS = [
+  'Connecting…','Tunnel active…','Searching pool…',
+  'Scanning…','Bypassing…','Bypassing…','Bypassing…',
+  'Injecting…','Matching account…','Generating hash…',
+  'Code found!','Awaiting verification…'
+];
+
+const LINE_TIMING = [0,600,1100,1700,2200,2900,3600,4200,4700,5300,5900,6600,7200,7800];
+// pct reached at each step (14 steps → index 0..13)
+const PROG_AT    = [0,5,14,22,30,38,48,58,65,73,82,92,100,100];
+
+function runTerminal(){
+  let lineIdx = 0;
+  let pct = 0;
+
+  function showLine(idx){
+    const el = document.getElementById('tl'+idx);
+    if(el) el.classList.add('visible');
+    playBeep(440 + idx*30, .06, .05);
+    // update progress to target
+    const target = PROG_AT[idx] || 0;
+    animateProg(pct, target, 500, idx);
+    pct = target;
+  }
+
+  LINE_TIMING.forEach((ms, i)=>{
+    setTimeout(()=>{
+      showLine(i);
+      document.getElementById('prog-label').textContent = PROG_LABELS[i]||'Processing…';
+    }, ms);
+  });
+
+  // cursor line
+  setTimeout(()=>{
+    document.getElementById('tl-cur').classList.add('visible');
+  }, LINE_TIMING[LINE_TIMING.length-1] + 200);
+
+  // transition to phase 3
+  setTimeout(()=>{
+    playSuccess();
+    showPhase('phase3');
+  }, LINE_TIMING[LINE_TIMING.length-1] + 1200);
+}
+
+function animateProg(from, to, dur, idx){
+  const fill  = document.getElementById('prog-fill');
+  const pctEl = document.getElementById('prog-pct');
+  const start = performance.now();
+  function step(now){
+    const t = Math.min((now-start)/dur, 1);
+    const ease = t<.5 ? 2*t*t : -1+(4-2*t)*t;
+    const cur = Math.round(from + (to-from)*ease);
+    fill.style.width = cur+'%';
+    pctEl.textContent = cur+'%';
+    if(t<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENT LOCKER — STRICT LAZY INJECTION
+   ─────────────────────────────────────────────────────────────
+   RULE: Zero OGAds code touches the page until the user reaches
+   Phase 3 AND clicks "VERIFY NOW". Nothing runs on page load,
+   nothing runs during typing, nothing runs during the animation.
+═══════════════════════════════════════════════════════════════ */
+
+// Internal state flags
+var _ogScriptInjected = false;   // true once the <script> tag is in the DOM
+var _ogScriptReady    = false;   // true once the script has fully loaded
+
+// ── STEP 1 ── Called ONLY by the "VERIFY NOW" button in Phase 3
+// Shows the modal and injects the OGAds script for the first time
+function openLocker(){
+  playClick();
+
+  // Show "One Last Step" modal
+  document.getElementById('locker-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Inject the OGAds script NOW (first time only)
+  injectLockerScript();
+}
+
+// ── STEP 2 ── Dynamically inject the OGAds script tag once
+// The script is NEVER in the document before this function runs
+function injectLockerScript(){
+  // Guard: only inject once
+  if(_ogScriptInjected) return;
+  _ogScriptInjected = true;
+
+  // Show loading state on the button while script fetches
+  var btn = document.getElementById('btn-complete');
+  if(btn){ btn.textContent = '⏳ Loading Verification...'; btn.disabled = true; }
+
+  var s   = document.createElement('script');
+  s.id    = 'ogjs';
+  s.type  = 'text/javascript';
+  s.src   = 'https://quikfun.info/cl/js/exxkkd';
+
+  s.onload = function(){
+    _ogScriptReady = true;
+    // Restore button — user must click it themselves (browser gesture rule)
+    if(btn){ btn.textContent = '🔓 COMPLETE VERIFICATION'; btn.disabled = false; }
+  };
+
+  s.onerror = function(){
+    // Script failed to load (network / ad-blocker)
+    _ogScriptInjected = false; // allow retry
+    if(btn){ btn.textContent = '⚠️ Retry Verification'; btn.disabled = false; }
+  };
+
+  document.head.appendChild(s);
+}
+
+// ── STEP 3 ── Called ONLY by the "COMPLETE VERIFICATION" button click
+// This is a direct synchronous user-gesture → call_locker() works here
+function fireLocker(){
+  if(typeof call_locker === 'function'){
+    // Direct call — same synchronous click stack, no wrappers
+    call_locker();
+  } else if(!_ogScriptInjected){
+    // Script was never injected (edge case) — inject now and wait for user re-tap
+    injectLockerScript();
+  } else {
+    // Script injected but not yet loaded — show feedback, user taps again when ready
+    var btn = document.getElementById('btn-complete');
+    if(btn && !btn.disabled){ btn.textContent = '⏳ Almost ready, tap again...'; }
+  }
+}
+
+function closeLocker(){
+  document.getElementById('locker-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('locker-overlay').addEventListener('click', function(e){
+  if(e.target === this) closeLocker();
+});
+// Close on Escape key
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLocker();
+});
+
+/* ─── RESET ─── */
+function resetAll(){
+  playClick();
+  document.getElementById('gamertag').value='';
+  document.getElementById('platform').value='';
+  document.getElementById('p-diamond').checked=true;
+  showPhase('phase1');
+}
+
+/* ─── ADD CLICK SOUNDS TO ALL INTERACTIVE ELEMENTS ─── */
+document.addEventListener('click', e=>{
+  if(e.target.tagName==='BUTTON'||e.target.tagName==='INPUT'||e.target.tagName==='SELECT') return;
+  const closest = e.target.closest('label.pack-label, .reset-link, .locker-close');
+  if(closest) playClick();
+}, true);
+</script>
+
 </body>
 </html>
