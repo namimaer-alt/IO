@@ -1,218 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIKFUN - Roblox Official Rewards 2026</title>
-    <link rel="icon" type="image/x-icon" href="https://d39fkvblvwpxa1.cloudfront.net/uploads/1737700458ba7cab444a522b7c8e71b8233099cf2c.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Update 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Exo+2:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --yellow: #f5e642;
+      --yellow-dark: #c9bc00;
+      --bg: #1a1a1a;
+      --text: #e8e8e8;
+      --text-dim: #888;
+      --border: #333;
+      --card: #252525;
+      --red: #e74c3c;
+    }
+    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'Exo 2', sans-serif; overflow-x: hidden; }
+
+    /* BG Layers */
+    .bg-layer { position: fixed; inset: 0; z-index: 0; background: linear-gradient(135deg, #0e0e0e 0%, #1c1c1c 40%, #141414 100%); overflow: hidden; }
+    .bg-layer::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px); }
+    .bg-glow { position: absolute; top: -30%; left: -20%; width: 80%; height: 80%; background: radial-gradient(ellipse, rgba(245,230,66,0.04) 0%, transparent 65%); pointer-events: none; }
+    .bg-glow2 { position: absolute; bottom: -20%; right: -10%; width: 60%; height: 60%; background: radial-gradient(ellipse, rgba(245,230,66,0.03) 0%, transparent 65%); pointer-events: none; }
+    .bg-lines { position: absolute; inset: 0; overflow: hidden; opacity: 0.07; }
+    .bg-lines span { position: absolute; display: block; background: linear-gradient(90deg, transparent, rgba(245,230,66,0.5), transparent); height: 1px; width: 250%; transform-origin: left center; left: -30%; }
+    .bg-lines span:nth-child(1) { top: 20%; transform: rotate(-15deg); }
+    .bg-lines span:nth-child(2) { top: 45%; transform: rotate(-15deg); opacity: 0.5; }
+    .bg-lines span:nth-child(3) { top: 70%; transform: rotate(-15deg); opacity: 0.3; }
+
+    /* LOADER */
+    #loader { position: fixed; inset: 0; z-index: 9999; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; transition: opacity 0.7s ease; }
+    #loader.fade-out { opacity: 0; pointer-events: none; }
+    .loader-icon { font-size: 64px !important; color: var(--yellow); animation: spin 2s linear infinite; display: block; filter: drop-shadow(0 0 20px rgba(245,230,66,0.5)); }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .loader-bar-wrap { width: 180px; height: 6px; background: #333; border-radius: 3px; overflow: hidden; }
+    .loader-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--yellow-dark), var(--yellow)); border-radius: 3px; transition: width 2s ease; box-shadow: 0 0 10px var(--yellow); }
+
+    /* PAGE STRUCTURE */
+    .page { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 16px; opacity: 0; transition: opacity 0.5s ease 0.3s; }
+    .page.visible { opacity: 1; }
+    .site-header { display: flex; align-items: center; gap: 14px; margin-bottom: 36px; }
+    .site-header img { height: 54px; filter: drop-shadow(0 0 12px rgba(245,230,66,0.4)); }
+    .site-header h1 { font-family: 'Rajdhani', sans-serif; font-size: clamp(22px, 5vw, 34px); font-weight: 700; color: var(--yellow); letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 20px rgba(245,230,66,0.3); }
+
+    /* CARD DESIGN */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px 28px; width: 100%; max-width: 480px; position: relative; box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,230,66,0.06) inset; }
+    .card::before { content: ''; position: absolute; top: 0; left: 20px; right: 20px; height: 1px; background: linear-gradient(90deg, transparent, rgba(245,230,66,0.3), transparent); }
+    .step-badge { position: absolute; top: -16px; left: 28px; background: var(--yellow); color: #111; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 14px rgba(245,230,66,0.5); }
+    .card-title { font-size: 13px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px; margin-top: 8px; }
+
+    /* INPUTS & PLATFORMS */
+    .input-wrap { display: flex; align-items: center; gap: 10px; background: #1e1e1e; border: 1px solid var(--border); border-radius: 8px; padding: 0 14px; margin-bottom: 8px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .input-wrap:focus-within { border-color: var(--yellow); box-shadow: 0 0 0 3px rgba(245,230,66,0.1); }
+    .input-wrap .material-icons-two-tone { color: var(--yellow); font-size: 20px; opacity: 0.8; }
+    .input-wrap input { flex: 1; background: none; border: none; outline: none; color: var(--text); font-family: 'Exo 2', sans-serif; font-size: 14px; padding: 13px 0; }
+    .input-wrap input::placeholder { color: #555; }
+    .platforms { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+    .plat-item { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 60px; }
+    .plat { width: 100%; aspect-ratio: 1; background: #1e1e1e; border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #666; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
+    .plat.active { border-color: var(--yellow); box-shadow: 0 0 16px rgba(245,230,66,0.25); }
+    .plat.active i { color: var(--yellow); }
+    .proceed-btn { width: 100%; margin-top: 22px; padding: 14px; background: linear-gradient(135deg, #d4c800, var(--yellow)); color: #111; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 20px rgba(245,230,66,0.3); }
+
+    /* GIFT CARD - RESPONSIVE FIX */
+    .gift-card-visual {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border: 1px solid rgba(245,230,66,0.2);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .gift-card-amount { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: var(--yellow); text-shadow: 0 0 20px rgba(245,230,66,0.3); }
     
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    .code-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; background: rgba(0,0,0,0.4); 
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 10px 14px;
+    }
+    .code-segment, .code-dash, .code-hidden {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 18px; letter-spacing: 2px; color: #fff;
+    }
+    .code-hidden { color: rgba(255,255,255,0.15); }
+    .code-hidden.revealed { color: var(--yellow); text-shadow: 0 0 10px rgba(245,230,66,0.4); }
 
-        :root {
-            --primary: #00e676; /* Roblox Green modern */
-            --bg-dark: #0a0b0c;
-            --card-bg: rgba(26, 27, 29, 0.95); /* Glass base */
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
+    /* FAKE PROOF STYLES */
+    .fake-proof {
+      position: fixed; bottom: 20px; left: 20px; z-index: 1000;
+      background: rgba(30, 30, 30, 0.95); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 15px; display: flex; align-items: center;
+      gap: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      transform: translateY(150%); transition: transform 0.5s ease;
+      max-width: 280px; backdrop-filter: blur(5px);
+    }
+    .fake-proof.show { transform: translateY(0); }
+    .proof-img { width: 40px; height: 40px; background: var(--yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #111; font-weight: bold; font-size: 18px; flex-shrink: 0; }
+    .proof-content { font-size: 12px; color: var(--text); line-height: 1.4; }
+    .proof-content b { color: var(--yellow); }
+    .proof-time { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
-        body { background-color: var(--bg-dark); color: #fff; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+    /* MOBILE SPECIFIC CSS */
+    @media (max-width: 480px) {
+      .card { padding: 24px 18px; }
+      .gift-card-visual { padding: 18px 14px; }
+      .code-row { padding: 8px 6px; gap: 3px; }
+      .code-segment, .code-dash, .code-hidden { font-size: 14px; letter-spacing: 1px; }
+      .lock-icon { font-size: 14px !important; }
+      .fake-proof { left: 10px; bottom: 10px; right: 10px; max-width: calc(100% - 20px); }
+    }
 
-        /* Navbar */
-        .navbar {
-            width: 100%; height: 80px; background: rgba(10, 11, 12, 0.85);
-            backdrop-filter: blur(15px); display: flex; align-items: center;
-            justify-content: space-around; border-bottom: 1px solid var(--glass-border);
-            position: sticky; top: 0; z-index: 1000;
-        }
-        .profile { display: flex; align-items: center; }
-        .profileimg { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); padding: 2px; }
-        .profileimg img { width: 100%; border-radius: 50%; }
-        .text { margin-left: 12px; }
-        .text h4 { font-size: 16px; font-weight: 700; letter-spacing: 0.5px; }
-        .text p { font-size: 10px; color: var(--primary); text-transform: uppercase; font-weight: 700; }
+    /* OGAds Frame Fix */
+    #ogadsFrame { width:100%; min-height:550px; border-radius:10px; border:none; background:transparent; overflow:hidden; }
 
-        .how-btn {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
-            border-radius: 12px; padding: 10px 22px; color: #fff; cursor: pointer;
-            transition: 0.3s; font-weight: 600; font-size: 14px;
-        }
-        .how-btn:hover { background: #fff; color: #000; }
-
-        /* Main Container */
-        .container {
-            flex: 1;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 230, 118, 0.12) 0%, transparent 80%), 
-                        url('https://wallpaperaccess.com/full/8489366.jpg') center/cover no-repeat;
-            position: relative; display: flex; flex-direction: column; align-items: center; padding-top: 50px;
-        }
-        .container::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.82); z-index: 1; }
-
-        .boxholder { position: relative; z-index: 2; width: 100%; max-width: 500px; padding: 0 20px; }
-
-        /* Premium Glassmorphism Box */
-        .box-premium {
-            background: var(--card-bg); backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border); border-radius: 30px;
-            padding: 55px 40px; text-align: center;
-            box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.6);
-            animation: slideUp 0.6s ease-out;
-            transition: all 0.3s ease;
-        }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        .logo-rbx { width: 180px; margin-bottom: 30px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
-        .maintxt { color: #ccc; font-size: 14px; margin-bottom: 30px; line-height: 1.6; font-weight: 400; }
-
-        /* Input & Buttons */
-        input {
-            width: 100%; padding: 18px; background: rgba(0,0,0,0.5);
-            border: 1px solid var(--glass-border); border-radius: 16px;
-            color: #fff; font-size: 16px; margin-bottom: 22px; transition: 0.3s; outline: none;
-        }
-        input:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 230, 118, 0.2); }
-
-        .btn-main {
-            width: 100%; padding: 18px; background: var(--primary); border: none;
-            border-radius: 16px; color: #000; font-size: 17px; font-weight: 800;
-            cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(0, 230, 118, 0.2);
-        }
-        .btn-main:hover { transform: scale(1.02); box-shadow: 0 10px 30px rgba(0, 230, 118, 0.5); }
-
-        /* Live Stats Under Box */
-        .live-stats {
-            display: flex; justify-content: space-between; margin-top: 30px;
-            font-size: 12px; color: #888; width: 100%; border-top: 1px solid var(--glass-border); padding-top: 18px;
-        }
-        .stat-item { display: flex; align-items: center; }
-        .dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; margin-right: 6px; animation: blinkStatus 1.5s infinite alternate; }
-        @keyframes blinkStatus { 0% { opacity: 0.4; } 100% { opacity: 1; } }
-
-        /* Real-time Notifications */
-        #notification-box {
-            position: fixed; bottom: 20px; left: 20px; z-index: 2000;
-            background: rgba(26, 27, 29, 0.98); border: 1px solid var(--primary);
-            padding: 12px 20px; border-radius: 15px; display: none;
-            align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            animation: slideInLeft 0.5s ease-out;
-            max-width: 300px;
-        }
-        @keyframes slideInLeft { from { transform: translateX(-120%); } to { transform: translateX(0); } }
-        .notif-img { width: 30px; margin-right: 12px; }
-        .notif-text { font-size: 13px; font-weight: 500; line-height: 1.4; color: #eee; }
-        .notif-text span { color: var(--primary); font-weight: 700; }
-
-        /* Footer */
-        .footer { padding: 40px 20px; text-align: center; color: #555; font-size: 11px; z-index: 2; position: relative; }
-        .footer strong { color: var(--primary); }
-    </style>
-    <script src="https://pl28675281.profitablecpmratenetwork.com/c0/a2/a7/c0a2a7f76498b50c6b773a5315b09601.js"></script>
+    /* ANIMATIONS */
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .bounce-in { animation: bounceIn 0.45s ease forwards; }
+    @keyframes bounceIn { 0% { opacity: 0; transform: scale(0.75); } 100% { opacity: 1; transform: scale(1); } }
+    #step2, #step3, #step4 { display: none; }
+  </style>
 </head>
 <body>
 
-    <div id="notification-box">
-        <img src="https://d39fkvblvwpxa1.cloudfront.net/uploads/1737700441f54cda29360d16d1cb0f02e0e32ee181.png" class="notif-img">
-        <div class="notif-text" id="notif-content">User <span>Loading...</span> just received 10,000 Robux!</div>
+<div class="bg-layer"><div class="bg-glow"></div><div class="bg-lines"><span></span></div></div>
+
+<div id="loader">
+  <span class="material-icons-two-tone loader-icon">settings</span>
+  <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+</div>
+
+<div class="fake-proof" id="fakeProof">
+  <div class="proof-img">R</div>
+  <div class="proof-content">
+    <div id="proofText"><b>User123</b> just claimed a <b>$25 Robux Card</b></div>
+    <div class="proof-time">Just now</div>
+  </div>
+</div>
+
+<div class="page" id="mainPage">
+  <header class="site-header">
+    <img src="img/logo-removebg-preview.png" alt="Logo" onerror="this.style.display='none'" />
+    <h1>Update 2026</h1>
+  </header>
+
+  <div class="card" id="step1">
+    <div class="step-badge">1</div>
+    <p class="card-title">Enter username & platform</p>
+    <div class="input-wrap">
+      <span class="material-icons-two-tone">face</span>
+      <input type="text" id="usernameInput" placeholder="Your Username..." />
     </div>
-
-    <nav class="navbar">
-        <div class="profile">
-            <div class="profileimg"><img src="https://d39fkvblvwpxa1.cloudfront.net/uploads/1737700441f54cda29360d16d1cb0f02e0e32ee181.png"></div>
-            <div class="text">
-                <h4>QUIKFUN Official Rewards</h4>
-                <p>Status: Verified</p>
-            </div>
-        </div>
-        <button class="how-btn" onclick="alert('Step 1: Username\nStep 2: Amount\nStep 3: Verification')">How it works?</button>
-    </nav>
-
-    <div class="container">
-        <div class="boxholder">
-            <div class="box-premium step-1">
-                <img src="https://d39fkvblvwpxa1.cloudfront.net/uploads/16649140404249d616d649baaf9da11aa8f051c07c.png" class="logo-rbx">
-                <p class="maintxt">Claim your official Robux rewards pool via <b>QUIKFUN</b> automated system.</p>
-                <input type="text" id="username" placeholder="Enter Roblox Username...">
-                <button class="btn-main" onclick="startConnect()">Connect Account</button>
-                
-                <div class="live-stats">
-                    <div class="stat-item"><span class="dot"></span> Servers: Online</div>
-                    <div class="stat-item">Users: <span id="user-count" style="color:#fff; margin-left:4px;">1,240</span></div>
-                </div>
-            </div>
-
-            <div class="box-premium step-2" style="display:none;">
-                <img src="https://d39fkvblvwpxa1.cloudfront.net/uploads/1737700441f54cda29360d16d1cb0f02e0e32ee181.png" style="width:80px; animation: pulse 1s infinite alternate;">
-                <h3 id="load-text" style="margin-top:25px; letter-spacing:1px; font-weight:600;">Connecting...</h3>
-            </div>
-
-            <div class="box-premium step-3" style="display:none;">
-                <h3 style="margin-bottom:25px;">Select Robux Package</h3>
-                <div class="btn-main" style="background:#fff; color:#000; margin-bottom:15px; font-size:15px; display:flex; justify-content:space-between; align-items:center;" onclick="goToVerify()"><span>FREE</span> <span style="font-weight:700;">1,700 Robux</span></div>
-                <div class="btn-main" style="background:#fff; color:#000; margin-bottom:15px; font-size:15px; display:flex; justify-content:space-between; align-items:center;" onclick="goToVerify()"><span>FREE</span> <span style="font-weight:700;">4,500 Robux</span></div>
-                <div class="btn-main" style="margin-bottom:15px; font-size:15px; display:flex; justify-content:space-between; align-items:center;" onclick="goToVerify()"><span>FREE</span> <span style="font-weight:700;">10,000 Robux</span></div>
-            </div>
-
-            <div class="box-premium step-4" style="display:none;">
-                <h2 style="color:var(--primary); margin-bottom:15px; font-weight:700;">Final Verification</h2>
-                <p class="maintxt">Data synced for <b><span id="final-user" style="color:#fff;"></span></b>. Perform human verification to release the Robux to your account.</p>
-                <button class="btn-main" onclick="openLockerDirect()">Verify & Receive</button>
-            </div>
-        </div>
+    <div class="platforms">
+      <div class="plat-item"><div class="plat" data-platform="PC" data-icon="fab fa-windows"><i class="fab fa-windows"></i></div></div>
+      <div class="plat-item"><div class="plat" data-platform="Xbox" data-icon="fab fa-xbox"><i class="fab fa-xbox"></i></div></div>
+      <div class="plat-item"><div class="plat" data-platform="Android" data-icon="fab fa-android"><i class="fab fa-android"></i></div></div>
+      <div class="plat-item"><div class="plat" data-platform="iOS" data-icon="fab fa-apple"><i class="fab fa-apple"></i></div></div>
     </div>
+    <button class="proceed-btn" id="proceedBtn">Proceed</button>
+  </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 <strong>QUIKFUN Official Portal</strong>. All rights reserved.</p>
-        <p style="margin-top:10px; opacity:0.5; font-size:10px;">Protected by DMCA. Unauthorized duplication is illegal.</p>
-    </footer>
+  <div class="card" id="step2">
+    <div class="step-badge">2</div>
+    <div style="text-align:center">
+      <span class="material-icons-two-tone fa-spin" style="font-size:48px;color:var(--yellow)">rotate_right</span>
+      <h2 style="font-family:'Rajdhani';margin:10px 0;color:var(--yellow)">Verifying Account</h2>
+      <div style="background:#1e1e1e;height:8px;border-radius:4px;overflow:hidden;margin:15px 0">
+        <div id="progressBar" style="width:0%;height:100%;background:var(--yellow);transition:0.3s"></div>
+      </div>
+      <p id="progressPct" style="font-size:12px;color:var(--text-dim)">0%</p>
+    </div>
+  </div>
 
-    <script>
-        const s1 = document.querySelector('.step-1'), s2 = document.querySelector('.step-2'), 
-              s3 = document.querySelector('.step-3'), s4 = document.querySelector('.step-4');
-        const userInp = document.getElementById('username'), loadTxt = document.getElementById('load-text');
+  <div class="card" id="step3">
+    <div class="step-badge">3</div>
+    <div class="gift-card-visual">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
+        <div style="width:30px;height:30px;background:var(--red);border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900">R</div>
+        <div style="font-family:'Rajdhani';font-weight:bold;letter-spacing:1px">ROBLOX GIFT CARD</div>
+      </div>
+      <div class="gift-card-amount">$25.00</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:2px;margin-bottom:15px">ROBUX VALUE</div>
+      <div class="code-row">
+        <span class="code-segment">4RT9</span><span class="code-dash">-</span>
+        <span class="code-segment">KM22</span><span class="code-dash">-</span>
+        <span class="code-segment">QP90</span><span class="code-dash">-</span>
+        <span class="code-hidden" id="seg1">XXXX</span>
+        <span class="material-icons-two-tone" id="lockIcon" style="font-size:18px;margin-left:auto">lock</span>
+      </div>
+    </div>
+    <div id="lockerWrap">
+        <div style="font-size:11px;text-align:center;margin-bottom:10px;color:var(--yellow)">VERIFY TO UNLOCK CODE</div>
+        <iframe id="ogadsFrame" src="https://quikfun.info/cl/i/qnnw94" scrolling="no"></iframe>
+    </div>
+  </div>
+</div>
 
-        // Notification Logic
-        setInterval(() => {
-            const u = ["King_Gamer", "Sara_Roblox", "Dark_Knight", "Gamer_2026"][Math.floor(Math.random()*4)];
-            const a = ["1,700", "4,500", "10,000"][Math.floor(Math.random()*3)];
-            document.getElementById('notif-content').innerHTML = `User <span>${u}</span> just received ${a} Robux!`;
-            const box = document.getElementById('notification-box');
-            box.style.display = 'flex';
-            setTimeout(() => { box.style.display = 'none'; }, 4000);
-        }, 12000);
+<script>
+  // Simple Loader
+  setTimeout(() => { document.getElementById('loaderBar').style.width = '100%'; }, 50);
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('fade-out');
+    document.getElementById('mainPage').classList.add('visible');
+    // Start Fake Proofs after site loads
+    startFakeProofs();
+  }, 2000);
 
-        // Stats Update
-        setInterval(() => {
-            document.getElementById('user-count').innerText = (1100 + Math.floor(Math.random()*400)).toLocaleString();
-        }, 5000);
+  let selectedPlat = '';
+  document.querySelectorAll('.plat').forEach(p => {
+    p.onclick = () => {
+      document.querySelectorAll('.plat').forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+      selectedPlat = p.dataset.platform;
+    };
+  });
 
-        // Navigation
-        function startConnect() {
-            if(userInp.value.length < 3) return alert("Enter valid Username!");
-            s1.style.display='none'; s2.style.display='block';
-            loadTxt.innerText = `Searching for ${userInp.value}...`;
-            setTimeout(() => {
-                loadTxt.innerText = `Syncing QUIKFUN Rewards Cloud...`;
-                setTimeout(() => { s2.style.display='none'; s3.style.display='block'; }, 1500);
-            }, 2000);
-        }
+  document.getElementById('proceedBtn').onclick = () => {
+    if(!selectedPlat || !document.getElementById('usernameInput').value) return alert('Enter details');
+    document.getElementById('step1').style.display = 'none';
+    document.getElementById('step2').style.display = 'block';
+    let p = 0;
+    let iv = setInterval(() => {
+      p += Math.floor(Math.random() * 7) + 2;
+      if(p > 100) p = 100;
+      document.getElementById('progressBar').style.width = p + '%';
+      document.getElementById('progressPct').innerText = p + '%';
+      if(p >= 100) {
+        clearInterval(iv);
+        setTimeout(() => {
+          document.getElementById('step2').style.display = 'none';
+          document.getElementById('step3').style.display = 'block';
+        }, 800);
+      }
+    }, 200);
+  };
 
-        function goToVerify() {
-            s3.style.display='none'; s2.style.display='block';
-            loadTxt.innerText = `Preparing Packets...`;
-            setTimeout(() => {
-                document.getElementById('final-user').innerText = userInp.value;
-                s2.style.display='none'; s4.style.display='block';
-            }, 2000);
-        }
+  // FAKE PROOF LOGIC
+  function startFakeProofs() {
+    const users = ['ProGamer_99', 'RobloxKing', 'Alex_Smith', 'Sarah_Gamer', 'Elite_Player', 'Ninja_X', 'X-Hacker-X', 'Bella_Games', 'TheRedDev', 'Z-Robux-Z'];
+    const proofElement = document.getElementById('fakeProof');
+    const proofText = document.getElementById('proofText');
 
-        // --- L-FIX L-AKHIR DYAL L-LOCKER ---
-        function openLockerDirect() {
-            console.log("Direct Trigger: Loading Locker...");
-            // Bach nt-fadaw ga3 Conflicts dyal Auto-open, ghadi n-redigiriw direct
-            window.location.href = "https://quikfun.info/cl/i/qnnw94";
-        }
-    </script>
+    function showProof() {
+      const randomUser = users[Math.floor(Math.random() * users.length)];
+      proofText.innerHTML = `<b>${randomUser}</b> just claimed a <b>$25 Robux Card</b>`;
+      proofElement.classList.add('show');
+      
+      setTimeout(() => {
+        proofElement.classList.remove('show');
+      }, 4000);
+    }
+
+    // Show first proof after 5 seconds
+    setTimeout(showProof, 5000);
+    // Show proof every 12 to 20 seconds
+    setInterval(showProof, Math.floor(Math.random() * 8000) + 12000);
+  }
+
+  // OGAds Listener
+  window.addEventListener('message', function(e) {
+    if (e.data === 'offerCompleted' || e.data === 'complete') {
+      document.getElementById('seg1').innerText = '7X4Q';
+      document.getElementById('seg1').classList.add('revealed');
+      document.getElementById('lockIcon').innerText = 'lock_open';
+      document.getElementById('lockerWrap').style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
