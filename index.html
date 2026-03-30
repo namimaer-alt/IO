@@ -1,278 +1,662 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Update 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Exo+2:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css" crossorigin="anonymous" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>QuikFun — Free Robux</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css" crossorigin="anonymous"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --yellow: #f5e642;
-      --yellow-dark: #c9bc00;
-      --bg: #1a1a1a;
-      --text: #e8e8e8;
-      --text-dim: #888;
-      --border: #333;
-      --card: #252525;
-      --red: #e74c3c;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blue:#1565C0;
+      --blue2:#1976D2;
+      --blue3:#0D47A1;
+      --accent:#2196F3;
+      --accent2:#00B0FF;
+      --card:#1A2744;
+      --card2:#1E2E52;
+      --border:rgba(255,255,255,0.07);
+      --text:#FFFFFF;
+      --muted:#8FA8C8;
+      --yellow:#FFD600;
+      --yellow2:#FFB300;
+      --green:#00E676;
+      --bg1:#0D1B3E;
+      --bg2:#1565C0;
     }
-    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'Exo 2', sans-serif; overflow-x: hidden; }
+    html,body{min-height:100%;font-family:'Nunito',sans-serif;overflow-x:hidden;background:var(--bg1)}
 
-    /* BG Layers */
-    .bg-layer { position: fixed; inset: 0; z-index: 0; background: linear-gradient(135deg, #0e0e0e 0%, #1c1c1c 40%, #141414 100%); overflow: hidden; }
-    .bg-layer::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px); }
-    .bg-glow { position: absolute; top: -30%; left: -20%; width: 80%; height: 80%; background: radial-gradient(ellipse, rgba(245,230,66,0.04) 0%, transparent 65%); pointer-events: none; }
-    .bg-glow2 { position: absolute; bottom: -20%; right: -10%; width: 60%; height: 60%; background: radial-gradient(ellipse, rgba(245,230,66,0.03) 0%, transparent 65%); pointer-events: none; }
-    .bg-lines { position: absolute; inset: 0; overflow: hidden; opacity: 0.07; }
-    .bg-lines span { position: absolute; display: block; background: linear-gradient(90deg, transparent, rgba(245,230,66,0.5), transparent); height: 1px; width: 250%; transform-origin: left center; left: -30%; }
-    .bg-lines span:nth-child(1) { top: 20%; transform: rotate(-15deg); }
-    .bg-lines span:nth-child(2) { top: 45%; transform: rotate(-15deg); opacity: 0.5; }
-    .bg-lines span:nth-child(3) { top: 70%; transform: rotate(-15deg); opacity: 0.3; }
-
-    /* LOADER */
-    #loader { position: fixed; inset: 0; z-index: 9999; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; transition: opacity 0.7s ease; }
-    #loader.fade-out { opacity: 0; pointer-events: none; }
-    .loader-icon { font-size: 64px !important; color: var(--yellow); animation: spin 2s linear infinite; display: block; filter: drop-shadow(0 0 20px rgba(245,230,66,0.5)); }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .loader-bar-wrap { width: 180px; height: 6px; background: #333; border-radius: 3px; overflow: hidden; }
-    .loader-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--yellow-dark), var(--yellow)); border-radius: 3px; transition: width 2s ease; box-shadow: 0 0 10px var(--yellow); }
-
-    /* PAGE STRUCTURE */
-    .page { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 16px; opacity: 0; transition: opacity 0.5s ease 0.3s; }
-    .page.visible { opacity: 1; }
-    .site-header { display: flex; align-items: center; gap: 14px; margin-bottom: 36px; }
-    .site-header img { height: 54px; filter: drop-shadow(0 0 12px rgba(245,230,66,0.4)); }
-    .site-header h1 { font-family: 'Rajdhani', sans-serif; font-size: clamp(22px, 5vw, 34px); font-weight: 700; color: var(--yellow); letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 20px rgba(245,230,66,0.3); }
-
-    /* CARD DESIGN */
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px 28px; width: 100%; max-width: 480px; position: relative; box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,230,66,0.06) inset; }
-    .card::before { content: ''; position: absolute; top: 0; left: 20px; right: 20px; height: 1px; background: linear-gradient(90deg, transparent, rgba(245,230,66,0.3), transparent); }
-    .step-badge { position: absolute; top: -16px; left: 28px; background: var(--yellow); color: #111; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 14px rgba(245,230,66,0.5); }
-    .card-title { font-size: 13px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px; margin-top: 8px; }
-
-    /* INPUTS & PLATFORMS */
-    .input-wrap { display: flex; align-items: center; gap: 10px; background: #1e1e1e; border: 1px solid var(--border); border-radius: 8px; padding: 0 14px; margin-bottom: 8px; transition: border-color 0.2s, box-shadow 0.2s; }
-    .input-wrap:focus-within { border-color: var(--yellow); box-shadow: 0 0 0 3px rgba(245,230,66,0.1); }
-    .input-wrap .material-icons-two-tone { color: var(--yellow); font-size: 20px; opacity: 0.8; }
-    .input-wrap input { flex: 1; background: none; border: none; outline: none; color: var(--text); font-family: 'Exo 2', sans-serif; font-size: 14px; padding: 13px 0; }
-    .input-wrap input::placeholder { color: #555; }
-    .platforms { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
-    .plat-item { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 60px; }
-    .plat { width: 100%; aspect-ratio: 1; background: #1e1e1e; border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #666; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
-    .plat.active { border-color: var(--yellow); box-shadow: 0 0 16px rgba(245,230,66,0.25); }
-    .plat.active i { color: var(--yellow); }
-    .proceed-btn { width: 100%; margin-top: 22px; padding: 14px; background: linear-gradient(135deg, #d4c800, var(--yellow)); color: #111; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 20px rgba(245,230,66,0.3); }
-
-    /* GIFT CARD - RESPONSIVE FIX */
-    .gift-card-visual {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      border: 1px solid rgba(245,230,66,0.2);
-      border-radius: 14px;
-      padding: 22px 24px;
-      margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    /* ═══ ANIMATED BG ═══ */
+    .bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+    .bg-grad{
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse at 20% 50%,#1a4a9e 0%,#0d1b3e 55%),
+                 radial-gradient(ellipse at 80% 20%,#1565c0 0%,transparent 50%);
     }
-    .gift-card-amount { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: var(--yellow); text-shadow: 0 0 20px rgba(245,230,66,0.3); }
-    
-    .code-row {
-      display: flex; align-items: center; justify-content: center;
-      gap: 6px; background: rgba(0,0,0,0.4); 
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px; padding: 10px 14px;
+    /* Rays like BoBux */
+    .rays{position:absolute;inset:0;overflow:hidden;opacity:.15}
+    .rays::before{
+      content:'';position:absolute;top:50%;left:50%;
+      width:200%;height:200%;
+      transform:translate(-50%,-50%);
+      background:repeating-conic-gradient(rgba(255,255,255,.06) 0deg 10deg, transparent 10deg 20deg);
+      animation:rayRotate 40s linear infinite;
     }
-    .code-segment, .code-dash, .code-hidden {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 18px; letter-spacing: 2px; color: #fff;
-    }
-    .code-hidden { color: rgba(255,255,255,0.15); }
-    .code-hidden.revealed { color: var(--yellow); text-shadow: 0 0 10px rgba(245,230,66,0.4); }
+    @keyframes rayRotate{to{transform:translate(-50%,-50%) rotate(360deg)}}
 
-    /* FAKE PROOF STYLES */
-    .fake-proof {
-      position: fixed; bottom: 20px; left: 20px; z-index: 1000;
-      background: rgba(30, 30, 30, 0.95); border: 1px solid var(--border);
-      border-radius: 10px; padding: 12px 15px; display: flex; align-items: center;
-      gap: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      transform: translateY(150%); transition: transform 0.5s ease;
-      max-width: 280px; backdrop-filter: blur(5px);
+    /* Floating particles */
+    .particles{position:absolute;inset:0;pointer-events:none}
+    .particle{
+      position:absolute;border-radius:50%;
+      animation:floatUp linear infinite;
+      opacity:0;
     }
-    .fake-proof.show { transform: translateY(0); }
-    .proof-img { width: 40px; height: 40px; background: var(--yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #111; font-weight: bold; font-size: 18px; flex-shrink: 0; }
-    .proof-content { font-size: 12px; color: var(--text); line-height: 1.4; }
-    .proof-content b { color: var(--yellow); }
-    .proof-time { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
-
-    /* MOBILE SPECIFIC CSS */
-    @media (max-width: 480px) {
-      .card { padding: 24px 18px; }
-      .gift-card-visual { padding: 18px 14px; }
-      .code-row { padding: 8px 6px; gap: 3px; }
-      .code-segment, .code-dash, .code-hidden { font-size: 14px; letter-spacing: 1px; }
-      .lock-icon { font-size: 14px !important; }
-      .fake-proof { left: 10px; bottom: 10px; right: 10px; max-width: calc(100% - 20px); }
+    @keyframes floatUp{
+      0%{transform:translateY(0) scale(0);opacity:0}
+      10%{opacity:.6}
+      90%{opacity:.3}
+      100%{transform:translateY(-100vh) scale(1);opacity:0}
     }
 
-    /* OGAds Frame Fix */
-    #ogadsFrame { width:100%; min-height:550px; border-radius:10px; border:none; background:transparent; overflow:hidden; }
+    /* Feathers/petals */
+    .petal{
+      position:absolute;
+      width:12px;height:20px;
+      border-radius:50% 50% 50% 0;
+      animation:petalFall linear infinite;
+      opacity:0;
+    }
+    @keyframes petalFall{
+      0%{transform:translateY(-50px) rotate(0deg);opacity:0}
+      10%{opacity:.7}
+      100%{transform:translateY(110vh) rotate(720deg) translateX(80px);opacity:0}
+    }
 
-    /* ANIMATIONS */
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .bounce-in { animation: bounceIn 0.45s ease forwards; }
-    @keyframes bounceIn { 0% { opacity: 0; transform: scale(0.75); } 100% { opacity: 1; transform: scale(1); } }
-    #step2, #step3, #step4 { display: none; }
+    /* ═══ LOADER ═══ */
+    #loader{position:fixed;inset:0;z-index:9999;background:var(--bg1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .6s}
+    #loader.out{opacity:0;pointer-events:none}
+    .l-logo{font-size:28px;font-weight:900;color:#fff;letter-spacing:1px}
+    .l-logo span{color:var(--accent2)}
+    .l-rs{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--accent);font-weight:900;font-size:18px;margin-right:8px;border:2px solid rgba(255,255,255,.3)}
+    .l-bar-w{width:200px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+    .l-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width 1.8s ease;box-shadow:0 0 12px var(--accent2)}
+    .l-txt{font-size:12px;color:var(--muted);letter-spacing:1px}
+
+    /* ═══ PAGE ═══ */
+    .page{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px 60px;opacity:0;transition:opacity .5s ease .2s}
+    .page.visible{opacity:1}
+
+    /* ═══ MAIN CONTAINER ═══ */
+    .main-box{
+      width:100%;max-width:480px;
+      background:rgba(20,35,75,0.85);
+      border:1px solid rgba(100,160,255,0.2);
+      border-radius:20px;
+      overflow:hidden;
+      backdrop-filter:blur(20px);
+      box-shadow:0 30px 80px rgba(0,0,50,0.6),0 0 0 1px rgba(33,150,243,0.1) inset;
+      position:relative;
+    }
+    .main-box::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,transparent,var(--accent2),var(--accent),transparent);
+    }
+
+    /* border glow corners like BoBux */
+    .corner{position:absolute;width:20px;height:20px;border-color:var(--accent2);border-style:solid;opacity:.6}
+    .corner-tl{top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:4px 0 0 0}
+    .corner-tr{top:-1px;right:-1px;border-width:2px 2px 0 0;border-radius:0 4px 0 0}
+    .corner-bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px;border-radius:0 0 0 4px}
+    .corner-br{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 4px 0}
+
+    /* ═══ HEADER ═══ */
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--border)}
+    .hdr-brand{display:flex;align-items:center;gap:10px}
+    .rs-badge{width:36px;height:36px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff;border:2px solid rgba(255,255,255,.25);box-shadow:0 0 16px rgba(33,150,243,.5)}
+    .brand-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:.5px}
+    .brand-name span{color:var(--accent2)}
+    .hdr-icons{display:flex;gap:8px}
+    .hdr-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:16px;cursor:pointer;transition:all .2s}
+    .hdr-icon:hover{background:rgba(33,150,243,.15);color:#fff;border-color:var(--accent)}
+
+    /* ═══ STEPS ═══ */
+    #step1,#step2,#step3{padding:20px}
+    #step2,#step3{display:none}
+
+    /* ─ Step 1: Username form ─ */
+    .form-title{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
+    .form-sub{font-size:12px;color:var(--muted);margin-bottom:18px}
+
+    .inp-wrap{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:0 14px;margin-bottom:10px;transition:border-color .2s,box-shadow .2s}
+    .inp-wrap:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(33,150,243,.12)}
+    .inp-wrap i{color:var(--accent2);font-size:16px;opacity:.8}
+    .inp-wrap input{flex:1;background:none;border:none;outline:none;color:#fff;font-family:'Nunito',sans-serif;font-size:14px;padding:13px 0}
+    .inp-wrap input::placeholder{color:#3a5080}
+
+    .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+    .plat-btn{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:all .2s}
+    .plat-btn i{font-size:20px;color:#3a5080;transition:color .2s}
+    .plat-btn span{font-size:9px;color:#3a5080;font-weight:700;letter-spacing:.5px;transition:color .2s}
+    .plat-btn:hover{border-color:rgba(33,150,243,.3);background:rgba(33,150,243,.06)}
+    .plat-btn:hover i,.plat-btn:hover span{color:var(--muted)}
+    .plat-btn.on{border-color:var(--accent);background:rgba(33,150,243,.12);box-shadow:0 0 14px rgba(33,150,243,.2)}
+    .plat-btn.on i,.plat-btn.on span{color:var(--accent2)}
+
+    .err{display:none;font-size:11px;color:#ff7070;margin-bottom:10px;padding:6px 12px;background:rgba(255,50,50,.08);border-radius:8px;border-left:2px solid #ff5050}
+
+    .claim-btn{width:100%;padding:15px;background:linear-gradient(135deg,#1565c0,#2196f3,#00b0ff);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;letter-spacing:.5px;border:none;border-radius:12px;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(33,150,243,.4)}
+    .claim-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transition:left .5s}
+    .claim-btn:hover::before{left:100%}
+    .claim-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(33,150,243,.55)}
+    .claim-btn:active{transform:translateY(0)}
+
+    .secure-note{text-align:center;font-size:11px;color:#3a5080;margin-top:10px}
+
+    /* ─ Step 2: Verify ─ */
+    .v-header{text-align:center;margin-bottom:20px}
+    .v-spin{font-size:48px!important;color:var(--accent2);animation:spin 1.4s linear infinite;display:block;margin:0 auto 14px;filter:drop-shadow(0 0 16px rgba(0,176,255,.5))}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .v-title{font-size:18px;font-weight:800;color:#fff;margin-bottom:4px}
+    .v-sub{font-size:12px;color:var(--muted)}
+    .v-steps{list-style:none;margin-bottom:16px}
+    .v-steps li{display:flex;align-items:center;gap:10px;font-size:13px;color:#3a5080;padding:8px 0;border-bottom:1px solid var(--border);transition:color .3s;opacity:.5}
+    .v-steps li.active{color:#fff;opacity:1}
+    .v-steps li.done{color:var(--green);opacity:1}
+    .vdot{width:8px;height:8px;border-radius:50%;background:#1e3060;flex-shrink:0;transition:background .3s,box-shadow .3s}
+    li.active .vdot{background:var(--accent2);box-shadow:0 0 8px rgba(0,176,255,.6);animation:pulse 1s infinite}
+    li.done .vdot{background:var(--green);box-shadow:0 0 8px rgba(0,230,118,.5)}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,176,255,.5)}50%{box-shadow:0 0 0 5px rgba(0,176,255,0)}}
+    .v-bar-w{background:rgba(255,255,255,.05);border-radius:4px;height:6px;overflow:hidden;margin-bottom:6px}
+    .v-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;transition:width .6s ease;box-shadow:0 0 10px rgba(0,176,255,.4)}
+    .v-pct{font-size:11px;color:var(--muted);text-align:right}
+
+    /* ─ Step 3: Dashboard ─ */
+
+    /* Profile section */
+    .profile-sec{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px;display:flex;align-items:center;gap:14px}
+    .avatar{position:relative;flex-shrink:0}
+    .avatar-img{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#1e3a8a,#2563eb);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;font-weight:900;box-shadow:0 0 16px rgba(33,150,243,.4)}
+    .avatar-online{position:absolute;bottom:2px;right:2px;width:12px;height:12px;border-radius:50%;background:var(--green);border:2px solid var(--card);box-shadow:0 0 6px rgba(0,230,118,.6)}
+    .profile-info{flex:1;min-width:0}
+    .profile-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .profile-badges{display:flex;flex-wrap:wrap;gap:6px}
+    .badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.3px}
+    .badge-green{background:rgba(0,230,118,.1);color:var(--green);border:1px solid rgba(0,230,118,.2)}
+    .badge-yellow{background:rgba(255,214,0,.1);color:var(--yellow);border:1px solid rgba(255,214,0,.2)}
+    .badge-blue{background:rgba(33,150,243,.1);color:var(--accent2);border:1px solid rgba(33,150,243,.2)}
+
+    /* Earnings grid */
+    .earnings-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+    .earn-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px}
+    .earn-rs{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+    .rs-icon{width:22px;height:22px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;flex-shrink:0}
+    .earn-amount{font-size:22px;font-weight:900;color:#fff;letter-spacing:.5px}
+    .earn-label{font-size:11px;color:var(--muted);font-weight:600}
+
+    /* Promo section */
+    .promo-sec{
+      border:1.5px dashed rgba(255,214,0,.35);
+      border-radius:14px;padding:16px;margin-bottom:12px;
+      background:rgba(255,214,0,.03);
+      display:flex;align-items:center;gap:14px;
+      position:relative;overflow:hidden;
+    }
+    .promo-sec::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;background:radial-gradient(circle,rgba(255,214,0,.06),transparent 70%);pointer-events:none}
+    .gift-emoji{font-size:36px;flex-shrink:0;filter:drop-shadow(0 4px 8px rgba(255,214,0,.3))}
+    .promo-content{flex:1;min-width:0}
+    .promo-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:8px}
+    .promo-row{display:flex;gap:8px;align-items:center}
+    .promo-input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:#fff;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;outline:none;min-width:0}
+    .promo-input:focus{border-color:var(--yellow);box-shadow:0 0 0 2px rgba(255,214,0,.1)}
+    .promo-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:9px 14px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s;white-space:nowrap}
+    .promo-btn:hover{background:var(--accent2);box-shadow:0 4px 14px rgba(33,150,243,.4)}
+    .promo-success{display:none;font-size:11px;color:var(--green);margin-top:6px;font-weight:600}
+
+    /* ═══ GIFT CARD VISUAL ═══ */
+    .gc-visual{
+      background:linear-gradient(135deg,#0d1b3a 0%,#1a3060 50%,#0a1628 100%);
+      border:1px solid rgba(0,176,255,.2);border-radius:16px;
+      overflow:hidden;margin-bottom:12px;
+      box-shadow:0 8px 32px rgba(0,0,50,.5);position:relative;
+    }
+    .gc-visual::before{content:'';position:absolute;top:-40%;right:-20%;width:200px;height:200px;background:radial-gradient(circle,rgba(0,176,255,.08),transparent 65%);pointer-events:none}
+    .gc-visual-top{padding:18px 18px 14px}
+    .gc-brand-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .gc-r-badge{width:32px;height:32px;background:#FF3131;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:#fff;flex-shrink:0;box-shadow:0 0 12px rgba(255,49,49,.4);font-family:'Nunito',sans-serif}
+    .gc-brand-name{font-weight:900;font-size:14px;color:#fff;letter-spacing:1px}
+    .gc-brand-sub{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase}
+    .gc-chip-badge{margin-left:auto;background:rgba(0,176,255,.12);border:1px solid rgba(0,176,255,.25);border-radius:6px;padding:3px 10px;font-size:9px;color:var(--accent2);letter-spacing:1px;font-weight:700}
+    .gc-amount-big{font-size:34px;font-weight:900;color:var(--yellow);text-shadow:0 0 24px rgba(255,214,0,.3);font-family:'Nunito',sans-serif}
+    .gc-amount-lbl{font-size:9px;color:rgba(255,255,255,.3);letter-spacing:3px;text-transform:uppercase;margin-bottom:2px}
+    .gc-code-section{background:rgba(0,0,0,.3);padding:12px 18px;border-top:1px solid rgba(255,255,255,.06)}
+    .gc-code-lbl{font-size:9px;color:rgba(255,255,255,.3);letter-spacing:3px;text-transform:uppercase;margin-bottom:7px}
+    .gc-code-row{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px 14px}
+    .gc-cs{font-family:'Share Tech Mono',monospace;font-size:16px;letter-spacing:2px;color:#fff}
+    .gc-cd{font-family:'Share Tech Mono',monospace;font-size:16px;color:rgba(255,255,255,.2)}
+    .gc-ch{font-family:'Share Tech Mono',monospace;font-size:16px;letter-spacing:2px;color:rgba(255,255,255,.15);transition:color .4s,text-shadow .4s;user-select:none}
+    .gc-ch.open{color:var(--yellow);text-shadow:0 0 12px rgba(255,214,0,.5);animation:gcpop .4s ease}
+    @keyframes gcpop{0%{transform:scale(.7);opacity:0}60%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+    .gc-lock{margin-left:auto;color:rgba(255,255,255,.2);font-size:14px;transition:color .3s}
+    .gc-lock.open{color:var(--green)}
+
+    /* copy btn */
+    .copy-earn-btn{display:none;width:100%;padding:14px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.3);color:var(--green);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;border-radius:12px;cursor:pointer;align-items:center;justify-content:center;gap:8px;transition:all .2s;margin-top:4px}
+    .copy-earn-btn.show{display:flex}
+    .copy-earn-btn:hover{background:rgba(0,230,118,.15);box-shadow:0 0 20px rgba(0,230,118,.2)}
+
+    /* OGAds / Claim section */
+    .claim-sec{margin-bottom:12px}
+    .claim-sec-title{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .claim-sec-title::before,.claim-sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    #ogadsFrame{width:100%;min-height:520px;border-radius:12px;border:1px solid var(--border);background:transparent;display:block}
+
+    /* Claim earnings btn */
+    .earn-btn{width:100%;padding:15px;background:linear-gradient(135deg,#1565c0,#2196f3,#00b0ff);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;border:none;border-radius:12px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(33,150,243,.4);display:none;align-items:center;justify-content:center;gap:8px;margin-top:4px}
+    .earn-btn.show{display:flex}
+    .earn-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(33,150,243,.55)}
+
+    /* ═══ SOCIAL PROOF TOAST ═══ */
+    .toast{position:fixed;bottom:20px;left:16px;z-index:9000;
+      background:rgba(20,35,75,0.95);border:1px solid rgba(33,150,243,.3);
+      border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;
+      box-shadow:0 10px 30px rgba(0,0,50,.5);
+      transform:translateY(130%);transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+      max-width:290px;backdrop-filter:blur(16px)}
+    .toast.show{transform:translateY(0)}
+    .toast-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1565c0,#00b0ff);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .toast-body{font-size:12px;color:#fff;line-height:1.4;font-weight:600}
+    .toast-body span{color:var(--accent2)}
+    .toast-time{font-size:10px;color:var(--muted);margin-top:2px}
+    .toast-dot{width:6px;height:6px;border-radius:50%;background:var(--green);position:absolute;top:12px;right:12px;box-shadow:0 0 6px rgba(0,230,118,.6)}
+
+    /* ═══ COUNTER BAR ═══ */
+    .counter-bar{width:100%;max-width:480px;display:flex;gap:10px;margin-bottom:16px}
+    .ctr{flex:1;background:rgba(20,35,75,0.7);border:1px solid rgba(33,150,243,.15);border-radius:12px;padding:12px;text-align:center;backdrop-filter:blur(10px)}
+    .ctr-n{font-size:18px;font-weight:900;color:var(--accent2);display:block}
+    .ctr-l{font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+
+    /* ═══ ANIMS ═══ */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .fu{animation:fadeUp .5s ease forwards;opacity:0}
+    .fu-1{animation-delay:.1s}.fu-2{animation-delay:.2s}.fu-3{animation-delay:.25s}.fu-4{animation-delay:.3s}
+    @keyframes bIn{0%{opacity:0;transform:scale(.85)}60%{transform:scale(1.01)}100%{opacity:1;transform:scale(1)}}
+    .bIn{animation:bIn .4s ease forwards}
+    @keyframes bOut{to{opacity:0;transform:scale(.88)}}
+    .bOut{animation:bOut .3s ease forwards}
+
+    @media(max-width:400px){
+      .earn-amount{font-size:18px}
+      .promo-sec{flex-direction:column;align-items:flex-start;gap:10px}
+      .gift-emoji{font-size:28px}
+    }
   </style>
 </head>
 <body>
 
-<div class="bg-layer"><div class="bg-glow"></div><div class="bg-lines"><span></span></div></div>
+<!-- BG -->
+<div class="bg">
+  <div class="bg-grad"></div>
+  <div class="rays"></div>
+  <div class="particles" id="particles"></div>
+</div>
 
+<!-- LOADER -->
 <div id="loader">
-  <span class="material-icons-two-tone loader-icon">settings</span>
-  <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+  <div class="l-logo"><span class="l-rs">$</span>Quik<span>Fun</span></div>
+  <div class="l-bar-w"><div class="l-bar" id="loaderBar"></div></div>
+  <div class="l-txt" id="loaderTxt">Loading...</div>
 </div>
 
-<div class="fake-proof" id="fakeProof">
-  <div class="proof-img">R</div>
-  <div class="proof-content">
-    <div id="proofText"><b>User123</b> just claimed a <b>$25 Robux Card</b></div>
-    <div class="proof-time">Just now</div>
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <div class="toast-av" id="toastAv">R</div>
+  <div>
+    <div class="toast-body" id="toastBody"></div>
+    <div class="toast-time">Just now</div>
   </div>
 </div>
 
+<!-- PAGE -->
 <div class="page" id="mainPage">
-  <header class="site-header">
-    <img src="img/logo-removebg-preview.png" alt="Logo" onerror="this.style.display='none'" />
-    <h1>Update 2026</h1>
-  </header>
 
-  <div class="card" id="step1">
-    <div class="step-badge">1</div>
-    <p class="card-title">Enter username & platform</p>
-    <div class="input-wrap">
-      <span class="material-icons-two-tone">face</span>
-      <input type="text" id="usernameInput" placeholder="Your Username..." />
-    </div>
-    <div class="platforms">
-      <div class="plat-item"><div class="plat" data-platform="PC" data-icon="fab fa-windows"><i class="fab fa-windows"></i></div></div>
-      <div class="plat-item"><div class="plat" data-platform="Xbox" data-icon="fab fa-xbox"><i class="fab fa-xbox"></i></div></div>
-      <div class="plat-item"><div class="plat" data-platform="Android" data-icon="fab fa-android"><i class="fab fa-android"></i></div></div>
-      <div class="plat-item"><div class="plat" data-platform="iOS" data-icon="fab fa-apple"><i class="fab fa-apple"></i></div></div>
-    </div>
-    <button class="proceed-btn" id="proceedBtn">Proceed</button>
+  <!-- Counter bar -->
+  <div class="counter-bar fu fu-1">
+    <div class="ctr"><span class="ctr-n" id="cntUsers">3,241</span><div class="ctr-l">Users Today</div></div>
+    <div class="ctr"><span class="ctr-n" id="cntPaid">$18,420</span><div class="ctr-l">Total Paid</div></div>
+    <div class="ctr"><span class="ctr-n" id="cntOnline">167</span><div class="ctr-l">Online Now</div></div>
   </div>
 
-  <div class="card" id="step2">
-    <div class="step-badge">2</div>
-    <div style="text-align:center">
-      <span class="material-icons-two-tone fa-spin" style="font-size:48px;color:var(--yellow)">rotate_right</span>
-      <h2 style="font-family:'Rajdhani';margin:10px 0;color:var(--yellow)">Verifying Account</h2>
-      <div style="background:#1e1e1e;height:8px;border-radius:4px;overflow:hidden;margin:15px 0">
-        <div id="progressBar" style="width:0%;height:100%;background:var(--yellow);transition:0.3s"></div>
-      </div>
-      <p id="progressPct" style="font-size:12px;color:var(--text-dim)">0%</p>
-    </div>
-  </div>
+  <!-- Main Box -->
+  <div class="main-box fu fu-2">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
 
-  <div class="card" id="step3">
-    <div class="step-badge">3</div>
-    <div class="gift-card-visual">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
-        <div style="width:30px;height:30px;background:var(--red);border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900">R</div>
-        <div style="font-family:'Rajdhani';font-weight:bold;letter-spacing:1px">ROBLOX GIFT CARD</div>
+    <!-- Header -->
+    <div class="hdr">
+      <div class="hdr-brand">
+        <div class="rs-badge">$</div>
+        <div class="brand-name">Quik<span>Fun</span></div>
       </div>
-      <div class="gift-card-amount">$25.00</div>
-      <div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:2px;margin-bottom:15px">ROBUX VALUE</div>
-      <div class="code-row">
-        <span class="code-segment">4RT9</span><span class="code-dash">-</span>
-        <span class="code-segment">KM22</span><span class="code-dash">-</span>
-        <span class="code-segment">QP90</span><span class="code-dash">-</span>
-        <span class="code-hidden" id="seg1">XXXX</span>
-        <span class="material-icons-two-tone" id="lockIcon" style="font-size:18px;margin-left:auto">lock</span>
+      <div class="hdr-icons">
+        <div class="hdr-icon"><i class="fab fa-discord"></i></div>
+        <div class="hdr-icon"><i class="fab fa-twitter"></i></div>
       </div>
     </div>
-    <div id="lockerWrap">
-        <div style="font-size:11px;text-align:center;margin-bottom:10px;color:var(--yellow)">VERIFY TO UNLOCK CODE</div>
-        <iframe id="ogadsFrame" src="https://quikfun.info/cl/i/qnnw94" scrolling="no"></iframe>
+
+    <!-- STEP 1 -->
+    <div id="step1">
+      <div class="form-title">Enter your Roblox username</div>
+      <div class="form-sub">Claim your free Robux — takes under 60 seconds</div>
+
+      <div class="inp-wrap">
+        <i class="fas fa-user"></i>
+        <input id="usernameInput" type="text" placeholder="Your Roblox Username..." autocomplete="off"/>
+      </div>
+      <div class="err" id="errU">⚠ Please enter your username</div>
+
+      <div class="plat-grid">
+        <div class="plat-btn" data-plat="PC"><i class="fab fa-windows"></i><span>PC</span></div>
+        <div class="plat-btn" data-plat="Xbox"><i class="fab fa-xbox"></i><span>Xbox</span></div>
+        <div class="plat-btn" data-plat="Android"><i class="fab fa-android"></i><span>Android</span></div>
+        <div class="plat-btn" data-plat="iOS"><i class="fab fa-apple"></i><span>iOS</span></div>
+      </div>
+      <div class="err" id="errP">⚠ Please select your platform</div>
+
+      <button class="claim-btn" id="goBtn">
+        <i class="fas fa-bolt" style="margin-right:8px"></i>
+        Claim Free Robux
+      </button>
+      <div class="secure-note">🔒 Safe & Secure — No password required</div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2">
+      <div class="v-header">
+        <span class="material-icons-round v-spin">sync</span>
+        <div class="v-title">Verifying Account</div>
+        <div class="v-sub" id="vSub">Connecting to Roblox servers...</div>
+      </div>
+      <ul class="v-steps" id="vSteps">
+        <li><span class="vdot"></span>Connecting to servers</li>
+        <li><span class="vdot"></span>Locating Roblox account</li>
+        <li><span class="vdot"></span>Verifying platform</li>
+        <li><span class="vdot"></span>Allocating Robux balance</li>
+        <li><span class="vdot"></span>Securing transaction</li>
+      </ul>
+      <div class="v-bar-w"><div class="v-bar" id="vBar"></div></div>
+      <div class="v-pct" id="vPct">0%</div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3">
+
+      <!-- Profile -->
+      <div class="profile-sec">
+        <div class="avatar">
+          <div class="avatar-img" id="avatarLetter">?</div>
+          <div class="avatar-online"></div>
+        </div>
+        <div class="profile-info">
+          <div class="profile-name" id="profileName">Username</div>
+          <div class="profile-badges">
+            <span class="badge badge-green"><i class="fas fa-check-circle" style="font-size:9px"></i> Earnings enabled</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Earnings -->
+      <div class="earnings-grid">
+        <div class="earn-card">
+          <div class="earn-rs"><div class="rs-icon">$</div></div>
+          <div class="earn-amount" id="totalEarn">45 332</div>
+          <div class="earn-label">Total earnings</div>
+        </div>
+        <div class="earn-card">
+          <div class="earn-rs"><div class="rs-icon">$</div></div>
+          <div class="earn-amount" id="withdrawEarn">1 245 332</div>
+          <div class="earn-label">Withdraw earnings</div>
+        </div>
+      </div>
+
+      <!-- Gift Card Visual -->
+      <div class="gc-visual">
+        <div class="gc-visual-top">
+          <div class="gc-brand-row">
+            <div class="gc-r-badge">R</div>
+            <div>
+              <div class="gc-brand-name">ROBLOX</div>
+              <div class="gc-brand-sub">Gift Card</div>
+            </div>
+            <div class="gc-chip-badge">DIGITAL</div>
+          </div>
+          <div class="gc-amount-big">$25.00</div>
+          <div class="gc-amount-lbl">ROBUX VALUE</div>
+        </div>
+        <div class="gc-code-section">
+          <div class="gc-code-lbl">REDEMPTION CODE</div>
+          <div class="gc-code-row">
+            <span class="gc-cs">4RT9</span>
+            <span class="gc-cd">—</span>
+            <span class="gc-cs">KM22</span>
+            <span class="gc-cd">—</span>
+            <span class="gc-cs">QP90</span>
+            <span class="gc-cd">—</span>
+            <span class="gc-ch" id="seg1">XXXX</span>
+            <span class="gc-lock" id="lockIc"><i class="fas fa-lock"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OGAds -->
+      <div class="claim-sec">
+        <div class="claim-sec-title">Verify to unlock code</div>
+        <iframe id="ogadsFrame" src="https://quikfun.info/cl/i/qnnw94" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+
+      <!-- Copy btn (after locker unlock) -->
+      <button class="copy-earn-btn" id="copyEarnBtn" onclick="copyCode()">
+        <i class="fas fa-copy"></i>
+        Copy Full Code
+      </button>
+
     </div>
   </div>
 </div>
 
 <script>
-  // Simple Loader
-  setTimeout(() => { document.getElementById('loaderBar').style.width = '100%'; }, 50);
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('fade-out');
-    document.getElementById('mainPage').classList.add('visible');
-    // Start Fake Proofs after site loads
-    startFakeProofs();
-  }, 2000);
-
-  let selectedPlat = '';
-  document.querySelectorAll('.plat').forEach(p => {
-    p.onclick = () => {
-      document.querySelectorAll('.plat').forEach(x => x.classList.remove('active'));
-      p.classList.add('active');
-      selectedPlat = p.dataset.platform;
-    };
-  });
-
-  document.getElementById('proceedBtn').onclick = () => {
-    if(!selectedPlat || !document.getElementById('usernameInput').value) return alert('Enter details');
-    document.getElementById('step1').style.display = 'none';
-    document.getElementById('step2').style.display = 'block';
-    let p = 0;
-    let iv = setInterval(() => {
-      p += Math.floor(Math.random() * 7) + 2;
-      if(p > 100) p = 100;
-      document.getElementById('progressBar').style.width = p + '%';
-      document.getElementById('progressPct').innerText = p + '%';
-      if(p >= 100) {
-        clearInterval(iv);
-        setTimeout(() => {
-          document.getElementById('step2').style.display = 'none';
-          document.getElementById('step3').style.display = 'block';
-        }, 800);
-      }
-    }, 200);
-  };
-
-  // FAKE PROOF LOGIC
-  function startFakeProofs() {
-    const users = ['ProGamer_99', 'RobloxKing', 'Alex_Smith', 'Sarah_Gamer', 'Elite_Player', 'Ninja_X', 'X-Hacker-X', 'Bella_Games', 'TheRedDev', 'Z-Robux-Z'];
-    const proofElement = document.getElementById('fakeProof');
-    const proofText = document.getElementById('proofText');
-
-    function showProof() {
-      const randomUser = users[Math.floor(Math.random() * users.length)];
-      proofText.innerHTML = `<b>${randomUser}</b> just claimed a <b>$25 Robux Card</b>`;
-      proofElement.classList.add('show');
-      
-      setTimeout(() => {
-        proofElement.classList.remove('show');
-      }, 4000);
-    }
-
-    // Show first proof after 5 seconds
-    setTimeout(showProof, 5000);
-    // Show proof every 12 to 20 seconds
-    setInterval(showProof, Math.floor(Math.random() * 8000) + 12000);
+// ═══ FLOATING PETALS ═══
+(function(){
+  const colors=['#FF6EC7','#C86DD7','#FF9EFF','#A78BFA','#818CF8'];
+  const cont=document.getElementById('particles');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='petal';
+    p.style.cssText=`
+      left:${Math.random()*100}%;
+      top:${Math.random()*20-20}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      width:${Math.random()*8+6}px;
+      height:${Math.random()*14+10}px;
+      animation-duration:${Math.random()*8+6}s;
+      animation-delay:${Math.random()*8}s;
+    `;
+    cont.appendChild(p);
   }
+  // small dots
+  for(let i=0;i<30;i++){
+    const d=document.createElement('div');
+    d.className='particle';
+    d.style.cssText=`
+      left:${Math.random()*100}%;
+      bottom:${Math.random()*20}%;
+      width:${Math.random()*4+2}px;
+      height:${Math.random()*4+2}px;
+      background:rgba(100,180,255,0.6);
+      animation-duration:${Math.random()*10+8}s;
+      animation-delay:${Math.random()*10}s;
+    `;
+    cont.appendChild(d);
+  }
+})();
 
-  // OGAds Listener
-  window.addEventListener('message', function(e) {
-    if (e.data === 'offerCompleted' || e.data === 'complete') {
-      document.getElementById('seg1').innerText = '7X4Q';
-      document.getElementById('seg1').classList.add('revealed');
-      document.getElementById('lockIcon').innerText = 'lock_open';
-      document.getElementById('lockerWrap').style.display = 'none';
-    }
+// ═══ LOADER ═══
+const lmsgs=['Loading...','Connecting...','Almost ready...'];
+let li=0;
+const lti=setInterval(()=>{li++;const el=document.getElementById('loaderTxt');if(el&&li<lmsgs.length)el.textContent=lmsgs[li];else clearInterval(lti)},600);
+setTimeout(()=>{document.getElementById('loaderBar').style.width='100%'},80);
+setTimeout(()=>{
+  document.getElementById('loader').classList.add('out');
+  document.getElementById('mainPage').classList.add('visible');
+  setTimeout(()=>document.getElementById('loader').style.display='none',700);
+  startToasts();startCounters();
+},2000);
+
+// ═══ PLATFORM ═══
+let selPlat='';
+document.querySelectorAll('.plat-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.plat-btn').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');selPlat=b.dataset.plat;
+    document.getElementById('errP').style.display='none';
   });
+});
+
+// ═══ GO ═══
+document.getElementById('goBtn').addEventListener('click',go);
+document.getElementById('usernameInput').addEventListener('keypress',e=>{if(e.key==='Enter')go()});
+
+let username='';
+function go(){
+  const u=document.getElementById('usernameInput').value.trim();
+  let ok=true;
+  if(!u){document.getElementById('errU').style.display='block';ok=false}
+  if(!selPlat){document.getElementById('errP').style.display='block';ok=false}
+  if(!ok)return;
+  username=u;
+  flip('step1','step2');
+  runVerify();
+}
+
+function flip(from,to){
+  const f=document.getElementById(from);
+  f.classList.add('bOut');
+  setTimeout(()=>{
+    f.style.display='none';f.classList.remove('bOut');
+    const t=document.getElementById(to);t.style.display='block';t.classList.add('bIn');
+    setTimeout(()=>t.classList.remove('bIn'),450);
+  },300);
+}
+
+// ═══ VERIFY ═══
+function runVerify(){
+  const steps=document.querySelectorAll('#vSteps li');
+  const bar=document.getElementById('vBar');
+  const pct=document.getElementById('vPct');
+  const subs=['Connecting to servers...','Finding your account...','Verifying platform...','Allocating Robux...','Securing...'];
+  const T=[500,1300,2300,3400,4600];
+  const P=[18,36,55,75,92];
+  T.forEach((t,i)=>{
+    setTimeout(()=>{
+      if(i>0){steps[i-1].classList.remove('active');steps[i-1].classList.add('done')}
+      steps[i].classList.add('active');
+      bar.style.width=P[i]+'%';pct.textContent=P[i]+'%';
+      document.getElementById('vSub').textContent=subs[i];
+    },t);
+  });
+  setTimeout(()=>{
+    steps[steps.length-1].classList.remove('active');steps[steps.length-1].classList.add('done');
+    bar.style.width='100%';pct.textContent='100%';
+    setTimeout(()=>{
+      flip('step2','step3');
+      // Set profile info
+      document.getElementById('profileName').textContent=username;
+      document.getElementById('avatarLetter').textContent=username.charAt(0).toUpperCase();
+      // Animate earnings counters
+      setTimeout(()=>{
+        animateCount('totalEarn',0,45332,1800);
+        animateCount('withdrawEarn',0,1245332,2200);
+      },400);
+    },700);
+  },5800);
+}
+
+// ═══ OGADS LISTENER ═══
+window.addEventListener('message',e=>{
+  if(e.data==='offerCompleted'||e.data==='complete'||(typeof e.data==='object'&&(e.data.type==='complete'||e.data.unlocked))){
+    unlockEarnings();
+  }
+});
+window.ogadsComplete=window.lockercomplete=unlockEarnings;
+
+function unlockEarnings(){
+  const s=document.getElementById('seg1');
+  if(s.classList.contains('open'))return;
+  s.textContent='7X4Q';
+  s.classList.add('open');
+  document.getElementById('lockIc').classList.add('open');
+  document.getElementById('lockIc').innerHTML='<i class="fas fa-lock-open"></i>';
+  document.getElementById('ogadsFrame').parentElement.style.display='none';
+  document.getElementById('copyEarnBtn').classList.add('show');
+}
+
+function copyCode(){
+  const code='4RT9-KM22-QP90-7X4Q';
+  navigator.clipboard.writeText(code).then(()=>{
+    const b=document.getElementById('copyEarnBtn');
+    b.innerHTML='<i class="fas fa-check-circle"></i> Copied!';
+    setTimeout(()=>{b.innerHTML='<i class="fas fa-copy"></i> Copy Full Code'},2200);
+  });
+}
+
+// ═══ COUNT ANIMATION ═══
+function animateCount(id,from,to,dur){
+  const el=document.getElementById(id);
+  const start=performance.now();
+  function update(now){
+    const p=Math.min((now-start)/dur,1);
+    const v=Math.round(from+(to-from)*easeOut(p));
+    el.textContent=v.toLocaleString('en').replace(/,/g,' ');
+    if(p<1)requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+function easeOut(t){return 1-Math.pow(1-t,3)}
+
+// ═══ TOASTS ═══
+function startToasts(){
+  const names=[['ProGamer99','P'],['RobloxKing','R'],['AlexPlays','A'],['SkyGamer','S'],['NinjaX','N'],['ZeroX','Z'],['EliteRob','E'],['BlazeGG','B'],['TurboKid','T'],['CoolDev','C']];
+  const acts=['just earned <span>$1,245</span>','just claimed <span>$25 Gift Card</span>','just withdrew <span>$45,000</span>','just joined and earned <span>$500</span>'];
+  const toast=document.getElementById('toast');
+  function show(){
+    const u=names[Math.floor(Math.random()*names.length)];
+    const a=acts[Math.floor(Math.random()*acts.length)];
+    document.getElementById('toastAv').textContent=u[1];
+    document.getElementById('toastBody').innerHTML=`<b>${u[0]}</b> ${a}`;
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),4000);
+  }
+  setTimeout(show,5000);
+  setInterval(show,Math.random()*8000+12000);
+}
+
+// ═══ COUNTERS ═══
+function startCounters(){
+  let users=3241,online=167,paid=18420;
+  setInterval(()=>{
+    users+=Math.floor(Math.random()*3);
+    online+=Math.floor(Math.random()*5)-2;
+    online=Math.max(100,Math.min(250,online));
+    paid+=Math.floor(Math.random()*20)+5;
+    document.getElementById('cntUsers').textContent=users.toLocaleString();
+    document.getElementById('cntOnline').textContent=online;
+    document.getElementById('cntPaid').textContent='$'+paid.toLocaleString();
+  },4500);
+}
 </script>
 </body>
 </html>
