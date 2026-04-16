@@ -45,7 +45,7 @@
 
         .container {
             width: 95%;
-            max-width: 850px; 
+            max-width: 950px; /* Zdt Kbrtha f PC */
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -53,14 +53,14 @@
         }
 
         #logo {
-            max-width: 350px;
+            max-width: 400px; /* Logo kber f PC */
             margin-bottom: 20px;
             filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));
         }
 
         .input-container, .kudos-container, #loading-container {
             display: none;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             padding: 40px; 
             border-radius: var(--var-border-radius);
             border: 3px solid white;
@@ -69,7 +69,7 @@
         }
 
         .kudos-container h2 {
-            font-size: 2rem;
+            font-size: 2.5rem; /* Onwan kbir f PC */
             margin-top: 0;
         }
 
@@ -108,7 +108,7 @@
         .kudos-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px; 
+            gap: 25px; /* faragh kbir f PC */
             margin-top: 20px;
             width: 100%;
         }
@@ -124,22 +124,58 @@
 
         .kudos-box:hover { transform: translateY(-5px); box-shadow: 0 0 25px white; }
         
-        .bundle-title { background: #004407; padding: 15px; font-size: 1.2rem; letter-spacing: 1px; } 
-        .bundle-amount { background: #006400; padding: 15px; font-size: 1.4rem; } 
-        .kudos-image { width: 100%; max-width: 140px; padding: 20px 10px; box-sizing: border-box; } 
+        .bundle-title { background: #004407; padding: 15px; font-size: 1.4rem; letter-spacing: 1px; } 
+        .bundle-amount { background: #006400; padding: 15px; font-size: 1.6rem; } 
+        .kudos-image { width: 100%; max-width: 160px; padding: 25px 10px; box-sizing: border-box; } 
 
-        /* ----- MOBILE DESIGN ----- */
+        /* ----- MOBILE DESIGN (L-7el l-nihayi hna) ----- */
         @media (max-width: 650px) {
-            .input-container, .kudos-container, #loading-container { padding: 15px; }
-            .kudos-container h2 { font-size: 1.5rem; }
-            .kudos-grid { gap: 5px; }
-            .kudos-box { border: 2px solid white; }
-            .bundle-title { padding: 6px 2px; font-size: 0.65rem; }
-            .bundle-amount { padding: 8px 2px; font-size: 0.75rem; }
-            .kudos-image { max-width: 60px; padding: 10px 2px; }
-            input.username-input { width: 95%; font-size: 1.2rem; }
+            .container { 
+                width: 100%; 
+                padding: 0; 
+                max-width: 100%;
+            }
+            #logo { 
+                width: 80%;
+                max-width: 300px;
+                margin-bottom: 10px; 
+            }
+            .input-container, .kudos-container, #loading-container { 
+                width: 100%;
+                padding: 15px 5px; /* Hyyedt l-faragh mn l-jnab */
+                border-left: none; /* Hyyedt l-border li chaded tissa3 */
+                border-right: none;
+                border-radius: 0; 
+            }
+            .kudos-container h2 { 
+                font-size: 1.8rem; 
+                margin-bottom: 15px; 
+            }
+            .kudos-grid { 
+                gap: 5px; /* faragh sghir binat l-boxes bash ykfiwhom */
+                margin-top: 5px; 
+                padding: 0 2px;
+            }
+            .kudos-box { 
+                border: 2px solid white; 
+                border-radius: 6px; 
+            }
+            .bundle-title { 
+                padding: 8px 0; 
+                font-size: 3.5vw; /* Ktaba kat-kber m3a l-ecran (Wadha bzaf) */
+                letter-spacing: 0;
+            }
+            .bundle-amount { 
+                padding: 10px 0; 
+                font-size: 4vw; /* Ktaba kber mn title */
+            }
+            .kudos-image { 
+                width: 85%; 
+                max-width: 90px; /* Tswira kbira */
+                padding: 10px 0; 
+            }
+            input.username-input { width: 90%; font-size: 1.3rem; padding: 15px; }
             .btn-main { font-size: 1.4rem; padding: 12px 25px; }
-            #logo { max-width: 250px; }
         }
 
         .loading-status { font-size: 1.6rem; margin-bottom: 20px; }
@@ -157,7 +193,7 @@
             left: 0; 
             width: 100vw; 
             height: 100vh;
-            background: rgba(0, 0, 0, 0.85); /* Khalfiya k7la mdbba bach yban zwin */
+            background: rgba(0, 0, 0, 0.85);
             z-index: 9999;
         }
 
@@ -251,7 +287,6 @@
             });
         }
 
-        // Hna katban l-Iframe dyal l-Locker dyalk
         function showLocker() {
             document.getElementById('locker-overlay').style.display = 'block';
         }
